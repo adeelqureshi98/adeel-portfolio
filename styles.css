@@ -627,6 +627,7 @@ body.hero-enter .hero-fade.d5{transition-delay:1.08s}
     visibility:visible!important;backface-visibility:visible;scroll-snap-align:center}
   .orbit-card .service{min-height:0}
   .orbit-arrow,.orbit-dots{display:none}
+  .orbit-hint{display:none}
   .review-grid{grid-template-columns:1fr}
   .why-row{grid-template-columns:64px 1fr;gap:14px}
   .why-glyph{display:none}
