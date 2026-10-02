@@ -185,3 +185,13 @@
     if (ev.key === "Escape" && modal.classList.contains("open")) closeModal();
   });
 })();
+
+/* Full-page cinematic background video: pause when tab hidden (battery), resume on return */
+(function(){
+  var bg = document.querySelector(".bg-video");
+  if(!bg) return;
+  document.addEventListener("visibilitychange", function(){
+    if(document.hidden){ bg.pause(); }
+    else { bg.play().catch(function(){}); }
+  });
+})();
