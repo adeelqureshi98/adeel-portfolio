@@ -256,7 +256,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:800;letter-spacing:-.015em;
 .rv-pop.in{opacity:1;transform:none}
 
 /* ---------- Stats ---------- */
-.stats{width:min(1200px,92%);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:70px 0 10px;position:relative;z-index:2}
+.stats{width:min(1200px,92%);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:22px;padding:70px 0 10px;position:relative;z-index:2}
 .stat{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:30px 24px;text-align:center;
   box-shadow:var(--shadow-float);position:relative;overflow:hidden}
 .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--gold-deep),var(--gold-soft))}
@@ -265,6 +265,10 @@ h1,h2,h3{font-family:var(--font-display);font-weight:800;letter-spacing:-.015em;
 .tint-mint.stat::before{background:linear-gradient(90deg,var(--mint),#CFEBD9)}
 .stat-num{font-family:var(--font-display);font-weight:900;font-size:clamp(2.2rem,3.4vw,3rem);color:var(--ink)}
 .stat-label{color:var(--muted);font-size:.9rem;margin-top:8px;font-weight:600}
+/* Equal-height stat cards: the .rv wrappers are grid items; make them flex
+   so every .stat stretches to the tallest card in the row */
+.stats>.rv{display:flex}
+.stat{flex:1;display:flex;flex-direction:column;justify-content:center}
 
 /* ---------- Services bento ---------- */
 .services-bento{width:min(1200px,92%);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -695,20 +699,14 @@ body.hero-enter .hero-fade.d5{transition-delay:1.08s}
 .mile strong{display:block;font-family:var(--font-display);font-size:1.08rem;margin-bottom:8px}
 .mile p{color:var(--muted);font-size:.86rem}
 
-/* ---------- Gold wipe reveals (work + podcast cards) ---------- */
-.wipe{position:relative}
-.wipe::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;border-radius:var(--radius);
-  background:linear-gradient(100deg,var(--gold-deep),var(--gold) 55%,var(--gold-soft));
-  transform:scaleX(0);animation-delay:var(--wipe-delay,0s)}
-.wipe.in::after{animation:wipeAway 1.05s cubic-bezier(.7,0,.3,1) forwards;animation-delay:var(--wipe-delay,0s)}
-@keyframes wipeAway{
-  0%{transform:scaleX(0);transform-origin:left}
-  42%{transform:scaleX(1);transform-origin:left}
-  58%{transform:scaleX(1);transform-origin:right}
-  100%{transform:scaleX(0);transform-origin:right}}
-.wipe .work-card img{transform:scale(1.14);transition:transform 1.4s cubic-bezier(.2,.65,.3,1)}
-.wipe.in .work-card img{transform:scale(1)}
-.wipe .work-card:hover img{transform:scale(1.06)}
+/* ---------- Gold line draw-in (work + podcast cards) ---------- */
+/* Replaces the old full-cover gold wipe: a thin gold accent line draws
+   across the top of each card as it reveals. It can never cover content
+   and is robust on all devices. */
+.rv .work-card::after{content:"";position:absolute;top:14px;left:26px;right:26px;height:3px;border-radius:3px;
+  background:linear-gradient(90deg,var(--gold-deep),var(--gold-soft));z-index:3;pointer-events:none;
+  transform:scaleX(0);transform-origin:left;transition:transform 1s cubic-bezier(.2,.65,.3,1) .2s}
+.rv.in .work-card::after{transform:scaleX(1)}
 
 @media (max-width:1020px){
   .miles-strip{grid-template-columns:repeat(3,1fr)}
@@ -737,7 +735,5 @@ body.hero-enter .hero-fade.d5{transition-delay:1.08s}
 @media (prefers-reduced-motion:reduce){
   .hero-h1 .word{transform:none;transition:none}
   .hero-fade{opacity:1;transform:none;transition:none}
-  .wipe::after{display:none}
-  .wipe .work-card img{transform:none}
   #progress{display:none}
 }
