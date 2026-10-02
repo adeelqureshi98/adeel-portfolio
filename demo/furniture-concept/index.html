@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mehraab Living — Premium Furniture, Crafted for Life (Concept)</title>
+<meta name="description" content="Mehraab Living is a fictional premium furniture brand concept: handcrafted sofa sets, bed sets and dining collections. Concept demo built for portfolio showcase.">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body id="top">
+
+<!-- Fixed concept badge -->
+<div class="concept-badge" aria-label="Concept project">
+  <span class="concept-badge__dot"></span> Concept Project
+</div>
+
+<!-- Loader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <div class="loader__mark">M</div>
+    <div class="loader__word">MEHRAAB LIVING</div>
+    <div class="loader__bar"><span id="loaderBar"></span></div>
+    <div class="loader__pct" id="loaderPct">0%</div>
+  </div>
+</div>
+
+<!-- Cursor glow (desktop only) -->
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="brand" aria-label="Mehraab Living home">
+      <span class="brand__arch" aria-hidden="true">
+        <svg viewBox="0 0 32 40" width="26" height="32"><path d="M4 38 V16 C4 7 9 2 16 2 C23 2 28 7 28 16 V38" fill="none" stroke="url(#brandGold)" stroke-width="2.5"/><defs><linearGradient id="brandGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7d488"/><stop offset="1" stop-color="#d98e1b"/></linearGradient></defs></svg>
+      </span>
+      <span class="brand__text">MEHRAAB <em>LIVING</em></span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#collections">Collections</a>
+      <a href="#craft">Craft</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <a href="#contact" class="btn btn--gold btn--sm magnetic">Request Quote</a>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__layer hero__layer--back" data-depth="0.04">
+      <div class="hero__glow hero__glow--violet"></div>
+      <div class="hero__glow hero__glow--gold"></div>
+      <div class="hero__arches">
+        <div class="arch arch--1"></div>
+        <div class="arch arch--2"></div>
+        <div class="arch arch--3"></div>
+      </div>
+    </div>
+    <div class="hero__layer hero__layer--mid" data-depth="0.10" aria-hidden="true">
+      <svg class="float float--sofa" viewBox="0 0 320 190">
+        <defs>
+          <linearGradient id="sofaGold" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f7d488"/><stop offset="1" stop-color="#8a5a12"/>
+          </linearGradient>
+        </defs>
+        <rect x="40" y="70" width="240" height="60" rx="26" fill="url(#sofaGold)" opacity="0.9"/>
+        <rect x="30" y="90" width="34" height="66" rx="16" fill="url(#sofaGold)" opacity="0.85"/>
+        <rect x="256" y="90" width="34" height="66" rx="16" fill="url(#sofaGold)" opacity="0.85"/>
+        <rect x="52" y="40" width="216" height="48" rx="20" fill="url(#sofaGold)" opacity="0.55"/>
+        <rect x="60" y="150" width="12" height="24" rx="6" fill="#5c3a0c"/>
+        <rect x="248" y="150" width="12" height="24" rx="6" fill="#5c3a0c"/>
+        <ellipse cx="160" cy="182" rx="120" ry="8" fill="#f2b233" opacity="0.18"/>
+      </svg>
+      <svg class="float float--chair" viewBox="0 0 150 210">
+        <defs>
+          <linearGradient id="chairGold" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f2b233"/><stop offset="1" stop-color="#7a4d0d"/>
+          </linearGradient>
+        </defs>
+        <path d="M35 120 V40 q0-26 40-26 q40 0 40 26 V120 Z" fill="url(#chairGold)" opacity="0.85"/>
+        <rect x="25" y="118" width="100" height="34" rx="14" fill="url(#chairGold)" opacity="0.9"/>
+        <rect x="32" y="150" width="10" height="34" rx="5" fill="#5c3a0c"/>
+        <rect x="108" y="150" width="10" height="34" rx="5" fill="#5c3a0c"/>
+        <ellipse cx="75" cy="190" rx="60" ry="7" fill="#f2b233" opacity="0.18"/>
+      </svg>
+      <svg class="float float--lamp" viewBox="0 0 120 260">
+        <defs>
+          <radialGradient id="lampGlow" cx="0.5" cy="0.35" r="0.6">
+            <stop offset="0" stop-color="#f7d488" stop-opacity="0.85"/><stop offset="1" stop-color="#f7d488" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="lampGold" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f2b233"/><stop offset="1" stop-color="#8a5a12"/>
+          </linearGradient>
+        </defs>
+        <circle cx="60" cy="70" r="58" fill="url(#lampGlow)"/>
+        <path d="M38 34 h44 l10 34 h-64 Z" fill="url(#lampGold)" opacity="0.9"/>
+        <rect x="57" y="68" width="6" height="150" rx="3" fill="#8a5a12"/>
+        <ellipse cx="60" cy="226" rx="26" ry="6" fill="#5c3a0c"/>
+      </svg>
+    </div>
+    <div class="hero__layer hero__layer--front" data-depth="0.18" aria-hidden="true">
+      <span class="spark spark--1">✦</span>
+      <span class="spark spark--2">✦</span>
+      <span class="spark spark--3">✦</span>
+      <span class="spark spark--4">✦</span>
+    </div>
+    <div class="hero__leak" aria-hidden="true"></div>
+    <div class="hero__vignette" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero__content">
+    <p class="kicker reveal">Premium Furniture · Concept Showcase</p>
+    <h1 class="hero__title">
+      <span class="reveal">Where craft</span>
+      <span class="reveal reveal--d1">becomes <em class="gold-text">comfort.</em></span>
+    </h1>
+    <p class="hero__sub reveal reveal--d2">Mehraab Living designs and handcrafts premium sofa sets, bed sets and dining collections — kiln-dried hardwood, fine fabrics, and joinery built to be lived on for decades.</p>
+    <div class="hero__cta reveal reveal--d3">
+      <a href="#collections" class="btn btn--gold magnetic">Explore Collections</a>
+      <a href="#craft" class="btn btn--ghost magnetic">Our Craft</a>
+    </div>
+  </div>
+
+  <a href="#stats" class="hero__scroll" aria-label="Scroll to stats">
+    <span class="hero__scroll-line"></span> Scroll
+  </a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Handcrafted Sofas</span><i>✦</i><span>Solid Wood Beds</span><i>✦</i><span>Dining Collections</span><i>✦</i><span>Custom Upholstery</span><i>✦</i><span>Free Design Consult</span><i>✦</i><span>5-Year Craft Warranty</span><i>✦</i>
+    <span>Handcrafted Sofas</span><i>✦</i><span>Solid Wood Beds</span><i>✦</i><span>Dining Collections</span><i>✦</i><span>Custom Upholstery</span><i>✦</i><span>Free Design Consult</span><i>✦</i><span>5-Year Craft Warranty</span><i>✦</i>
+  </div>
+</div>
+
+<!-- ============ STATS ============ -->
+<section class="stats" id="stats">
+  <div class="wrap stats__grid">
+    <div class="stat reveal">
+      <div class="stat__num"><span class="counter" data-target="15">0</span>+</div>
+      <div class="stat__label">Years of Craft</div>
+    </div>
+    <div class="stat reveal reveal--d1">
+      <div class="stat__num"><span class="counter" data-target="4800">0</span>+</div>
+      <div class="stat__label">Homes Furnished</div>
+    </div>
+    <div class="stat reveal reveal--d2">
+      <div class="stat__num"><span class="counter" data-target="120">0</span>+</div>
+      <div class="stat__label">Original Designs</div>
+    </div>
+    <div class="stat reveal reveal--d3">
+      <div class="stat__num"><span class="counter" data-target="98">0</span>%</div>
+      <div class="stat__label">Would Recommend Us</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLLECTIONS ============ -->
+<section class="section" id="collections">
+  <div class="wrap">
+    <p class="kicker reveal">The Collections</p>
+    <div class="section__head">
+      <h2 class="reveal">Rooms that <em class="gold-text">remember</em> you.</h2>
+      <p class="section__lede reveal reveal--d1">Three signature collections, one obsession: furniture that looks sculptural, feels like a hug, and outlives trends.</p>
+    </div>
+
+    <div class="cards cards--3">
+      <!-- Sofa Sets -->
+      <article class="card tilt reveal">
+        <div class="card__art card__art--sofa" aria-hidden="true">
+          <svg viewBox="0 0 400 240">
+            <defs>
+              <linearGradient id="artSofaBg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#1d2a30"/><stop offset="1" stop-color="#0d1418"/>
+              </linearGradient>
+              <radialGradient id="artSofaGlow" cx="0.7" cy="0.3" r="0.7">
+                <stop offset="0" stop-color="#f2b233" stop-opacity="0.35"/><stop offset="1" stop-color="#f2b233" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#artSofaBg)"/>
+            <circle cx="290" cy="60" r="110" fill="url(#artSofaGlow)"/>
+            <rect x="70" y="118" width="260" height="56" rx="24" fill="#c98f2b"/>
+            <rect x="58" y="132" width="36" height="62" rx="15" fill="#b57e22"/>
+            <rect x="306" y="132" width="36" height="62" rx="15" fill="#b57e22"/>
+            <rect x="82" y="92" width="236" height="42" rx="18" fill="#8a5f1a"/>
+            <rect x="86" y="188" width="12" height="20" rx="6" fill="#4a2f0c"/>
+            <rect x="302" y="188" width="12" height="20" rx="6" fill="#4a2f0c"/>
+            <ellipse cx="200" cy="216" rx="150" ry="8" fill="#000" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="card__body">
+          <p class="card__kicker">01 · Living Room</p>
+          <h3>Sofa Sets</h3>
+          <p>Deep-seat lounges and 7-seater sectionals in velvet, bouclé and stain-guarded linen. Pocket-spring cores, feather-wrapped cushions, frames that never creak.</p>
+          <a href="#contact" class="card__link magnetic">Request Quote <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- Bed Sets -->
+      <article class="card tilt reveal reveal--d1">
+        <div class="card__art card__art--bed" aria-hidden="true">
+          <svg viewBox="0 0 400 240">
+            <defs>
+              <linearGradient id="artBedBg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#241a33"/><stop offset="1" stop-color="#100c1a"/>
+              </linearGradient>
+              <radialGradient id="artBedMoon" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" stop-color="#f7d488" stop-opacity="0.5"/><stop offset="1" stop-color="#f7d488" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#artBedBg)"/>
+            <circle cx="320" cy="52" r="70" fill="url(#artBedMoon)"/>
+            <circle cx="320" cy="52" r="26" fill="#f7d488" opacity="0.8"/>
+            <rect x="60" y="70" width="26" height="120" rx="10" fill="#8a5f1a"/>
+            <rect x="86" y="96" width="14" height="14" rx="7" fill="#c98f2b" opacity="0.5"/>
+            <rect x="86" y="122" width="14" height="14" rx="7" fill="#c98f2b" opacity="0.5"/>
+            <rect x="60" y="150" width="280" height="34" rx="12" fill="#a4762a"/>
+            <rect x="86" y="128" width="228" height="24" rx="10" fill="#f5f1e8" opacity="0.85"/>
+            <rect x="100" y="112" width="90" height="22" rx="10" fill="#f7d488"/>
+            <rect x="210" y="112" width="90" height="22" rx="10" fill="#e8dcc2"/>
+            <rect x="66" y="184" width="12" height="22" rx="6" fill="#4a2f0c"/>
+            <rect x="322" y="184" width="12" height="22" rx="6" fill="#4a2f0c"/>
+            <ellipse cx="200" cy="214" rx="160" ry="8" fill="#000" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="card__body">
+          <p class="card__kicker">02 · Bedroom</p>
+          <h3>Bed Sets</h3>
+          <p>Upholstered statement beds with tall channel-tufted headboards, matching side tables and dressers — in sheesham, walnut and matte lacquer finishes.</p>
+          <a href="#contact" class="card__link magnetic">Request Quote <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- Dining -->
+      <article class="card tilt reveal reveal--d2">
+        <div class="card__art card__art--dining" aria-hidden="true">
+          <svg viewBox="0 0 400 240">
+            <defs>
+              <linearGradient id="artDineBg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#331b12"/><stop offset="1" stop-color="#140c07"/>
+              </linearGradient>
+              <radialGradient id="artDineGlow" cx="0.5" cy="0.35" r="0.7">
+                <stop offset="0" stop-color="#f2b233" stop-opacity="0.4"/><stop offset="1" stop-color="#f2b233" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#artDineBg)"/>
+            <ellipse cx="200" cy="60" rx="150" ry="80" fill="url(#artDineGlow)"/>
+            <rect x="110" y="130" width="180" height="18" rx="9" fill="#a4762a"/>
+            <rect x="125" y="148" width="12" height="52" rx="6" fill="#5c3a0c"/>
+            <rect x="263" y="148" width="12" height="52" rx="6" fill="#5c3a0c"/>
+            <rect x="52" y="100" width="44" height="60" rx="12" fill="#8a5f1a"/>
+            <rect x="304" y="100" width="44" height="60" rx="12" fill="#8a5f1a"/>
+            <rect x="60" y="160" width="8" height="40" rx="4" fill="#4a2f0c"/>
+            <rect x="332" y="160" width="8" height="40" rx="4" fill="#4a2f0c"/>
+            <circle cx="200" cy="112" r="26" fill="#f7d488" opacity="0.25"/>
+            <ellipse cx="200" cy="112" rx="14" ry="20" fill="#f7d488" opacity="0.5"/>
+            <ellipse cx="200" cy="214" rx="160" ry="8" fill="#000" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="card__body">
+          <p class="card__kicker">03 · Dining Room</p>
+          <h3>Dining Sets</h3>
+          <p>4, 6 and 8-seater dining tables with sculpted chairs — heat-resistant tops, softly padded seats, and bases engineered to stay rock-solid for years.</p>
+          <a href="#contact" class="card__link magnetic">Request Quote <span>→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CRAFT & QUALITY ============ -->
+<section class="section section--alt" id="craft">
+  <div class="wrap split">
+    <div class="split__copy">
+      <p class="kicker reveal">Craft &amp; Quality</p>
+      <h2 class="reveal">Built slowly.<br>Loved <em class="gold-text">daily.</em></h2>
+      <p class="section__lede reveal reveal--d1">Every Mehraab piece passes through 40+ pairs of hands — carpenters, upholsterers, polishers — before it earns the brass nameplate. We don't chase seasons; we build heirlooms.</p>
+      <ul class="checklist">
+        <li class="reveal"><span class="check">✓</span><div><strong>Kiln-dried hardwood frames</strong><span>Sheesham and seasoned hardwood, moisture-tested so joints never warp or loosen.</span></div></li>
+        <li class="reveal reveal--d1"><span class="check">✓</span><div><strong>High-density foam &amp; pocket springs</strong><span>Sofas rated for a decade of daily lounging without sagging.</span></div></li>
+        <li class="reveal reveal--d2"><span class="check">✓</span><div><strong>Premium, stain-guarded fabrics</strong><span>Velvet, bouclé and linen — treated to shrug off spills and sunlight.</span></div></li>
+        <li class="reveal reveal--d3"><span class="check">✓</span><div><strong>Hand-finished by master carpenters</strong><span>Every edge sanded, every polish layered by craftspeople, not machines.</span></div></li>
+      </ul>
+    </div>
+    <div class="split__art reveal reveal--d2" aria-hidden="true">
+      <div class="craft-panel">
+        <svg viewBox="0 0 420 520">
+          <defs>
+            <linearGradient id="craftBg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#191225"/><stop offset="1" stop-color="#0b0912"/>
+            </linearGradient>
+            <linearGradient id="craftWood" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#8a5f1a"/><stop offset="0.5" stop-color="#c98f2b"/><stop offset="1" stop-color="#8a5f1a"/>
+            </linearGradient>
+          </defs>
+          <rect width="420" height="520" fill="url(#craftBg)"/>
+          <path d="M60 480 V160 C60 80 130 30 210 30 C290 30 360 80 360 160 V480 Z" fill="none" stroke="#f2b233" stroke-width="3" opacity="0.5"/>
+          <path d="M100 480 V180 C100 115 150 72 210 72 C270 72 320 115 320 180 V480 Z" fill="none" stroke="#f7d488" stroke-width="2" opacity="0.3"/>
+          <rect x="150" y="220" width="120" height="150" rx="8" fill="url(#craftWood)" opacity="0.9"/>
+          <rect x="165" y="235" width="90" height="120" rx="4" fill="#5c3a0c" opacity="0.45"/>
+          <line x1="165" y1="265" x2="255" y2="265" stroke="#3a2408" stroke-width="2" opacity="0.6"/>
+          <line x1="165" y1="295" x2="255" y2="295" stroke="#3a2408" stroke-width="2" opacity="0.6"/>
+          <line x1="165" y1="325" x2="255" y2="325" stroke="#3a2408" stroke-width="2" opacity="0.6"/>
+          <circle cx="210" cy="430" r="52" fill="#f2b233" opacity="0.12"/>
+          <text x="210" y="424" text-anchor="middle" fill="#f7d488" font-size="34" font-weight="800">5-yr</text>
+          <text x="210" y="452" text-anchor="middle" fill="#b8b2a6" font-size="15" letter-spacing="2">WARRANTY</text>
+        </svg>
+        <div class="craft-panel__caption">Every frame carries a 5-year craftsmanship warranty.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section" id="process">
+  <div class="wrap">
+    <p class="kicker reveal">How It Works</p>
+    <div class="section__head">
+      <h2 class="reveal">From first sketch to <em class="gold-text">your doorstep.</em></h2>
+      <p class="section__lede reveal reveal--d1">A calm, guided process — you approve every step before we build.</p>
+    </div>
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="step__num">01</span>
+        <h3>Consult</h3>
+        <p>Tell us your room size, style and budget. Our design team visits or video-calls — free, no obligation.</p>
+      </li>
+      <li class="step reveal reveal--d1">
+        <span class="step__num">02</span>
+        <h3>Design</h3>
+        <p>You get fabric swatches and a 3D preview of your exact piece. We revise until you love it.</p>
+      </li>
+      <li class="step reveal reveal--d2">
+        <span class="step__num">03</span>
+        <h3>Craft</h3>
+        <p>Your piece enters the workshop — hardwood frame, foam, upholstery, polish — with photo updates along the way.</p>
+      </li>
+      <li class="step reveal reveal--d3">
+        <span class="step__num">04</span>
+        <h3>Deliver</h3>
+        <p>White-glove delivery, placement in your room, and packaging taken away. You just sit down.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CONTACT CTA ============ -->
+<section class="cta" id="contact">
+  <div class="wrap cta__inner">
+    <p class="kicker reveal">Start Your Project</p>
+    <h2 class="cta__title">
+      <span class="reveal">Let's design</span>
+      <span class="reveal reveal--d1">your <em class="gold-text">space.</em></span>
+    </h2>
+    <p class="cta__sub reveal reveal--d2">Share your room size and the style you love — our design team replies within 24 hours with ideas and a tailored quote.</p>
+    <div class="cta__actions reveal reveal--d3">
+      <a href="#contact" class="btn btn--gold btn--lg magnetic" id="quoteBtn">Request a Quote</a>
+      <a href="#collections" class="btn btn--ghost btn--lg magnetic">Browse Collections</a>
+    </div>
+    <p class="cta__note reveal reveal--d3">Demo concept — this button is decorative. Real enquiries would open a quote form.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <span class="brand__text">MEHRAAB <em>LIVING</em></span>
+      <p>A fictional premium furniture brand, designed as a concept showcase. Crafted comfort, timeless form.</p>
+    </div>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="#collections">Collections</a>
+      <a href="#craft">Craft</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+      <a href="#top">Back to top ↑</a>
+    </nav>
+    <div class="footer__meta">
+      <p class="footer__concept">✦ Concept demo built for portfolio showcase</p>
+      <p>© <span id="year">2026</span> Mehraab Living (Concept). All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="./script.js"></script>
+</body>
+</html>
