@@ -240,8 +240,14 @@ h1,h2,h3{font-family:var(--font-display);font-weight:800;letter-spacing:-.015em;
 @keyframes marquee{to{transform:translateX(-50%)}}
 
 /* ---------- Floating cards (shared) ---------- */
-.float-i{animation:floaty 7s ease-in-out .9s infinite}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+/* Gentle idle float — starts only after the scroll reveal completes (.rv.in),
+   staggered per card via --fd/--fdur (set in JS), amplitude via --famp.
+   Transform-only: stays on the compositor, no layout cost. */
+.float-i{--fd:0s;--fdur:7.5s;--famp:7px;animation:none}
+.rv.in .float-i{animation:floaty var(--fdur) ease-in-out var(--fd) infinite}
+@keyframes floaty{0%,100%{transform:translateY(var(--famp))}50%{transform:translateY(calc(var(--famp) * -1))}}
+.float-i:hover,.float-i:focus-visible{animation-play-state:paused}
+.float-soft{--famp:3px;--fdur:6.2s}
 .tilt{transition:transform .3s ease,box-shadow .3s ease;transform-style:preserve-3d;will-change:transform}
 .tint-peach{background:linear-gradient(160deg,#fff,var(--peach-soft))}
 .tint-violet{background:linear-gradient(160deg,#fff,var(--violet-soft))}
@@ -541,7 +547,7 @@ footer{border-top:1px solid var(--border);padding:30px 0;background:rgba(255,255
   *,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
   html{scroll-behavior:auto}
   .rv,.rv-pop{opacity:1;transform:none;filter:none}
-  .float-i{animation:none}
+  .float-i{animation:none !important}
   .marquee-track{animation:none}
   .video-frame-shine{display:none}
 }
