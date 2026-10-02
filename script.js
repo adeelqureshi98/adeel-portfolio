@@ -249,26 +249,24 @@
   els.forEach(function(el){ wio.observe(el); });
 })();
 
-/* ---------- v3.4: Services skill wheel ----------
-   Cards ride a VISIBLE circle like a wheel: each card orbits the hub
-   but counter-rotates to stay upright and readable. Slow auto-rotation,
-   pause on hover/focus, arrows + dots + keyboard, mobile = swipe snap,
-   reduced-motion = static grid. */
+/* ---------- v3.3: Services 3D orbit carousel ----------
+   Slow auto-rotating ring of the 5 skill cards (CSS 3D).
+   Pauses on hover/focus; arrows + dots + keyboard; mobile = swipe snap;
+   reduced-motion = static grid (handled via .orbit-static class). */
 (function(){
-  var stage = document.getElementById("wheelStage");
+  var stage = document.getElementById("orbitStage");
   if(!stage) return;
-  var track = document.getElementById("wheelTrack");
-  var ring = stage.querySelector(".wheel-ring");
-  var cards = Array.prototype.slice.call(track.querySelectorAll(".wheel-card"));
-  var dotsWrap = stage.querySelector(".wheel-dots");
-  var prevBtn = stage.querySelector(".wheel-prev");
-  var nextBtn = stage.querySelector(".wheel-next");
+  var track = document.getElementById("orbitTrack");
+  var cards = Array.prototype.slice.call(track.querySelectorAll(".orbit-card"));
+  var dotsWrap = stage.querySelector(".orbit-dots");
+  var prevBtn = stage.querySelector(".orbit-prev");
+  var nextBtn = stage.querySelector(".orbit-next");
   var n = cards.length;
   if(!n) return;
   var STEP = 360 / n;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var mqMobile = window.matchMedia("(max-width: 680px)");
-  if(reduceMotion){ stage.classList.add("wheel-static"); return; }
+  if(reduceMotion){ stage.classList.add("orbit-static"); return; }
 
   var dots = cards.map(function(_, i){
     var d = document.createElement("button");
@@ -279,43 +277,39 @@
     return d;
   });
 
-  var angle = 180, active = false, raf = null, last = 0, tween = null, resumeTimer = null;
-  var SPEED = 9; /* degrees per second — slow, majestic */
-  function norm(a){ return ((a % 360) + 360) % 360; }
-  function radius(){ return ring ? ring.offsetWidth / 2 : 260; }
+  var angle = 0, active = false, raf = null, last = 0, tween = null, resumeTimer = null;
+  var SPEED = 7; /* degrees per second — slow, majestic */
 
-  /* Card i sits at wheel position a = i*STEP + angle, measured clockwise
-     from TOP. The FRONT (highlighted, fully readable) card is at the
-     BOTTOM of the wheel (a = 180). Cards counter-rotate to stay upright. */
+  function radius(){ return Math.max(300, Math.min(520, stage.clientWidth * 0.44)); }
+  function norm(a){ return ((a % 360) + 360) % 360; }
+
   function render(){
-    var r = radius(), front = 0, best = 999;
+    var r = radius();
+    track.style.transform = "translateZ(" + (-r) + "px) rotateY(" + angle + "deg)";
+    var front = 0, best = 999;
     cards.forEach(function(card, i){
-      var a = norm(i * STEP + angle);
-      var d = Math.abs(a - 180); d = Math.min(d, 360 - d);
-      var t = d / 180; /* 0 at front → 1 at back */
-      var sc = 1.08 - 0.26 * t;
-      var op = 1 - 0.55 * t;
-      card.style.transform =
-        "translate(-50%,-50%) rotate(" + a.toFixed(2) + "deg)" +
-        " translateY(" + (-r).toFixed(1) + "px)" +
-        " rotate(" + (-a).toFixed(2) + "deg)" +
-        " scale(" + sc.toFixed(3) + ")";
-      card.style.opacity = op.toFixed(2);
-      card.style.zIndex = String(10 - Math.round(t * 9));
-      var isFront = d < STEP / 2;
+      var a = i * STEP;
+      card.style.transform = "rotateY(" + a + "deg) translateZ(" + r + "px)";
+      var rel = norm(a + angle);
+      var dist = Math.min(rel, 360 - rel);
+      var facing = Math.cos(rel * Math.PI / 180);
+      if(facing < -0.35){ card.style.opacity = "0"; card.style.visibility = "hidden"; }
+      else{
+        card.style.opacity = facing < 0.4 ? "0.45" : "1";
+        card.style.visibility = "visible";
+      }
+      var isFront = dist < STEP / 2;
       card.classList.toggle("is-front", isFront);
-      if(isFront){ card.removeAttribute("aria-hidden"); }
-      else { card.setAttribute("aria-hidden", "true"); }
-      if(d < best){ best = d; front = i; }
+      if(isFront){ card.removeAttribute("aria-hidden"); } else { card.setAttribute("aria-hidden", "true"); }
+      if(dist < best){ best = dist; front = i; }
     });
-    dots.forEach(function(dt, i){ dt.classList.toggle("active", i === front); });
+    dots.forEach(function(d, i){ d.classList.toggle("active", i === front); });
     return front;
   }
   function currentFront(){
     var best = 0, bd = 999;
     cards.forEach(function(_, i){
-      var rel = norm(i * STEP + angle), d = Math.abs(rel - 180);
-      d = Math.min(d, 360 - d);
+      var rel = norm(i * STEP + angle), d = Math.min(rel, 360 - rel);
       if(d < bd){ bd = d; best = i; }
     });
     return best;
@@ -342,10 +336,10 @@
     if(resumeTimer) clearTimeout(resumeTimer);
     resumeTimer = setTimeout(start, 7000);
   }
-  function animateTo(targetAngle){
+  function animateTo(target){
     stop();
     if(resumeTimer) clearTimeout(resumeTimer);
-    var cur = norm(angle), delta = norm(targetAngle) - cur;
+    var cur = norm(angle), delta = norm(target) - cur;
     if(delta > 180) delta -= 360;
     if(delta < -180) delta += 360;
     var from = angle, to = angle + delta, t0 = null;
@@ -360,8 +354,7 @@
     }
     tween = requestAnimationFrame(frame);
   }
-  /* bring card i to the front (bottom of the wheel) */
-  function goTo(i){ animateTo(180 - i * STEP); }
+  function goTo(i){ animateTo(-i * STEP); }
 
   prevBtn.addEventListener("click", function(){ goTo((currentFront() - 1 + n) % n); });
   nextBtn.addEventListener("click", function(){ goTo((currentFront() + 1) % n); });
@@ -378,9 +371,10 @@
   function teardown(){
     stop();
     cards.forEach(function(c){
-      c.style.transform = ""; c.style.opacity = ""; c.style.zIndex = "";
+      c.style.transform = ""; c.style.opacity = ""; c.style.visibility = "";
       c.classList.remove("is-front"); c.removeAttribute("aria-hidden");
     });
+    track.style.transform = "";
   }
   function setup(){
     if(mqMobile.matches){ teardown(); return; }
