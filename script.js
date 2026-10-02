@@ -6,21 +6,32 @@
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var finePointer = window.matchMedia("(pointer: fine)").matches;
 
-  /* ---------- Loader ---------- */
+  /* ---------- Loader: buttery-smooth GPU-composited progress ----------
+     The bar fills via transform:scaleX (compositor-only, zero layout work).
+     Progress eases toward a creeping target — no random jumps, no stutter. */
   var loader = document.getElementById("loader"),
       lp = document.getElementById("loaderProgress"),
-      prog = 0;
-  var ltick = setInterval(function(){
-    prog = Math.min(prog + Math.random() * 26, 92);
-    if (lp) lp.style.width = prog + "%";
-  }, 160);
-  function hideLoader(){
-    clearInterval(ltick);
-    if (lp) lp.style.width = "100%";
-    setTimeout(function(){
+      prog = 0, pTarget = 0, loaderHidden = false, pEase = 0.055;
+  function loaderFrame(){
+    prog += (pTarget - prog) * pEase;
+    if (pTarget >= 1 && prog > 0.996) prog = 1;
+    if (lp) lp.style.transform = "scaleX(" + prog.toFixed(4) + ")";
+    if (prog < 1 || !loaderHidden){
+      requestAnimationFrame(loaderFrame);
+    } else {
       if (loader) loader.classList.add("done");
       document.body.classList.add("hero-enter"); /* cinematic hero entrance */
-    }, 250);
+    }
+  }
+  requestAnimationFrame(loaderFrame);
+  var creepTimer = setInterval(function(){
+    if (pTarget < 0.88) pTarget += 0.045; /* slow, perfectly smooth creep */
+  }, 180);
+  function hideLoader(){
+    if (loaderHidden) return;
+    loaderHidden = true;
+    clearInterval(creepTimer);
+    pTarget = 1; pEase = 0.16; /* brisk but smooth finish */
   }
   window.addEventListener("load", hideLoader);
   setTimeout(hideLoader, 2600); /* safety */
@@ -156,7 +167,7 @@
     });
     (function loop(){
       gx += (tx - gx) * 0.12; gy += (ty - gy) * 0.12;
-      glow.style.left = gx + "px"; glow.style.top = gy + "px";
+      glow.style.transform = "translate3d(" + gx.toFixed(1) + "px," + gy.toFixed(1) + "px,0) translate(-50%,-50%)";
       requestAnimationFrame(loop);
     })();
   }
