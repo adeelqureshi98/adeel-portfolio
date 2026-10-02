@@ -4,39 +4,51 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Muhammad Adeel — Social Media Manager | Content Creator | AI Video Ads</title>
-<meta name="description" content="Muhammad Adeel — remote Social Media Manager & Content Creator from Kot Addu, Pakistan. AI video ads, animated videos and scroll-stopping content for brands worldwide.">
+<meta name="description" content="Muhammad Adeel — remote Social Media Manager & Content Creator from Kot Addu, Pakistan. AI video ads, websites, apps and scroll-stopping content for brands worldwide.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307060c'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='28' font-weight='900' fill='%23f2b233' text-anchor='middle'%3EMA%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://adeelqureshi98.github.io/adeel-portfolio/">
+<meta property="og:title" content="Muhammad Adeel — AI Video Ads • Websites • Apps • Social Media">
+<meta property="og:description" content="Remote Social Media Manager & Content Creator from Pakistan. Scroll-stopping AI video ads, modern websites and apps for brands worldwide.">
+<meta property="og:image" content="https://adeelqureshi98.github.io/adeel-portfolio/posters/showreel.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<!-- AMBIENT FLOATING LAYER -->
+<div class="ambient" aria-hidden="true">
+  <span class="orb a1"></span>
+  <span class="orb a2"></span>
+  <span class="orb a3"></span>
+  <span class="orb a4"></span>
+</div>
+
 <!-- LOADER -->
 <div id="loader" aria-hidden="true">
   <div class="loader-inner">
+    <div class="loader-kicker">PORTFOLIO © 2026</div>
     <div class="loader-name">MUHAMMAD ADEEL</div>
     <div class="loader-bar"><span id="loaderProgress"></span></div>
-    <div class="loader-sub">Loading portfolio…</div>
+    <div class="loader-sub">Crafting the experience…</div>
   </div>
 </div>
 
-<!-- BACKGROUND FX -->
-<div class="fx" aria-hidden="true">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-  <div class="grid-overlay"></div>
-</div>
+<!-- CURSOR GLOW (desktop only) -->
+<div id="cursorGlow" aria-hidden="true"></div>
 
 <!-- NAV -->
 <header id="nav">
   <a class="brand" href="#top">MA<span>.</span></a>
-  <nav class="nav-links">
+  <nav class="nav-links" id="navLinks">
     <a href="#work">Work</a>
+    <a href="#websites">Websites</a>
     <a href="#services">Services</a>
-    <a href="#experience">Experience</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="#why">Why Me</a>
+    <a href="#blog">Insights</a>
+    <a href="#faq">FAQ</a>
   </nav>
-  <a class="btn btn-small" href="https://wa.me/923318009893" target="_blank" rel="noopener">Hire Me</a>
+  <a class="btn btn-small magnetic" href="https://wa.me/923318009893" target="_blank" rel="noopener">Hire Me</a>
   <button id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
 </header>
 
@@ -44,23 +56,32 @@
 
   <!-- HERO -->
   <section class="hero">
-    <video class="hero-bg" src="videos/showreel.mp4" poster="posters/showreel.jpg" muted loop playsinline autoplay></video>
+    <div class="hero-media" data-parallax>
+      <video class="hero-bg" src="videos/hero-bg.mp4" muted loop playsinline autoplay preload="auto"></video>
+    </div>
     <div class="hero-shade"></div>
+    <div class="hero-leak" aria-hidden="true"></div>
+    <div class="floaties" aria-hidden="true">
+      <span class="f f1">✦</span><span class="f f2">◈</span><span class="f f3">❋</span>
+      <span class="f f4">✦</span><span class="f f5">◎</span><span class="f f6">✦</span>
+      <span class="f f7">◈</span><span class="f f8">❋</span>
+    </div>
     <div class="hero-inner">
-      <p class="kicker reveal">PORTFOLIO / 2026</p>
-      <h1 class="reveal">MUHAMMAD<br>ADEEL</h1>
-      <p class="headline reveal">Social Media Manager <span>|</span> Content Creator <span>|</span> AI Video Ads &amp; Animated Videos for Brands</p>
-      <p class="tags reveal">AI Videos • Animated Videos • Social Media • Content Creation</p>
+      <p class="kicker reveal">PORTFOLIO / 2026 — REMOTE WORLDWIDE</p>
+      <h1 class="reveal">MUHAMMAD<br><span class="gold-text">ADEEL</span></h1>
+      <p class="headline reveal">Social Media Manager <i>|</i> Content Creator <i>|</i> AI Video Ads &amp; Animated Videos for Brands</p>
+      <p class="tags reveal">AI Video Ads <b>✦</b> Websites <b>✦</b> Apps <b>✦</b> Social Media <b>✦</b> Content Creation</p>
       <div class="hero-cta reveal">
-        <button class="btn btn-glow" data-play="videos/showreel.mp4" data-title="AI Video Ads Showreel">▶ Watch Showreel</button>
-        <a class="btn btn-outline" href="https://wa.me/923318009893" target="_blank" rel="noopener">WhatsApp Me</a>
+        <a class="btn btn-glow magnetic" href="#work">View My Work</a>
+        <a class="btn btn-outline magnetic" href="assets/muhammad-adeel-cv.pdf" download>Download CV</a>
+        <a class="btn btn-outline magnetic" href="https://wa.me/923318009893" target="_blank" rel="noopener">WhatsApp Me</a>
       </div>
     </div>
     <div class="scroll-hint" aria-hidden="true"><span></span></div>
   </section>
 
   <!-- STATS -->
-  <section class="stats">
+  <section class="stats" id="stats">
     <div class="stat reveal"><div class="stat-num" data-count="10" data-suffix="+">0</div><div class="stat-label">Years Marketing &amp; Communication</div></div>
     <div class="stat reveal"><div class="stat-num" data-count="1" data-suffix="+">0</div><div class="stat-label">Year AI Video Ad Creation</div></div>
     <div class="stat reveal"><div class="stat-num" data-count="15" data-suffix="+">0</div><div class="stat-label">AI Videos Created</div></div>
@@ -69,54 +90,54 @@
 
   <!-- SERVICES -->
   <section id="services" class="section">
-    <p class="section-kicker reveal">01 / SERVICES</p>
-    <h2 class="section-title reveal">What I Do</h2>
+    <p class="kicker reveal">01 / SERVICES</p>
+    <h2 class="section-title reveal">Everything a Brand Needs<br><span class="gold-text">Under One Roof</span></h2>
     <div class="services">
-      <article class="service reveal"><span class="s-num">01</span><h3>AI Video Ads</h3><p>Scroll-stopping promotional video ads for brands, built with modern AI video tools — concept to final cut.</p></article>
-      <article class="service reveal"><span class="s-num">02</span><h3>Animated Videos</h3><p>Expressive animated videos and motion content that keep viewers watching till the end.</p></article>
-      <article class="service reveal"><span class="s-num">03</span><h3>Social Media Management</h3><p>Complete page handling — content calendars, posting, captions, hashtags and audience growth.</p></article>
-      <article class="service reveal"><span class="s-num">04</span><h3>Content Creation</h3><p>Short-form reels, product showcases and campaign creatives designed for shares and watch time.</p></article>
-      <article class="service reveal"><span class="s-num">05</span><h3>Video Editing</h3><p>Clean, paced edits with sound, captions and hooks — ready for every social platform.</p></article>
+      <article class="service tilt reveal"><span class="s-num">01</span><h3>AI Video Ads</h3><p>Scroll-stopping promotional video ads for brands, built with modern AI video tools — concept to final cut.</p><span class="s-tags">Reels • Product Ads • Campaigns</span></article>
+      <article class="service tilt reveal"><span class="s-num">02</span><h3>Animated Videos</h3><p>Expressive animated videos and motion content that keep viewers watching till the very end.</p><span class="s-tags">Animation • Motion Graphics</span></article>
+      <article class="service tilt reveal"><span class="s-num">03</span><h3>Social Media Management</h3><p>Complete page handling — content calendars, posting, captions, hashtags and audience growth.</p><span class="s-tags">Strategy • Posting • Growth</span></article>
+      <article class="service tilt reveal"><span class="s-num">04</span><h3>Website Development</h3><p>Modern, fast, mobile-friendly websites for businesses — designed to impress and convert visitors.</p><span class="s-tags">Business Sites • Landing Pages</span></article>
+      <article class="service tilt reveal"><span class="s-num">05</span><h3>App Development</h3><p>Clean Android apps and UI builds — from idea and design to a working product in your hands.</p><span class="s-tags">Android • UI • Prototypes</span></article>
     </div>
   </section>
 
-  <!-- WORK -->
+  <!-- SELECTED WORK : VIDEO ADS -->
   <section id="work" class="section">
-    <p class="section-kicker reveal">02 / SELECTED WORK</p>
-    <h2 class="section-title reveal">Ads That Stop the Scroll</h2>
+    <p class="kicker reveal">02 / SELECTED WORK — VIDEO ADS</p>
+    <h2 class="section-title reveal">Ads That Stop<br>the <span class="gold-text">Scroll</span></h2>
     <p class="section-sub reveal">Real AI video ads I created for real businesses. Click any card to watch.</p>
     <div class="work-grid">
-      <button class="work-card featured reveal" data-play="videos/showreel.mp4" data-title="AI Video Ads Showreel">
+      <button class="work-card featured tilt reveal" data-play="videos/showreel.mp4" data-title="AI Video Ads Showreel">
         <img src="posters/showreel.jpg" alt="AI Video Ads Showreel" loading="lazy">
         <span class="play-badge">▶</span>
-        <span class="work-meta"><strong>AI Video Ads Showreel</strong><em>Featured — best of my work</em></span>
+        <span class="work-meta"><strong>AI Video Ads Showreel</strong><em>Featured — the best of my work</em></span>
       </button>
-      <button class="work-card reveal" data-play="videos/adeel_studio_showroom_ad.mp4" data-title="Adeel Studio — Showroom Ad">
+      <button class="work-card tilt reveal" data-play="videos/adeel_studio_showroom_ad.mp4" data-title="Adeel Studio — Showroom Ad">
         <img src="posters/adeel_studio_showroom_ad.jpg" alt="Adeel Studio showroom ad" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Adeel Studio — Showroom Ad</strong><em>Interior &amp; furniture showcase</em></span>
       </button>
-      <button class="work-card reveal" data-play="videos/babu_pan_shop_ad.mp4" data-title="Babu Pan Shop — Product Ad">
+      <button class="work-card tilt reveal" data-play="videos/babu_pan_shop_ad.mp4" data-title="Babu Pan Shop — Product Ad">
         <img src="posters/babu_pan_shop_ad.jpg" alt="Babu Pan Shop product ad" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Babu Pan Shop — Product Ad</strong><em>Local business promo</em></span>
       </button>
-      <button class="work-card reveal" data-play="videos/bin_imran_naturals_ad.mp4" data-title="Bin Imran Naturals — Brand Ad">
+      <button class="work-card tilt reveal" data-play="videos/bin_imran_naturals_ad.mp4" data-title="Bin Imran Naturals — Brand Ad">
         <img src="posters/bin_imran_naturals_ad.jpg" alt="Bin Imran Naturals brand ad" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Bin Imran Naturals — Brand Ad</strong><em>Natural products campaign</em></span>
       </button>
-      <button class="work-card reveal" data-play="videos/sapna_classic_bed_set_ad.mp4" data-title="Sapna Furniture — Bed Set Ad">
+      <button class="work-card tilt reveal" data-play="videos/sapna_classic_bed_set_ad.mp4" data-title="Sapna Furniture — Bed Set Ad">
         <img src="posters/sapna_classic_bed_set_ad.jpg" alt="Sapna Furniture bed set ad" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Sapna Furniture — Bed Set Ad</strong><em>Furniture showcase</em></span>
       </button>
-      <button class="work-card reveal" data-play="videos/the_dairy_co_milk_ad.mp4" data-title="The Dairy Co. — Milk Ad">
+      <button class="work-card tilt reveal" data-play="videos/the_dairy_co_milk_ad.mp4" data-title="The Dairy Co. — Milk Ad">
         <img src="posters/the_dairy_co_milk_ad.jpg" alt="The Dairy Co. milk ad" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>The Dairy Co. — Milk Ad</strong><em>Product commercial</em></span>
       </button>
-      <button class="work-card reveal" data-play="videos/adeel_studio_showroom_ad_v2.mp4" data-title="Adeel Studio — Showroom Ad (Alt Cut)">
+      <button class="work-card tilt reveal" data-play="videos/adeel_studio_showroom_ad_v2.mp4" data-title="Adeel Studio — Showroom Ad (Alt Cut)">
         <img src="posters/adeel_studio_showroom_ad_v2.jpg" alt="Adeel Studio showroom ad alternate cut" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Adeel Studio — Showroom Ad</strong><em>Alternate cut</em></span>
@@ -124,23 +145,158 @@
     </div>
   </section>
 
+  <!-- WEBSITES -->
+  <section id="websites" class="section">
+    <p class="kicker reveal">03 / SELECTED WORK — WEBSITES</p>
+    <h2 class="section-title reveal">Websites Built<br>for <span class="gold-text">Business</span></h2>
+    <p class="section-sub reveal">Live client websites and concept builds. Click to explore.</p>
+    <div class="web-grid">
+      <a class="web-card link-card tilt reveal" href="https://sapnahome.vercel.app/" target="_blank" rel="noopener">
+        <span class="link-card-top"><span class="link-fav">⌂</span><span class="pill pill-live">Live Client Site</span></span>
+        <h3>Sapna Home</h3>
+        <p>Complete furniture brand website for Sapna Furniture &amp; Home Decor (Kot Addu) — brand story, collections, services, testimonials, and WhatsApp ordering.</p>
+        <span class="s-tags">Furniture • Business Website</span>
+        <span class="visit-cta">Visit Live Site <b>↗</b></span>
+      </a>
+      <a class="web-card link-card tilt reveal" href="https://babucollection.vercel.app/" target="_blank" rel="noopener">
+        <span class="link-card-top"><span class="link-fav">✦</span><span class="pill pill-live">Live Client Site</span></span>
+        <h3>Babu Collection</h3>
+        <p>Premium groom &amp; bridal fashion website for Babu Collection (Rawalpindi) — luxury collections, bespoke tailoring services, and customer reviews.</p>
+        <span class="s-tags">Fashion • Business Website</span>
+        <span class="visit-cta">Visit Live Site <b>↗</b></span>
+      </a>
+      <a class="web-card link-card tilt reveal" href="demo/furniture-concept/">
+        <span class="link-card-top"><span class="link-fav">◈</span><span class="pill pill-concept">Concept</span></span>
+        <h3>Furniture Concept</h3>
+        <p>A premium furniture brand concept site — cinematic hero, collections, craft story. Built to show what's possible for furniture businesses.</p>
+        <span class="s-tags">Furniture • Concept Build</span>
+        <span class="visit-cta">Explore Concept <b>↗</b></span>
+      </a>
+      <a class="web-card link-card tilt reveal" href="demo/food-concept/">
+        <span class="link-card-top"><span class="link-fav">❋</span><span class="pill pill-concept">Concept</span></span>
+        <h3>Food Brand Concept</h3>
+        <p>A modern desi food brand concept site — signature dishes, brand story, order flow. Built to show what's possible for restaurants.</p>
+        <span class="s-tags">Food • Concept Build</span>
+        <span class="visit-cta">Explore Concept <b>↗</b></span>
+      </a>
+    </div>
+  </section>
+
   <!-- MARQUEE -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>AI Video Ads ✦ Animated Videos ✦ Social Media Management ✦ Content Creation ✦ Short-form Reels ✦ Video Editing ✦ Product Showcases ✦ Campaign Creatives ✦&nbsp;</span>
-      <span>AI Video Ads ✦ Animated Videos ✦ Social Media Management ✦ Content Creation ✦ Short-form Reels ✦ Video Editing ✦ Product Showcases ✦ Campaign Creatives ✦&nbsp;</span>
+      <span>AI Video Ads <b>✦</b> Websites <b>✦</b> Apps <b>✦</b> Animated Videos <b>✦</b> Social Media Management <b>✦</b> Content Creation <b>✦</b> Short-form Reels <b>✦</b> Video Editing <b>✦</b>&nbsp;</span>
+      <span>AI Video Ads <b>✦</b> Websites <b>✦</b> Apps <b>✦</b> Animated Videos <b>✦</b> Social Media Management <b>✦</b> Content Creation <b>✦</b> Short-form Reels <b>✦</b> Video Editing <b>✦</b>&nbsp;</span>
     </div>
   </div>
 
+  <!-- APPS -->
+  <section id="apps" class="section">
+    <p class="kicker reveal">04 / APPS</p>
+    <h2 class="section-title reveal">From Idea to<br><span class="gold-text">App in Hand</span></h2>
+    <p class="section-sub reveal">Clean Android builds with thoughtful UI — designed, developed and delivered.</p>
+    <div class="services">
+      <article class="service tilt reveal"><span class="s-num">A1</span><h3>Android App Development</h3><p>Complete Android apps built with modern tools — stable, fast and easy to use, tailored to your business.</p><span class="s-tags">Android • Full Builds</span></article>
+      <article class="service tilt reveal"><span class="s-num">A2</span><h3>App UI &amp; Prototypes</h3><p>Beautiful, intuitive app interfaces and clickable prototypes — see your app before a single line ships.</p><span class="s-tags">UI Design • Prototyping</span></article>
+      <article class="service tilt reveal"><span class="s-num">A3</span><h3>AI-Powered Features</h3><p>Smart features inside your app — automation, content and intelligent workflows powered by modern AI.</p><span class="s-tags">AI Integration • Automation</span></article>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE ME -->
+  <section id="why" class="section">
+    <p class="kicker reveal">05 / WHY CHOOSE ME</p>
+    <h2 class="section-title reveal">The Difference Is<br><span class="gold-text">Experience</span></h2>
+    <div class="why-grid">
+      <article class="why-card tilt reveal"><span class="why-icon">◈</span><h3>10+ Years in Marketing</h3><p>A decade of marketing and communication taught me what makes people buy — I put that into every frame, page and post.</p></article>
+      <article class="why-card tilt reveal"><span class="why-icon">✦</span><h3>Ads + Websites + Apps, One Roof</h3><p>Video ads, websites and apps from a single person — one vision, one standard, zero miscommunication.</p></article>
+      <article class="why-card tilt reveal"><span class="why-icon">◎</span><h3>100% Remote, Worldwide</h3><p>Based in Pakistan, working with clients anywhere. Time zones are a detail, not a barrier.</p></article>
+      <article class="why-card tilt reveal"><span class="why-icon">▶</span><h3>Fast Turnaround</h3><p>Video ads in days, websites in weeks — without cutting corners on quality.</p></article>
+      <article class="why-card tilt reveal"><span class="why-icon">✉</span><h3>Direct Communication</h3><p>You talk to me directly on WhatsApp — no middlemen, no lost messages, quick replies.</p></article>
+      <article class="why-card tilt reveal"><span class="why-icon">❋</span><h3>English &amp; Urdu Content</h3><p>Content that speaks your customers' language — naturally, not translated.</p></article>
+    </div>
+  </section>
+
+  <!-- CLIENT EXPERIENCE -->
+  <section id="clients" class="section">
+    <p class="kicker reveal">06 / CLIENT EXPERIENCE</p>
+    <h2 class="section-title reveal">Real Work for<br><span class="gold-text">Real Businesses</span></h2>
+    <p class="section-sub reveal">A selection of businesses I've created for — ads, websites and content.</p>
+    <div class="client-grid">
+      <article class="client-card tilt reveal"><h3>Sapna Furniture &amp; Home Decor</h3><span class="client-loc">Kot Addu</span><p>AI video ads, a complete brand website, and ongoing social media content for a furniture retail brand.</p><span class="s-tags">Video Ads • Website • Social</span></article>
+      <article class="client-card tilt reveal"><h3>Babu Collection</h3><span class="client-loc">Rawalpindi</span><p>Premium fashion website showcasing luxury groom &amp; bridal collections and bespoke tailoring services.</p><span class="s-tags">Website</span></article>
+      <article class="client-card tilt reveal"><h3>Babu Pan Shop</h3><span class="client-loc">Local Business</span><p>Product video ad crafted to promote a local shop and pull in footfall.</p><span class="s-tags">Video Ad</span></article>
+      <article class="client-card tilt reveal"><h3>Bin Imran Naturals</h3><span class="client-loc">Online Brand</span><p>Brand video ad campaign for a natural products business.</p><span class="s-tags">Video Ad</span></article>
+      <article class="client-card tilt reveal"><h3>The Dairy Co.</h3><span class="client-loc">Product Brand</span><p>Product commercial with a clean, appetizing look for a dairy brand.</p><span class="s-tags">Video Ad</span></article>
+      <article class="client-card tilt reveal"><h3>Adeel Studio</h3><span class="client-loc">Interior Studio</span><p>Showroom video ads in two cuts — interior and furniture showcase pieces.</p><span class="s-tags">Video Ads</span></article>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="section">
+    <p class="kicker reveal">07 / PROCESS</p>
+    <h2 class="section-title reveal">Simple, Clear,<br><span class="gold-text">No Surprises</span></h2>
+    <div class="process-grid">
+      <article class="process-step reveal"><span class="p-num">01</span><h3>Discover</h3><p>I learn your business, your customers and your goal — so everything we make has a purpose.</p></article>
+      <article class="process-step reveal"><span class="p-num">02</span><h3>Create</h3><p>I design and produce your ad, website or content with full creative focus.</p></article>
+      <article class="process-step reveal"><span class="p-num">03</span><h3>Review</h3><p>We refine it together with revision rounds until you're genuinely happy.</p></article>
+      <article class="process-step reveal"><span class="p-num">04</span><h3>Launch</h3><p>Final delivery, plus support after launch so you're never left alone.</p></article>
+    </div>
+  </section>
+
+  <!-- BLOG / INSIGHTS -->
+  <section id="blog" class="section">
+    <p class="kicker reveal">08 / INSIGHTS</p>
+    <h2 class="section-title reveal">Thoughts From<br><span class="gold-text">the Work</span></h2>
+    <p class="section-sub reveal">Short, practical reads from a decade in marketing and a year of AI video creation.</p>
+    <div class="blog-grid">
+      <a class="blog-card tilt reveal" href="blog/ai-video-ads-vs-static-posts.html">
+        <span class="blog-date">Oct 2026</span>
+        <h3>Why AI Video Ads Outperform Static Posts</h3>
+        <p>Motion wins attention, story wins memory. Here's why video ads pull ahead — and how small brands can use them.</p>
+        <span class="read-more">Read →</span>
+      </a>
+      <a class="blog-card tilt reveal" href="blog/checklist-before-buying-website.html">
+        <span class="blog-date">Oct 2026</span>
+        <h3>5 Things to Check Before Buying a Website</h3>
+        <p>A website is an investment. These five checks separate a site that sells from one that just sits there.</p>
+        <span class="read-more">Read →</span>
+      </a>
+      <a class="blog-card tilt reveal" href="blog/consistent-content-grows-brand.html">
+        <span class="blog-date">Oct 2026</span>
+        <h3>How Consistent Content Grows a Local Brand</h3>
+        <p>One viral post is luck. Steady, honest content is strategy — and it's how local brands become local names.</p>
+        <span class="read-more">Read →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <p class="kicker reveal">09 / FAQ</p>
+    <h2 class="section-title reveal">Good <span class="gold-text">Questions</span></h2>
+    <div class="faq-list">
+      <details class="faq-item reveal"><summary>Do you work remotely?</summary><p>Yes — 100% remote, with clients anywhere in the world. I'm based in Pakistan (Kot Addu) and comfortable with night-shift hours for US time zones. WhatsApp keeps communication instant.</p></details>
+      <details class="faq-item reveal"><summary>How long does a project take?</summary><p>An AI video ad typically takes 2–4 days from brief to final cut. A business website usually takes 1–2 weeks depending on size and content readiness. I'll always give you a clear timeline before we start.</p></details>
+      <details class="faq-item reveal"><summary>How much do you charge?</summary><p>It depends on the scope — a single ad, a full website and ongoing social management are different projects. Message me on WhatsApp with what you need and I'll give you a clear, honest quote. No hidden charges, ever.</p></details>
+      <details class="faq-item reveal"><summary>Do you offer revisions?</summary><p>Yes. Every project includes revision rounds — we refine the work together until you're genuinely satisfied with it.</p></details>
+      <details class="faq-item reveal"><summary>How do we start working together?</summary><p>Send me a WhatsApp message describing your business and what you want to achieve. I'll reply quickly with questions, ideas and a plan. Simple as that.</p></details>
+    </div>
+  </section>
+
   <!-- EXPERIENCE -->
   <section id="experience" class="section">
-    <p class="section-kicker reveal">03 / EXPERIENCE</p>
-    <h2 class="section-title reveal">A Decade of Marketing,<br>Now in Motion</h2>
+    <p class="kicker reveal">10 / EXPERIENCE</p>
+    <h2 class="section-title reveal">A Decade of Marketing,<br><span class="gold-text">Now in Motion</span></h2>
     <div class="timeline">
       <div class="t-item reveal">
         <span class="t-date">2025 — Present</span>
         <h3>AI Video Ad Creator — Self-produced Portfolio</h3>
         <p>Creating AI-generated video ads and animated content for local and online brands — concept, generation, editing and delivery, end to end.</p>
+      </div>
+      <div class="t-item reveal">
+        <span class="t-date">Websites</span>
+        <h3>Website Developer — Client Projects</h3>
+        <p>Designed and built live business websites, including Sapna Home (furniture brand, Kot Addu) and Babu Collection (fashion brand, Rawalpindi).</p>
       </div>
       <div class="t-item reveal">
         <span class="t-date">2016 — Present</span>
@@ -149,21 +305,19 @@
       </div>
       <div class="t-item reveal">
         <span class="t-date">Education</span>
-        <h3>B.Com — Bahauddin Zakariya University</h3>
-        <p>2016 – 2018</p>
-        <h3>MA Education — Allama Iqbal Open University</h3>
-        <p>2019 – 2021</p>
+        <h3>B.Com — Bahauddin Zakariya University <span class="t-sub">2016 – 2018</span></h3>
+        <h3>MA Education — Allama Iqbal Open University <span class="t-sub">2019 – 2021</span></h3>
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="section about">
-    <p class="section-kicker reveal">04 / ABOUT</p>
-    <h2 class="section-title reveal">Remote Creator,<br>Worldwide Reach</h2>
+    <p class="kicker reveal">11 / ABOUT</p>
+    <h2 class="section-title reveal">Remote Creator,<br><span class="gold-text">Worldwide Reach</span></h2>
     <div class="about-body reveal">
-      <p>I'm Muhammad Adeel, a remote Social Media Manager and Content Creator from Kot Addu, Pakistan. I make scroll-stopping AI video ads and animated content that help brands get noticed, get watched and get customers.</p>
-      <p>Ten years of marketing and communication taught me what makes people buy — now I put that into every frame I create, for clients and brands worldwide.</p>
+      <p>I'm Muhammad Adeel, a remote Social Media Manager and Content Creator from Kot Addu, Pakistan. I make scroll-stopping AI video ads, build websites and apps, and create animated content that helps brands get noticed, get watched and get customers.</p>
+      <p>Ten years of marketing and communication taught me what makes people buy — now I put that into every frame I create and every page I build, for clients and brands worldwide.</p>
     </div>
     <div class="about-facts reveal">
       <div><strong>Based in</strong><span>Kot Addu, Punjab, Pakistan</span></div>
@@ -175,12 +329,13 @@
 
   <!-- CONTACT -->
   <section id="contact" class="section contact">
-    <p class="section-kicker reveal">05 / CONTACT</p>
-    <h2 class="section-title reveal">Have a Project<br>in Mind?</h2>
+    <p class="kicker reveal">12 / CONTACT</p>
+    <h2 class="section-title reveal">Have a Project<br><span class="gold-text">in Mind?</span></h2>
     <p class="section-sub reveal">Let's make something that stops the scroll. Message me — I reply fast.</p>
     <div class="contact-cta reveal">
-      <a class="btn btn-glow btn-big" href="https://wa.me/923318009893" target="_blank" rel="noopener">💬 WhatsApp: +92 331 8009893</a>
-      <a class="btn btn-outline btn-big" href="mailto:amarquraishi@yahoo.com">✉️ amarquraishi@yahoo.com</a>
+      <a class="btn btn-glow btn-big magnetic" href="https://wa.me/923318009893" target="_blank" rel="noopener">WhatsApp: +92 331 8009893</a>
+      <a class="btn btn-outline btn-big magnetic" href="mailto:amarquraishi@yahoo.com">amarquraishi@yahoo.com</a>
+      <a class="btn btn-outline btn-big magnetic" href="assets/muhammad-adeel-cv.pdf" download>Download CV</a>
     </div>
     <div class="contact-meta reveal">
       <div><strong>Phone</strong><span>+92 331 8009893</span></div>
@@ -194,9 +349,15 @@
 <footer>
   <div class="foot-inner">
     <span>© 2026 Muhammad Adeel. All rights reserved.</span>
-    <span class="foot-tag">AI Videos • Animated Videos • Social Media</span>
+    <span class="foot-tag">AI Videos • Websites • Apps • Social Media</span>
+    <a class="foot-top" href="#top">Back to top ↑</a>
   </div>
 </footer>
+
+<!-- FLOATING WHATSAPP -->
+<a id="waFloat" href="https://wa.me/923318009893" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 2 6.5L4 29l7.7-2c1.8 1 3.9 1.6 6.1 1.6h.2c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.6 1.2 1.2-4.5-.3-.4c-1-1.6-1.6-3.5-1.6-5.4C5 9.9 10 5 16 5s11 4.9 11 11-4.9 8.8-11 8.8zm6-8.1c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-.9-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.2-.6l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6-.1-.2-.7-1.8-1-2.4-.3-.6-.5-.6-.7-.6h-.6c-.2 0-.6.2-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.4c.1.2 2.2 3.4 5.4 4.8 1.9.8 2.6.9 3.5.7.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
 
 <!-- VIDEO MODAL -->
 <div id="modal" aria-hidden="true" role="dialog" aria-label="Video player">
