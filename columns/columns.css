@@ -1,0 +1,52 @@
+/* Column pages — Ivory & Honey (v3 light), with Urdu RTL support */
+:root{
+  --cream:#FBF6EC; --cream2:#F6EEDD;
+  --gold:#f2b233; --gold-deep:#b96a0b;
+  --ink:#2B2318; --ink-dim:#6f6653; --ink-faint:#a79a83;
+  --card-border:rgba(217,142,27,.22);
+  --font-display:"Fraunces",Georgia,serif;
+  --font-body:"Inter",system-ui,-apple-system,Roboto,"Segoe UI",Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Code",Consolas,monospace;
+  --font-urdu:"Noto Nastaliq Urdu","Jameel Noori Nastaleeq",Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-body);color:var(--ink);line-height:1.8;
+  background:
+    radial-gradient(1000px 700px at 80% -5%, rgba(242,178,51,.16), transparent 60%),
+    radial-gradient(800px 600px at 5% 40%, rgba(167,155,232,.12), transparent 60%),
+    linear-gradient(180deg,var(--cream),var(--cream2));min-height:100vh}
+html[dir="rtl"] body{font-family:var(--font-urdu),var(--font-body);line-height:2.3}
+::selection{background:var(--gold);color:#3a2708}
+.post-wrap{max-width:760px;margin:0 auto;padding:110px 22px 90px}
+.back{display:inline-block;margin-bottom:34px;color:var(--gold-deep);text-decoration:none;font-weight:700;letter-spacing:.06em;font-size:14px}
+.back:hover{color:var(--ink)}
+.post-kicker{font-family:var(--font-mono);font-size:11px;letter-spacing:.32em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:16px;font-weight:700}
+html[dir="rtl"] .post-kicker{letter-spacing:.1em}
+h1{font-family:var(--font-display);font-size:clamp(30px,5vw,46px);font-weight:900;line-height:1.25;margin-bottom:14px;letter-spacing:-.01em}
+html[dir="rtl"] h1{font-family:var(--font-urdu);line-height:2}
+h1 .gold-text{font-style:italic;background:linear-gradient(100deg,var(--gold-deep),var(--gold) 60%,#f7d488);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.byline{color:var(--ink-faint);font-size:14px;margin-bottom:8px}
+.honest-note{display:inline-block;margin:6px 0 26px;padding:8px 18px;border:1px dashed var(--card-border);
+  border-radius:999px;font-size:13px;color:var(--ink-dim);background:rgba(255,255,255,.6)}
+.post-body p{color:var(--ink-dim);font-size:17px;margin-bottom:20px}
+html[dir="rtl"] .post-body p{font-size:18px}
+.post-body p strong{color:var(--ink)}
+.post-body p em{color:var(--ink)}
+.post-body h2{font-family:var(--font-display);font-size:23px;margin:34px 0 12px;color:var(--ink)}
+html[dir="rtl"] .post-body h2{font-family:var(--font-urdu)}
+.post-body ul{margin:0 0 22px 4px;list-style:none}
+.post-body ul li{color:var(--ink-dim);font-size:16.5px;margin-bottom:12px;padding-left:26px;position:relative}
+html[dir="rtl"] .post-body ul li{padding-left:0;padding-right:26px}
+.post-body ul li::before{content:"✦";position:absolute;left:0;color:var(--gold-deep)}
+html[dir="rtl"] .post-body ul li::before{left:auto;right:0}
+.pullquote{margin:30px 0;padding:22px 26px;border-left:4px solid var(--gold);background:rgba(255,255,255,.65);
+  border-radius:0 16px 16px 0;font-family:var(--font-display);font-size:20px;color:var(--ink);font-style:italic}
+html[dir="rtl"] .pullquote{border-left:none;border-right:4px solid var(--gold);border-radius:16px 0 0 16px;font-family:var(--font-urdu);font-style:normal}
+.post-cta{margin-top:44px;padding:30px;border:1.5px solid var(--card-border);border-radius:18px;
+  background:#fff;box-shadow:0 24px 55px rgba(170,120,50,.14);text-align:center}
+.post-cta p{color:var(--ink-dim);margin-bottom:18px}
+.btn{display:inline-block;padding:14px 34px;border-radius:999px;font-weight:700;text-decoration:none;
+  background:linear-gradient(100deg,var(--gold-deep),var(--gold) 55%,#f7d488);color:#fff;
+  box-shadow:0 12px 28px rgba(217,142,27,.35)}
+footer{border-top:1px solid var(--card-border);padding:26px;text-align:center;color:var(--ink-faint);font-size:13px}
