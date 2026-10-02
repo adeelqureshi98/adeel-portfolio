@@ -249,26 +249,25 @@
   els.forEach(function(el){ wio.observe(el); });
 })();
 
-/* ---------- v3.3: Services 3D orbit carousel ----------
-   Slow auto-rotating ring of the 5 skill cards (CSS 3D).
-   Pauses on hover/focus; arrows + dots + keyboard; mobile = swipe snap;
-   reduced-motion = static grid (handled via .orbit-static class). */
+/* ---------- v3.6: Services Spotlight ----------
+   One featured skill panel at a time (fixed height — always equal).
+   Auto-advances every 6s with a cinematic crossfade; pause on hover/focus,
+   arrows + dots + chips + keyboard; auto-resume after 7s; tab-hidden pauses.
+   reduced-motion = all 5 as a clean equal grid (.spot-static). */
 (function(){
-  var stage = document.getElementById("orbitStage");
+  var stage = document.getElementById("spotStage");
   if(!stage) return;
-  var track = document.getElementById("orbitTrack");
-  var cards = Array.prototype.slice.call(track.querySelectorAll(".orbit-card"));
-  var dotsWrap = stage.querySelector(".orbit-dots");
-  var prevBtn = stage.querySelector(".orbit-prev");
-  var nextBtn = stage.querySelector(".orbit-next");
-  var n = cards.length;
+  var panels = Array.prototype.slice.call(stage.querySelectorAll(".spot-panel"));
+  var chips = Array.prototype.slice.call(stage.querySelectorAll(".spot-chip"));
+  var dotsWrap = stage.querySelector(".spot-dots");
+  var prevBtn = stage.querySelector(".spot-prev");
+  var nextBtn = stage.querySelector(".spot-next");
+  var n = panels.length;
   if(!n) return;
-  var STEP = 360 / n;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var mqMobile = window.matchMedia("(max-width: 680px)");
-  if(reduceMotion){ stage.classList.add("orbit-static"); return; }
+  if(reduceMotion){ stage.classList.add("spot-static"); return; }
 
-  var dots = cards.map(function(_, i){
+  var dots = panels.map(function(_, i){
     var d = document.createElement("button");
     d.type = "button";
     d.setAttribute("aria-label", "Show service " + (i + 1) + " of " + n);
@@ -277,112 +276,56 @@
     return d;
   });
 
-  var angle = 0, active = false, raf = null, last = 0, tween = null, resumeTimer = null;
-  var SPEED = 7; /* degrees per second — slow, majestic */
+  var cur = 0, timer = null, resumeTimer = null;
+  var INTERVAL = 6000, RESUME = 7000;
 
-  function radius(){ return Math.max(300, Math.min(520, stage.clientWidth * 0.44)); }
-  function norm(a){ return ((a % 360) + 360) % 360; }
-
-  function render(){
-    var r = radius();
-    track.style.transform = "translateZ(" + (-r) + "px) rotateY(" + angle + "deg)";
-    var front = 0, best = 999;
-    cards.forEach(function(card, i){
-      var a = i * STEP;
-      card.style.transform = "rotateY(" + a + "deg) translateZ(" + r + "px)";
-      var rel = norm(a + angle);
-      var dist = Math.min(rel, 360 - rel);
-      var facing = Math.cos(rel * Math.PI / 180);
-      if(facing < -0.35){ card.style.opacity = "0"; card.style.visibility = "hidden"; }
-      else{
-        card.style.opacity = facing < 0.4 ? "0.45" : "1";
-        card.style.visibility = "visible";
-      }
-      var isFront = dist < STEP / 2;
-      card.classList.toggle("is-front", isFront);
-      if(isFront){ card.removeAttribute("aria-hidden"); } else { card.setAttribute("aria-hidden", "true"); }
-      if(dist < best){ best = dist; front = i; }
-    });
-    dots.forEach(function(d, i){ d.classList.toggle("active", i === front); });
-    return front;
+  function stopAuto(){ if(timer){ clearInterval(timer); timer = null; } }
+  function startAuto(){
+    if(timer || document.hidden) return;
+    timer = setInterval(function(){ goTo(cur + 1); }, INTERVAL);
   }
-  function currentFront(){
-    var best = 0, bd = 999;
-    cards.forEach(function(_, i){
-      var rel = norm(i * STEP + angle), d = Math.min(rel, 360 - rel);
-      if(d < bd){ bd = d; best = i; }
-    });
-    return best;
-  }
-  function tick(t){
-    if(!active) return;
-    if(!last) last = t;
-    var dt = (t - last) / 1000; last = t;
-    angle = norm(angle + SPEED * dt);
-    render();
-    raf = requestAnimationFrame(tick);
-  }
-  function start(){
-    if(active || mqMobile.matches || document.hidden) return;
-    active = true; last = 0; raf = requestAnimationFrame(tick);
-  }
-  function stop(){
-    active = false;
-    if(raf) cancelAnimationFrame(raf); raf = null;
-    if(tween) cancelAnimationFrame(tween); tween = null;
-  }
-  function pauseTemp(){
-    stop();
+  function restartAuto(){
+    stopAuto();
     if(resumeTimer) clearTimeout(resumeTimer);
-    resumeTimer = setTimeout(start, 7000);
+    resumeTimer = setTimeout(startAuto, RESUME);
   }
-  function animateTo(target){
-    stop();
-    if(resumeTimer) clearTimeout(resumeTimer);
-    var cur = norm(angle), delta = norm(target) - cur;
-    if(delta > 180) delta -= 360;
-    if(delta < -180) delta += 360;
-    var from = angle, to = angle + delta, t0 = null;
-    function frame(t){
-      if(!t0) t0 = t;
-      var p = Math.min((t - t0) / 650, 1);
-      var e = 1 - Math.pow(1 - p, 3);
-      angle = norm(from + (to - from) * e);
-      render();
-      if(p < 1){ tween = requestAnimationFrame(frame); }
-      else{ tween = null; pauseTemp(); }
-    }
-    tween = requestAnimationFrame(frame);
+  function goTo(i){
+    i = ((i % n) + n) % n;
+    if(i === cur){ restartAuto(); return; }
+    panels[cur].classList.remove("is-active");
+    panels[cur].setAttribute("aria-hidden", "true");
+    chips[cur].classList.remove("is-active");
+    chips[cur].setAttribute("aria-selected", "false");
+    cur = i;
+    panels[cur].classList.add("is-active");
+    panels[cur].removeAttribute("aria-hidden");
+    chips[cur].classList.add("is-active");
+    chips[cur].setAttribute("aria-selected", "true");
+    dots.forEach(function(d, j){ d.classList.toggle("active", j === cur); });
+    restartAuto();
   }
-  function goTo(i){ animateTo(-i * STEP); }
 
-  prevBtn.addEventListener("click", function(){ goTo((currentFront() - 1 + n) % n); });
-  nextBtn.addEventListener("click", function(){ goTo((currentFront() + 1) % n); });
-  stage.addEventListener("keydown", function(ev){
-    if(ev.key === "ArrowRight"){ ev.preventDefault(); goTo((currentFront() + 1) % n); }
-    else if(ev.key === "ArrowLeft"){ ev.preventDefault(); goTo((currentFront() - 1 + n) % n); }
+  prevBtn.addEventListener("click", function(){ goTo(cur - 1); });
+  nextBtn.addEventListener("click", function(){ goTo(cur + 1); });
+  chips.forEach(function(c, i){
+    c.setAttribute("aria-selected", i === 0 ? "true" : "false");
+    c.addEventListener("click", function(){ goTo(i); });
   });
-  stage.addEventListener("pointerenter", function(){ stop(); if(resumeTimer) clearTimeout(resumeTimer); });
-  stage.addEventListener("pointerleave", function(){ pauseTemp(); });
-  stage.addEventListener("focusin", function(){ stop(); if(resumeTimer) clearTimeout(resumeTimer); });
-  stage.addEventListener("focusout", function(){ pauseTemp(); });
-  document.addEventListener("visibilitychange", function(){ document.hidden ? stop() : start(); });
+  stage.addEventListener("keydown", function(ev){
+    if(ev.key === "ArrowRight"){ ev.preventDefault(); goTo(cur + 1); }
+    else if(ev.key === "ArrowLeft"){ ev.preventDefault(); goTo(cur - 1); }
+  });
+  stage.addEventListener("pointerenter", function(){ stopAuto(); if(resumeTimer) clearTimeout(resumeTimer); });
+  stage.addEventListener("pointerleave", restartAuto);
+  stage.addEventListener("focusin", function(){ stopAuto(); if(resumeTimer) clearTimeout(resumeTimer); });
+  stage.addEventListener("focusout", restartAuto);
+  document.addEventListener("visibilitychange", function(){ document.hidden ? stopAuto() : startAuto(); });
 
-  function teardown(){
-    stop();
-    cards.forEach(function(c){
-      c.style.transform = ""; c.style.opacity = ""; c.style.visibility = "";
-      c.classList.remove("is-front"); c.removeAttribute("aria-hidden");
-    });
-    track.style.transform = "";
-  }
-  function setup(){
-    if(mqMobile.matches){ teardown(); return; }
-    render(); start();
-  }
-  if(mqMobile.addEventListener){ mqMobile.addEventListener("change", setup); }
-  setup();
+  panels.forEach(function(p, i){ if(i !== 0) p.setAttribute("aria-hidden", "true"); });
+  dots[0].classList.add("active");
+  startAuto();
 })();
+
 
 /* ---------- v3.4: Cinematic scroll moments ---------- */
 (function(){
