@@ -103,3 +103,9 @@ Owner: background must be a REAL animated video across the ENTIRE page (not just
 - `.bg-stage` now holds a fixed `object-fit:cover` video + `.bg-scrim` (ivory gradient ~60-82% + champagne radial glow) + grain. `prefers-reduced-motion` falls back to the poster frame. Video pauses when tab hidden (battery).
 - Luxury finish: champagne inset highlight added to `--shadow-float`/`--shadow-lift`; ivory text-shadows on hero H1, hero text and section titles for readability over the moving silk.
 - Verified: local headless-Chromium screenshots (hero, services, FAQ, work, contact, mobile) — video playing, all text readable; live: root 200 with bg-video markup, page-bg.mp4 200 video/mp4, poster 200.
+
+## v3.2 — Podcast + Blog & Columns (2026-10-02)
+- New "03 / PODCAST" section ("Conversations That Matter") between Video Ads and Websites; 4 QA-passed episodes of "Podcast with Adeel" (ep01, ep04, ep05 + Urdu rain-studio special), compressed to ~3MB each, posters extracted, played via existing modal player. Skipped ep02 (mirrored background text), others redundant/short.
+- Insights renamed "09 / BLOG & COLUMNS" ("Writing That Thinks"): 3 fresh professional blogs (AI video ads, social media truths, website conversion) replaced the 3 generic posts; 5 original columns added (3 Urdu: baldiyati nizam, mehngai, naujawan/rozgar; 2 English: world order, digital freelancing) — balanced, non-partisan, labeled honestly as "Original columns written for this portfolio", no invented publications/dates.
+- Hero headline + About + Experience timeline + nav + footer updated (Podcaster • Blogger & Columnist). Sections renumbered 01–13. New .sub-head style, columns/columns.css with Urdu RTL/Nastaliq support.
+- QA: tag-balance clean on all 9 HTML files, local link audit clean, 15/15 live URLs 200 (old blog URLs correctly 404), video/mp4 content-type confirmed, desktop + mobile screenshots verified.
