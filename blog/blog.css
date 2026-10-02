@@ -1,33 +1,37 @@
-/* Blog post pages — Molten Gold Noir */
+/* Blog post pages — Ivory & Honey (v3 light) */
 :root{
-  --bg0:#07060c; --bg1:#100d18;
-  --gold:#f2b233; --gold-deep:#d98e1b; --champagne:#f7d488;
-  --ink:#f5f1e8; --ink-dim:#b8b2a6; --ink-faint:#7d7769;
-  --card-border:rgba(242,178,51,.16);
-  --font-display:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --cream:#FBF6EC; --cream2:#F6EEDD;
+  --gold:#f2b233; --gold-deep:#b96a0b;
+  --ink:#2B2318; --ink-dim:#6f6653; --ink-faint:#a79a83;
+  --card-border:rgba(217,142,27,.22);
+  --font-display:"Fraunces",Georgia,serif;
+  --font-body:"Inter",system-ui,-apple-system,Roboto,"Segoe UI",Arial,sans-serif;
   --font-mono:ui-monospace,"Cascadia Code",Consolas,monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:var(--font-display);color:var(--ink);line-height:1.8;
-  background:radial-gradient(1000px 700px at 80% -5%, rgba(109,40,217,.12), transparent 60%),
-             linear-gradient(180deg,var(--bg0),var(--bg1));min-height:100vh}
-::selection{background:var(--gold);color:#1a1206}
+body{font-family:var(--font-body);color:var(--ink);line-height:1.8;
+  background:
+    radial-gradient(1000px 700px at 80% -5%, rgba(242,178,51,.16), transparent 60%),
+    radial-gradient(800px 600px at 5% 40%, rgba(167,155,232,.12), transparent 60%),
+    linear-gradient(180deg,var(--cream),var(--cream2));min-height:100vh}
+::selection{background:var(--gold);color:#3a2708}
 .post-wrap{max-width:760px;margin:0 auto;padding:110px 22px 90px}
-.back{display:inline-block;margin-bottom:34px;color:var(--champagne);text-decoration:none;font-weight:700;letter-spacing:.06em;font-size:14px}
-.back:hover{color:var(--gold)}
-.post-date{font-family:var(--font-mono);font-size:11px;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
-h1{font-size:clamp(30px,5vw,46px);font-weight:900;line-height:1.15;margin-bottom:26px;letter-spacing:-.01em}
-h1 .gold-text{background:linear-gradient(100deg,var(--champagne),var(--gold) 45%,var(--gold-deep));
+.back{display:inline-block;margin-bottom:34px;color:var(--gold-deep);text-decoration:none;font-weight:700;letter-spacing:.06em;font-size:14px}
+.back:hover{color:var(--ink)}
+.post-date{font-family:var(--font-mono);font-size:11px;letter-spacing:.32em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:16px;font-weight:700}
+h1{font-family:var(--font-display);font-size:clamp(30px,5vw,46px);font-weight:900;line-height:1.15;margin-bottom:26px;letter-spacing:-.01em}
+h1 .gold-text{font-style:italic;background:linear-gradient(100deg,var(--gold-deep),var(--gold) 60%,#f7d488);
   -webkit-background-clip:text;background-clip:text;color:transparent}
 .post-body p{color:var(--ink-dim);font-size:17px;margin-bottom:20px}
 .post-body p strong{color:var(--ink)}
-.post-body h2{font-size:22px;margin:34px 0 12px;color:var(--ink)}
+.post-body h2{font-family:var(--font-display);font-size:23px;margin:34px 0 12px;color:var(--ink)}
 .post-body ul{margin:0 0 22px 4px;list-style:none}
 .post-body ul li{color:var(--ink-dim);font-size:16.5px;margin-bottom:12px;padding-left:26px;position:relative}
-.post-body ul li::before{content:"✦";position:absolute;left:0;color:var(--gold)}
-.post-cta{margin-top:44px;padding:30px;border:1px solid var(--card-border);border-radius:18px;
-  background:rgba(255,255,255,.03);text-align:center}
+.post-body ul li::before{content:"✦";position:absolute;left:0;color:var(--gold-deep)}
+.post-cta{margin-top:44px;padding:30px;border:1.5px solid var(--card-border);border-radius:18px;
+  background:#fff;box-shadow:0 24px 55px rgba(170,120,50,.14);text-align:center}
 .post-cta p{color:var(--ink-dim);margin-bottom:18px}
 .btn{display:inline-block;padding:14px 34px;border-radius:999px;font-weight:700;text-decoration:none;
-  background:linear-gradient(100deg,var(--gold-deep),var(--gold) 55%,var(--champagne));color:#221503}
-footer{border-top:1px solid rgba(242,178,51,.14);padding:26px;text-align:center;color:var(--ink-faint);font-size:13px}
+  background:linear-gradient(100deg,var(--gold-deep),var(--gold) 55%,#f7d488);color:#fff;
+  box-shadow:0 12px 28px rgba(217,142,27,.35)}
+footer{border-top:1px solid var(--card-border);padding:26px;text-align:center;color:var(--ink-faint);font-size:13px}
