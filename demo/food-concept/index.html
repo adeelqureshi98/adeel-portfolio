@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zaiqa House — Real Desi Fire, Zero Shortcuts (Concept)</title>
+<meta name="description" content="Zaiqa House is a fictional modern desi food brand concept: slow-cooked karahi, hand-layered biryani, fresh naan — delivered hot. Concept demo built for portfolio showcase.">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body id="top">
+
+<!-- Fixed concept badge -->
+<div class="concept-badge" aria-label="Concept project">
+  <span class="concept-badge__dot"></span> Concept Project
+</div>
+
+<!-- Loader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <div class="loader__mark">Z</div>
+    <div class="loader__word">ZAIQA HOUSE</div>
+    <div class="loader__bar"><span id="loaderBar"></span></div>
+    <div class="loader__pct" id="loaderPct">0%</div>
+  </div>
+</div>
+
+<!-- Cursor glow (desktop only) -->
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="brand" aria-label="Zaiqa House home">
+      <span class="brand__flame" aria-hidden="true">
+        <svg viewBox="0 0 28 36" width="24" height="30"><path d="M14 2 C18 8 24 12 24 21 a10 10 0 0 1 -20 0 C4 12 10 8 14 2 Z" fill="url(#brandFlame)"/><path d="M14 13 c2 3 5 5 5 9 a5 5 0 0 1 -10 0 c0-4 3-6 5-9 Z" fill="#7a2c05" opacity="0.55"/><defs><linearGradient id="brandFlame" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7d488"/><stop offset="0.6" stop-color="#f2b233"/><stop offset="1" stop-color="#d98e1b"/></linearGradient></defs></svg>
+      </span>
+      <span class="brand__text">ZAIQA <em>HOUSE</em></span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#dishes">Dishes</a>
+      <a href="#story">Our Story</a>
+      <a href="#why">Why Us</a>
+      <a href="#order">Order</a>
+    </nav>
+    <div class="nav__actions">
+      <a href="#order" class="btn btn--gold btn--sm magnetic">Order Now</a>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__layer hero__layer--back" data-depth="0.04">
+      <div class="hero__glow hero__glow--ember"></div>
+      <div class="hero__glow hero__glow--gold"></div>
+      <div class="hero__glow hero__glow--violet"></div>
+    </div>
+    <div class="hero__layer hero__layer--mid" data-depth="0.10" aria-hidden="true">
+      <!-- Karahi pot silhouette with fire glow -->
+      <svg class="float float--karahi" viewBox="0 0 360 300">
+        <defs>
+          <radialGradient id="fireGlow" cx="0.5" cy="0.75" r="0.7">
+            <stop offset="0" stop-color="#f2b233" stop-opacity="0.55"/><stop offset="1" stop-color="#f2b233" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="karahiBody" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#3a3a44"/><stop offset="1" stop-color="#141419"/>
+          </linearGradient>
+          <linearGradient id="curryGlow" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f7a53c"/><stop offset="1" stop-color="#a34d0e"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="180" cy="230" rx="150" ry="60" fill="url(#fireGlow)"/>
+        <path d="M60 120 Q180 300 300 120 L286 118 Q180 270 74 118 Z" fill="url(#karahiBody)"/>
+        <ellipse cx="180" cy="118" rx="120" ry="26" fill="#0c0c10"/>
+        <ellipse cx="180" cy="116" rx="104" ry="20" fill="url(#curryGlow)"/>
+        <ellipse cx="150" cy="112" rx="30" ry="7" fill="#f7d488" opacity="0.5"/>
+        <rect x="52" y="104" width="18" height="34" rx="9" fill="#2a2a32" transform="rotate(-24 61 121)"/>
+        <rect x="290" y="104" width="18" height="34" rx="9" fill="#2a2a32" transform="rotate(24 299 121)"/>
+        <path d="M120 240 q10 -18 0 -36 q-10 18 0 36" fill="#f2b233" opacity="0.8"/>
+        <path d="M180 250 q12 -22 0 -44 q-12 22 0 44" fill="#f7d488" opacity="0.85"/>
+        <path d="M240 240 q10 -18 0 -36 q-10 18 0 36" fill="#d98e1b" opacity="0.8"/>
+      </svg>
+      <!-- Rising steam wisps -->
+      <svg class="steam steam--1" viewBox="0 0 60 160">
+        <path d="M30 150 C14 120 46 100 30 70 C14 40 46 24 30 4" fill="none" stroke="#f5f1e8" stroke-width="5" stroke-linecap="round" opacity="0.35"/>
+      </svg>
+      <svg class="steam steam--2" viewBox="0 0 60 160">
+        <path d="M30 150 C46 120 14 100 30 70 C46 40 14 24 30 4" fill="none" stroke="#f5f1e8" stroke-width="4" stroke-linecap="round" opacity="0.28"/>
+      </svg>
+      <svg class="steam steam--3" viewBox="0 0 60 160">
+        <path d="M30 150 C14 120 46 100 30 70 C14 40 46 24 30 4" fill="none" stroke="#f5f1e8" stroke-width="6" stroke-linecap="round" opacity="0.22"/>
+      </svg>
+      <!-- Floating spices -->
+      <span class="spice spice--chili" aria-hidden="true">
+        <svg viewBox="0 0 90 40"><path d="M8 26 C30 34 58 32 78 12 C60 26 34 28 8 26 Z" fill="#c0392b"/><path d="M76 14 q8 -8 4 -12 q-2 8 -8 8" fill="#3e6b1f" stroke-width="3"/></svg>
+      </span>
+      <span class="spice spice--leaf" aria-hidden="true">
+        <svg viewBox="0 0 60 60"><ellipse cx="30" cy="30" rx="22" ry="12" fill="#5d7a2a" transform="rotate(-30 30 30)"/><line x1="10" y1="42" x2="50" y2="18" stroke="#3e5a1a" stroke-width="2"/></svg>
+      </span>
+      <span class="spice spice--star" aria-hidden="true">✦</span>
+      <span class="spice spice--seed" aria-hidden="true"></span>
+      <span class="spice spice--seed spice--seed2" aria-hidden="true"></span>
+    </div>
+    <div class="hero__layer hero__layer--front" data-depth="0.18" aria-hidden="true">
+      <span class="spark spark--1">✦</span>
+      <span class="spark spark--2">✦</span>
+      <span class="spark spark--3">✦</span>
+    </div>
+    <div class="hero__leak" aria-hidden="true"></div>
+    <div class="hero__vignette" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero__content">
+    <p class="kicker reveal">Modern Desi Kitchen · Concept Showcase</p>
+    <h1 class="hero__title">
+      <span class="reveal">Real desi fire.</span>
+      <span class="reveal reveal--d1"><em class="gold-text">Zero shortcuts.</em></span>
+    </h1>
+    <p class="hero__sub reveal reveal--d2">Zaiqa House slow-cooks the classics you grew up on — karahi on open flame, biryani layered by hand, naan slapped fresh to order — and delivers them steaming hot to your door.</p>
+    <div class="hero__cta reveal reveal--d3">
+      <a href="#dishes" class="btn btn--gold magnetic">See the Menu</a>
+      <a href="#order" class="btn btn--ghost magnetic">Order on WhatsApp</a>
+    </div>
+  </div>
+
+  <a href="#stats" class="hero__scroll" aria-label="Scroll to stats">
+    <span class="hero__scroll-line"></span> Scroll
+  </a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Chicken Karahi</span><i>✦</i><span>Beef Biryani</span><i>✦</i><span>Seekh Kabab</span><i>✦</i><span>Daal Fry</span><i>✦</i><span>Fresh Naan</span><i>✦</i><span>Gulab Jamun</span><i>✦</i><span>Open-Flame Cooking</span><i>✦</i><span>Hot &amp; Fast Delivery</span><i>✦</i>
+    <span>Chicken Karahi</span><i>✦</i><span>Beef Biryani</span><i>✦</i><span>Seekh Kabab</span><i>✦</i><span>Daal Fry</span><i>✦</i><span>Fresh Naan</span><i>✦</i><span>Gulab Jamun</span><i>✦</i><span>Open-Flame Cooking</span><i>✦</i><span>Hot &amp; Fast Delivery</span><i>✦</i>
+  </div>
+</div>
+
+<!-- ============ STATS ============ -->
+<section class="stats" id="stats">
+  <div class="wrap stats__grid">
+    <div class="stat reveal">
+      <div class="stat__num"><span class="counter" data-target="25">0</span>+</div>
+      <div class="stat__label">Dishes on the Menu</div>
+    </div>
+    <div class="stat reveal reveal--d1">
+      <div class="stat__num"><span class="counter" data-target="18000">0</span>+</div>
+      <div class="stat__label">Orders Delivered</div>
+    </div>
+    <div class="stat reveal reveal--d2">
+      <div class="stat__num">4.9<span class="stat__star">★</span></div>
+      <div class="stat__label">Average Rating</div>
+    </div>
+    <div class="stat reveal reveal--d3">
+      <div class="stat__num"><span class="counter" data-target="45">0</span> min</div>
+      <div class="stat__label">Average Delivery</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNATURE DISHES ============ -->
+<section class="section" id="dishes">
+  <div class="wrap">
+    <p class="kicker reveal">Signature Dishes</p>
+    <div class="section__head">
+      <h2 class="reveal">Cooked slow.<br>Served <em class="gold-text">steaming.</em></h2>
+      <p class="section__lede reveal reveal--d1">Six plates that made our name. Every masala ground fresh each morning; nothing from a packet, ever.</p>
+    </div>
+
+    <div class="cards cards--3">
+      <!-- Chicken Karahi -->
+      <article class="card tilt reveal">
+        <div class="card__art" aria-hidden="true">
+          <svg viewBox="0 0 400 240">
+            <defs>
+              <radialGradient id="d1bg" cx="0.5" cy="0.35" r="0.8"><stop offset="0" stop-color="#3a1c0e"/><stop offset="1" stop-color="#120905"/></radialGradient>
+              <linearGradient id="d1curry" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7a53c"/><stop offset="1" stop-color="#9c4a0c"/></linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#d1bg)"/>
+            <ellipse cx="200" cy="190" rx="130" ry="42" fill="#f2b233" opacity="0.14"/>
+            <path d="M90 110 Q200 260 310 110 L296 108 Q200 236 104 108 Z" fill="#1c1c22"/>
+            <ellipse cx="200" cy="108" rx="105" ry="22" fill="#0b0b0f"/>
+            <ellipse cx="200" cy="106" rx="90" ry="17" fill="url(#d1curry)"/>
+            <ellipse cx="172" cy="102" rx="24" ry="6" fill="#f7d488" opacity="0.55"/>
+            <circle cx="160" cy="106" r="7" fill="#7a2c05"/><circle cx="200" cy="110" r="8" fill="#8a3408"/><circle cx="240" cy="104" r="7" fill="#7a2c05"/>
+            <path d="M150 60 C140 44 160 36 152 20" stroke="#f5f1e8" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.4"/>
+            <path d="M205 64 C215 46 195 38 203 22" stroke="#f5f1e8" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.32"/>
+            <path d="M255 58 C245 44 265 36 257 22" stroke="#f5f1e8" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.36"/>
+          </svg>
+          <span class="heat heat--3">●●● Spicy</span>
+        </div>
+        <div class="card__body">
+          <h3>Chicken Karahi</h3>
+          <p>Tomato, ginger and green chilli reduced down in the wok over open flame — finished with fresh coriander and a squeeze of lemon.</p>
+          <a href="#order" class="card__link magnetic">Order on WhatsApp <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- Beef Biryani -->
+      <article class="card tilt reveal reveal--d1">
+        <div class="card__art" aria-hidden="true">
+          <svg viewBox="0 0 400 240">
+            <defs>
+              <radialGradient id="d2bg" cx="0.5" cy="0.35" r="0.8"><stop offset="0" stop-color="#2c2410"/><stop offset="1" stop-color="#100c05"/></radialGradient>
+              <linearGradient id="d2rice" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7d488"/><stop offset="1" stop-color="#c98f2b"/></linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#d2bg)"/>
+            <ellipse cx="200" cy="200" rx="140" ry="30" fill="#f2b233" opacity="0.12"/>
+            <path d="M110 130 h180 l-14 70 h-152 Z" fill="#2a2a32"/>
+            <path d="M110 130 h180 l-4 16 h-172 Z" fill="#3a3a44"/>
+            <ellipse cx="200" cy="130" rx="90" ry="18" fill="#101014"/>
+            <path d="M112 128 q20 -34 48 -22 q14 -26 40 -18 q22 -20 44 -8 q26 -10 44 14 q10 10 2 34 Z" fill="url(#d2rice)"/>
+            <circle cx="160" cy="100" r="4" fill="#c0392b"/><circle cx="210" cy="92" r="4" fill="#c0392b"/><circle cx="250" cy="102" r="4" fill="#7a2c05"/>
+            <ellipse cx="200" cy="82" rx="3" ry="8" fill="#e8a13c" transform="rotate(20 200 82)"/>
+            <ellipse cx="230" cy="86" rx="3" ry="8" fill="#e8a13c" transform="rotate(-15 230 86)"/>
+            <path d="M170 66 C162 52 178 46 172 32" stroke="#f5f1e8" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.35"/>
+            <path d="M230 68 C238 52 222 46 228 32" stroke="#f5f1e8" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+          <span class="heat heat--2">●● Medium</span>
+        </div>
+        <div class="card__body">
+          <h3>Beef Biryani</h3>
+          <p>Aged basmati layered over tender beef, sealed on dum with saffron milk, fried onions and our house biryani masala.</p>
+          <a href="#order" class="card__link magnetic">Order on WhatsApp <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- Seekh Kabab -->
+      <article class="card tilt reveal reveal--d2">
+        <div class="card__art" aria-hidden="true">
+          <svg viewBox="0 0 400 240">
+            <defs>
+              <radialGradient id="d3bg" cx="0.5" cy="0.4" r="0.8"><stop offset="0" stop-color="#331410"/><stop offset="1" stop-color="#120706"/></radialGradient>
+              <linearGradient id="d3meat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a34d2b"/><stop offset="1" stop-color="#5e2410"/></linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#d3bg)"/>
+            <ellipse cx="200" cy="200" rx="150" ry="26" fill="#f2b233" opacity="0.12"/>
+            <g transform="rotate(-18 200 120)">
+              <rect x="60" y="116" width="280" height="7" rx="3.5" fill="#8a8a94"/>
+              <ellipse cx="130" cy="119" rx="34" ry="17" fill="url(#d3meat)"/>
+              <ellipse cx="200" cy="119" rx="34" ry="17" fill="url(#d3meat)"/>
+              <ellipse cx="270" cy="119" rx="34" ry="17" fill="url(#d3meat)"/>
+              <path d="M120 108 l6 6 M140 106 l4 8 M195 106 l5 7 M262 107 l6 6" stroke="#3a1408" stroke-width="3"/>
+            </g>
+            <g transform="rotate(14 200 170)">
+              <rect x="70" y="166" width="260" height="7" rx="3.5" fill="#8a8a94"/>
+              <ellipse cx="150" cy="169" rx="32" ry="16" fill="url(#d3meat)"/>
+              <ellipse cx="222" cy="169" rx="32" ry="16" fill="url(#d3meat)"/>
+              <ellipse cx="292" cy="169" rx="32" ry="16" fill="url(#d3meat)"/>
+            </g>
+            <path d="M150 60 C140 46 156 40 150 26" stroke="#f5f1e8" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.32"/>
+            <path d="M250 64 C260 48 244 42 250 28" stroke="#f5f1e8" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.28"/>
+          </svg>
+          <span class="heat heat--2">●● Medium</span>
+        </div>
+        <div class="card__body">
+          <h3>Seekh Kabab</h3>
+          <p>Hand-minced, charcoal-grilled and brushed with desi ghee — smoky, juicy, served with mint raita and onion rings.</p>
+          <a href="#order" class="card__link magnetic">Order on WhatsApp <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- Daal Fry -->
+      <article class="card tilt reveal">
+        <div class="card__art" aria-hidden="true">
+          <svg viewBox="0 0 400 240">
+            <defs>
+              <radialGradient id="d4bg" cx="0.5" cy="0.35" r="0.8"><stop offset="0" stop-color="#33230e"/><stop offset="1" stop-color="#110b04"/></radialGradient>
+              <linearGradient id="d4daal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2b233"/><stop offset="1" stop-color="#b06a10"/></linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#d4bg)"/>
+            <ellipse cx="200" cy="196" rx="120" ry="26" fill="#f2b233" opacity="0.12"/>
+            <path d="M100 130 h200 a0 0 0 0 1 0 0 l-16 52 a24 24 0 0 1 -24 18 h-120 a24 24 0 0 1 -24 -18 Z" fill="#26262e"/>
+            <ellipse cx="200" cy="130" rx="100" ry="20" fill="#101014"/>
+            <ellipse cx="200" cy="128" rx="86" ry="16" fill="url(#d4daal)"/>
+            <path d="M140 126 q30 10 60 2 q30 -8 60 2" stroke="#8a4d08" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.7"/>
+            <circle cx="180" cy="124" r="5" fill="#c0392b"/><circle cx="225" cy="130" r="5" fill="#c0392b"/>
+            <ellipse cx="200" cy="120" rx="14" ry="6" fill="#f7d488" opacity="0.8"/>
+            <path d="M180 70 C172 56 188 50 182 36" stroke="#f5f1e8" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.35"/>
+            <path d="M225 72 C233 56 217 50 223 36" stroke="#f5f1e8" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+          <span class="heat heat--1">● Mild</span>
+        </div>
+        <div class="card__body">
+          <h3>Daal Fry</h3>
+          <p>Slow-simmered mixed daal finished with a sizzling garlic-and-cumin tarka in desi ghee. Comfort in a bowl.</p>
+          <a href="#order" class="card__link magnetic">Order on WhatsApp <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- Naan Basket -->
+      <article class="card tilt reveal reveal--d1">
+        <div class="card__art" aria-hidden="true">
+          <svg viewBox="0 0 400 240">
+            <defs>
+              <radialGradient id="d5bg" cx="0.5" cy="0.35" r="0.8"><stop offset="0" stop-color="#2e2113"/><stop offset="1" stop-color="#0f0a04"/></radialGradient>
+              <linearGradient id="d5naan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0d9a8"/><stop offset="1" stop-color="#c9a05e"/></linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#d5bg)"/>
+            <ellipse cx="200" cy="198" rx="130" ry="26" fill="#f2b233" opacity="0.12"/>
+            <path d="M110 150 h180 l-12 44 h-156 Z" fill="#6b4a1e"/>
+            <path d="M118 160 h164 M124 172 h152 M130 184 h140" stroke="#4a3010" stroke-width="3"/>
+            <ellipse cx="200" cy="140" rx="86" ry="30" fill="url(#d5naan)" transform="rotate(-8 200 140)"/>
+            <ellipse cx="196" cy="118" rx="78" ry="26" fill="url(#d5naan)" transform="rotate(6 196 118)"/>
+            <ellipse cx="204" cy="98" rx="66" ry="22" fill="#f5e3b8" transform="rotate(-5 204 98)"/>
+            <circle cx="180" cy="94" r="4" fill="#a4762a"/><circle cx="210" cy="100" r="4" fill="#a4762a"/><circle cx="230" cy="92" r="4" fill="#a4762a"/>
+            <path d="M190 52 C184 40 196 36 192 24" stroke="#f5f1e8" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.35"/>
+          </svg>
+          <span class="heat heat--0">Fresh tandoor</span>
+        </div>
+        <div class="card__body">
+          <h3>Naan Basket</h3>
+          <p>Roghni, sesame and garlic naan pulled straight from the tandoor — blistered, buttery, gone in minutes.</p>
+          <a href="#order" class="card__link magnetic">Order on WhatsApp <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- Gulab Jamun -->
+      <article class="card tilt reveal reveal--d2">
+        <div class="card__art" aria-hidden="true">
+          <svg viewBox="0 0 400 240">
+            <defs>
+              <radialGradient id="d6bg" cx="0.5" cy="0.35" r="0.8"><stop offset="0" stop-color="#33182a"/><stop offset="1" stop-color="#12060e"/></radialGradient>
+              <linearGradient id="d6jamun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a4a1a"/><stop offset="1" stop-color="#4a1e08"/></linearGradient>
+              <linearGradient id="d6syrup" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d98e1b" stop-opacity="0.85"/><stop offset="1" stop-color="#8a4d08" stop-opacity="0.85"/></linearGradient>
+            </defs>
+            <rect width="400" height="240" fill="url(#d6bg)"/>
+            <ellipse cx="200" cy="198" rx="130" ry="26" fill="#f2b233" opacity="0.12"/>
+            <path d="M110 140 h180 l-14 48 a20 20 0 0 1 -20 16 h-112 a20 20 0 0 1 -20 -16 Z" fill="#26262e"/>
+            <ellipse cx="200" cy="140" rx="90" ry="18" fill="#101014"/>
+            <ellipse cx="200" cy="138" rx="78" ry="14" fill="url(#d6syrup)"/>
+            <circle cx="168" cy="130" r="20" fill="url(#d6jamun)"/>
+            <circle cx="208" cy="126" r="22" fill="url(#d6jamun)"/>
+            <circle cx="246" cy="132" r="19" fill="url(#d6jamun)"/>
+            <ellipse cx="161" cy="123" rx="6" ry="4" fill="#f7d488" opacity="0.7" transform="rotate(-20 161 123)"/>
+            <ellipse cx="201" cy="118" rx="7" ry="4" fill="#f7d488" opacity="0.7" transform="rotate(-20 201 118)"/>
+            <ellipse cx="240" cy="125" rx="6" ry="4" fill="#f7d488" opacity="0.7" transform="rotate(-20 240 125)"/>
+            <rect x="196" y="100" width="8" height="14" rx="4" fill="#7a9a3a" transform="rotate(24 200 107)"/>
+            <path d="M200 80 C194 68 206 64 202 52" stroke="#f5f1e8" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+          <span class="heat heat--0">Served warm</span>
+        </div>
+        <div class="card__body">
+          <h3>Gulab Jamun</h3>
+          <p>Soft khoya dumplings soaked in rose-cardamom syrup, served warm with a pistachio dusting. The perfect full stop.</p>
+          <a href="#order" class="card__link magnetic">Order on WhatsApp <span>→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUR STORY ============ -->
+<section class="section section--alt" id="story">
+  <div class="wrap split">
+    <div class="split__art reveal" aria-hidden="true">
+      <div class="story-panel">
+        <svg viewBox="0 0 420 480">
+          <defs>
+            <radialGradient id="storyGlow" cx="0.5" cy="0.4" r="0.7">
+              <stop offset="0" stop-color="#f2b233" stop-opacity="0.22"/><stop offset="1" stop-color="#f2b233" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="storyPot" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3a3a44"/><stop offset="1" stop-color="#141419"/>
+            </linearGradient>
+          </defs>
+          <rect width="420" height="480" fill="#0d0a12"/>
+          <circle cx="210" cy="200" r="170" fill="url(#storyGlow)"/>
+          <path d="M90 210 Q210 380 330 210 L316 208 Q210 352 104 208 Z" fill="url(#storyPot)"/>
+          <ellipse cx="210" cy="208" rx="120" ry="24" fill="#0b0b0f"/>
+          <ellipse cx="210" cy="206" rx="104" ry="19" fill="#b06a10"/>
+          <ellipse cx="180" cy="202" rx="30" ry="7" fill="#f7d488" opacity="0.5"/>
+          <path d="M150 130 C138 108 164 100 154 76" stroke="#f5f1e8" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.4"/>
+          <path d="M210 140 C222 114 196 106 206 82" stroke="#f5f1e8" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.32"/>
+          <path d="M268 128 C256 108 282 100 272 78" stroke="#f5f1e8" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.36"/>
+          <path d="M140 300 q12 -22 0 -44 q-12 22 0 44" fill="#f2b233" opacity="0.85"/>
+          <path d="M210 312 q14 -26 0 -52 q-14 26 0 52" fill="#f7d488" opacity="0.9"/>
+          <path d="M280 300 q12 -22 0 -44 q-12 22 0 44" fill="#d98e1b" opacity="0.85"/>
+          <rect x="60" y="400" width="300" height="2" fill="#f2b233" opacity="0.25"/>
+          <text x="210" y="440" text-anchor="middle" fill="#f7d488" font-family="ui-monospace,monospace" font-size="13" letter-spacing="4">SINCE DAY ONE</text>
+        </svg>
+        <div class="story-panel__caption">One wok. One flame. No shortcuts — since day one.</div>
+      </div>
+    </div>
+    <div class="split__copy">
+      <p class="kicker reveal">Our Story</p>
+      <h2 class="reveal">It started with<br>one <em class="gold-text">wok.</em></h2>
+      <p class="section__lede reveal reveal--d1">Zaiqa House began as a home kitchen with a single karahi and a stubborn belief: desi food tastes best when it's cooked the slow way — fresh masalas, open flame, and patience.</p>
+      <p class="story__p reveal reveal--d2">Word travelled faster than our delivery bikes. The weekend karahi nights became a queue, the queue became a kitchen, and the kitchen became the Zaiqa House you see today — but the recipe hasn't changed. We still grind our masalas every morning, still seal every biryani on dum, still slap every naan to order.</p>
+      <p class="story__p reveal reveal--d3">Some call it old-fashioned. We call it the whole point.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="section" id="why">
+  <div class="wrap">
+    <p class="kicker reveal">Why Zaiqa House</p>
+    <div class="section__head">
+      <h2 class="reveal">Three promises,<br>kept <em class="gold-text">daily.</em></h2>
+    </div>
+    <div class="cards cards--3">
+      <article class="card tilt reveal">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="44" height="44"><circle cx="24" cy="24" r="21" fill="none" stroke="url(#w1)" stroke-width="2.5"/><path d="M24 12 v10 l7 5" fill="none" stroke="#f7d488" stroke-width="2.5" stroke-linecap="round"/><defs><linearGradient id="w1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7d488"/><stop offset="1" stop-color="#d98e1b"/></linearGradient></defs></svg>
+        </div>
+        <div class="card__body card__body--plain">
+          <h3>Hygiene, audited</h3>
+          <p>Sealed, tamper-proof packaging on every order. Our kitchen runs daily deep-cleans and weekly third-party hygiene audits — because trust is an ingredient too.</p>
+        </div>
+      </article>
+      <article class="card tilt reveal reveal--d1">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="44" height="44"><path d="M24 6 C28 14 36 18 36 28 a12 12 0 0 1 -24 0 C12 18 20 14 24 6 Z" fill="none" stroke="url(#w2)" stroke-width="2.5"/><path d="M24 20 c2.5 3.5 6 5.5 6 10 a6 6 0 0 1 -12 0 c0-4.5 3.5-6.5 6-10 Z" fill="#f2b233" opacity="0.35"/><defs><linearGradient id="w2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7d488"/><stop offset="1" stop-color="#d98e1b"/></linearGradient></defs></svg>
+        </div>
+        <div class="card__body card__body--plain">
+          <h3>Taste, uncompromised</h3>
+          <p>Masalas ground fresh every single morning. Desi ghee, never vanaspati. Meat sourced daily from trusted suppliers — if it isn't fresh, it doesn't get cooked.</p>
+        </div>
+      </article>
+      <article class="card tilt reveal reveal--d2">
+        <div class="card__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="44" height="44"><path d="M6 30 h26 l6 -10 h4" fill="none" stroke="url(#w3)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="36" r="4.5" fill="none" stroke="#f7d488" stroke-width="2.5"/><circle cx="34" cy="36" r="4.5" fill="none" stroke="#f7d488" stroke-width="2.5"/><defs><linearGradient id="w3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f7d488"/><stop offset="1" stop-color="#d98e1b"/></linearGradient></defs></svg>
+        </div>
+        <div class="card__body card__body--plain">
+          <h3>Delivery, hot &amp; fast</h3>
+          <p>Insulated boxes, 45-minute average delivery, and food that arrives steaming — or the delivery is on us. That's the Zaiqa guarantee.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ORDER CTA ============ -->
+<section class="cta" id="order">
+  <div class="wrap cta__inner">
+    <p class="kicker reveal">Order Now</p>
+    <h2 class="cta__title">
+      <span class="reveal">Hungry? Dinner's</span>
+      <span class="reveal reveal--d1"><em class="gold-text">45 minutes</em> away.</span>
+    </h2>
+    <p class="cta__sub reveal reveal--d2">Message us your order and address — we'll confirm in minutes and the karahi hits the flame the second you do.</p>
+    <div class="cta__actions reveal reveal--d3">
+      <a href="#" class="btn btn--gold btn--lg magnetic">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.7.3-.9.9-1.1 2.2-.2 3.9a11.6 11.6 0 0 0 4.5 4.2c1.7.8 2.4.9 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.1-.5-.2Z"/></svg>
+        Order on WhatsApp
+      </a>
+      <a href="#dishes" class="btn btn--ghost btn--lg magnetic">Back to Menu</a>
+    </div>
+    <p class="cta__note reveal reveal--d3">Demo concept — ordering is disabled in this showcase. No real number, no real orders.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <span class="brand__text">ZAIQA <em>HOUSE</em></span>
+      <p>A fictional modern desi food brand, designed as a concept showcase. Real desi fire, zero shortcuts.</p>
+    </div>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="#dishes">Dishes</a>
+      <a href="#story">Our Story</a>
+      <a href="#why">Why Us</a>
+      <a href="#order">Order</a>
+      <a href="#top">Back to top ↑</a>
+    </nav>
+    <div class="footer__meta">
+      <p class="footer__concept">✦ Concept demo built for portfolio showcase</p>
+      <p>© <span id="year">2026</span> Zaiqa House (Concept). All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="./script.js"></script>
+</body>
+</html>
