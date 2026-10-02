@@ -1,4 +1,44 @@
-# DESIGN_ANALYSIS.md — Portfolio v2 design study
+# DESIGN_ANALYSIS.md — Portfolio design study (v2 + v3)
+
+## v3 rebuild (2026-10-02) — owner REJECTED v2's dark theme
+Adi's v3 orders: "no black/dark at all", cards must FLOAT, scrolling must animate
+everywhere (skills, spinning circular elements — real motion), research current
+trends first, rebuild.
+
+### 2026 trend research (real browsing)
+- **Bento grids** = dominant 2025–2026 layout (Apple-style modular cards, varied sizes).
+- **Scroll-triggered reveals + stagger** = highest-ROI motion; Lenis smooth scroll, GSAP ScrollTrigger on Awwwards SOTD sites.
+- **Rotating circular text badges** ("open to work •" spinners), marquee ribbons, ambient drifting gradient blobs (15–25s loops).
+- **Light premium portfolios** trending: warm ivory/cream + earthy single accent + colored soft shadows (not gray).
+- Big expressive serif display type (Fraunces-style), fluid clamp() scales.
+- Cursor-following spotlight, micro-interactions (scale 1.02–1.05, shadow lift), reduced-motion respected everywhere.
+
+### v3 design decisions — "Ivory & Honey"
+- **Palette (zero dark):** warm ivory #FBF6EC base, cream tints, white floating cards,
+  deep warm charcoal #2B2318 text (never pure black blocks), honey gold #D98E1B→#F2B233,
+  pastel energy touches: peach #F4A97E, soft violet #A79BE8, mint #7FCB9C.
+- **Typography:** Fraunces (display serif, 2026 award feel) + Inter (body), Google Fonts with system fallbacks.
+- **Continuous animated backdrop:** fixed full-page layer — 5 drifting pastel gradient blobs
+  (26–36s loops), floating ✦◈❋◎ shapes, subtle grain; slight scroll parallax so it moves
+  with the whole page, not just the hero.
+- **Floating cards:** every card floats — layered warm shadows, gentle idle float (7s loop),
+  3D tilt on hover (pauses idle float), lift on scroll.
+- **Circular/rotating motion:** spinning circular text badge "OPEN TO WORK • REMOTE WORLDWIDE •"
+  overlapping hero video card; spinning dashed gradient rings behind it; rotating icon rings
+  with orbiting gold dots on all 5 service cards + 3 app cards; spinning dashed rings on
+  process steps; wobbling link favicons; pulsing timeline dots.
+- **Scroll choreography:** per-section group-aware stagger engine — cards reveal ONE AFTER
+  ANOTHER (105ms steps; 150ms for FAQ + Client Experience), headers first, guided-journey feel.
+- **Hero:** dark hero-bg.mp4 kept but FRAMED as a large rounded floating "cinematic window"
+  card (white border, shine sweep, slight rotation) — reason: a dark full-bleed video would
+  break the light theme; framed it stays an asset, not a liability.
+- **Demos converted:** MEHRAAB LIVING + ZAIQA HOUSE stylesheets converted to Ivory & Honey
+  (variable swap + warm bronze SVG art fills so product art reads premium on cream).
+- All v2 content kept: same copy, sections, 7 videos, link cards (no screenshots),
+  concept labels, no APKs, no fake testimonials, contact/CV/WhatsApp bubble, OG/favicon,
+  sitemap, light 404.
+
+Deep analysis of the two reference sites Adi sent, conducted 2026-10-02 before the v2 rebuild.
 
 Deep analysis of the two reference sites Adi sent, conducted 2026-10-02 before the v2 rebuild.
 Rule for v2: concept LIKE them, execution MORE advanced. Never copy their text/names/content.
