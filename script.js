@@ -234,7 +234,7 @@
    One featured skill panel at a time (fixed height — always equal).
    Auto-advances every 6s with a cinematic crossfade; pause on hover/focus,
    arrows + dots + chips + keyboard; auto-resume after 7s; tab-hidden pauses.
-   reduced-motion = all 5 as a clean equal grid (.spot-static). */
+   reduced-motion = all 6 as a clean equal grid (.spot-static). */
 (function(){
   var stage = document.getElementById("spotStage");
   if(!stage) return;
