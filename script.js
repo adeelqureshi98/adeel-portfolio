@@ -144,6 +144,20 @@
     });
   }
 
+  /* ---------- Staggered idle float for cards ----------
+     Each .float-i gets a negative delay + slight duration variance (per
+     section) so cards drift out of sync like buoys, not robots.
+     Amplitude comes from --famp in CSS. Compositor-only (transform). */
+  document.querySelectorAll("section, footer, .hero-inner").forEach(function(scope){
+    var cards = scope.querySelectorAll(".float-i");
+    cards.forEach(function(card, i){
+      card.style.setProperty("--fd", (-((i * 1.618) % 7.5)).toFixed(2) + "s");
+      if (!card.classList.contains("float-soft")){
+        card.style.setProperty("--fdur", (6.8 + (i % 4) * 0.7).toFixed(2) + "s");
+      }
+    });
+  });
+
   /* ---------- Magnetic buttons ---------- */
   if (finePointer && !reduceMotion){
     document.querySelectorAll(".magnetic").forEach(function(btn){
