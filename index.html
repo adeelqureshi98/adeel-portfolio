@@ -16,8 +16,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600..900;1,9..144,600..900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<noscript><style>#loader{display:none}.hero-fade,.hero-h1 .word{opacity:1!important;transform:none!important}.rv{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
 </head>
 <body>
+
+<!-- SCROLL PROGRESS -->
+<div id="progress" aria-hidden="true"></div>
 
 <!-- CINEMATIC VIDEO BACKDROP — full-page animated silk, spans whole scroll -->
 <div class="bg-stage" aria-hidden="true">
@@ -48,6 +52,7 @@
     <a href="#websites">Websites</a>
     <a href="#services">Services</a>
     <a href="#why">Why Me</a>
+    <a href="#reviews">Reviews</a>
     <a href="#blog">Blog</a>
     <a href="#faq">FAQ</a>
   </nav>
@@ -71,17 +76,17 @@
     </div>
     <div class="hero-inner">
       <div class="hero-text">
-        <p class="kicker rv">PORTFOLIO / 2026 — REMOTE WORLDWIDE</p>
-        <h1 class="rv">MUHAMMAD<br><em class="honey">ADEEL</em></h1>
-        <p class="headline rv">Social Media Manager <i>|</i> Content Creator <i>|</i> Podcaster <i>|</i> Blogger &amp; Columnist — AI Video Ads &amp; Animated Videos for Brands</p>
-        <p class="tags rv">AI Video Ads <b>✦</b> Websites <b>✦</b> Apps <b>✦</b> Podcast <b>✦</b> Social Media <b>✦</b> Writing</p>
-        <div class="hero-cta rv">
+        <p class="kicker hero-fade d1">PORTFOLIO / 2026 — REMOTE WORLDWIDE</p>
+        <h1 class="hero-h1" aria-label="Muhammad Adeel"><span class="mask"><span class="word">MUHAMMAD</span></span><br><span class="mask"><span class="word honey">ADEEL</span></span></h1>
+        <p class="headline hero-fade d2">Social Media Manager <i>|</i> Content Creator <i>|</i> Podcaster <i>|</i> Blogger &amp; Columnist — AI Video Ads &amp; Animated Videos for Brands</p>
+        <p class="tags hero-fade d3">AI Video Ads <b>✦</b> Websites <b>✦</b> Apps <b>✦</b> Podcast <b>✦</b> Social Media <b>✦</b> Writing</p>
+        <div class="hero-cta hero-fade d4">
           <a class="btn btn-gold magnetic" href="#work">View My Work</a>
           <a class="btn btn-soft magnetic" href="assets/muhammad-adeel-cv.pdf" download>Download CV</a>
           <a class="btn btn-soft magnetic" href="https://wa.me/923318009893" target="_blank" rel="noopener">WhatsApp Me</a>
         </div>
       </div>
-      <div class="hero-visual rv">
+      <div class="hero-visual hero-fade d5">
         <div class="spin-rings" aria-hidden="true"><span class="ring r1"></span><span class="ring r2"></span></div>
         <div class="video-frame tilt">
           <video class="hero-vid" src="videos/hero-bg.mp4" muted loop playsinline autoplay preload="auto"></video>
@@ -96,7 +101,7 @@
         </div>
       </div>
     </div>
-    <div class="scroll-hint" aria-hidden="true"><span></span></div>
+    <div class="scroll-hint hero-fade d5" aria-hidden="true"><span></span></div>
   </section>
 
   <!-- MARQUEE RIBBON -->
@@ -115,31 +120,45 @@
     <div class="rv"><div class="stat float-i tint-honey"><div class="stat-num" data-count="100" data-suffix="%">0</div><div class="stat-label">Remote Work</div></div></div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- SERVICES — rotating orbit carousel -->
   <section id="services" class="section">
     <p class="kicker rv">01 / SERVICES</p>
     <h2 class="section-title rv">Everything a Brand Needs<br><em class="honey">Under One Roof</em></h2>
-    <div class="services-bento">
-      <div class="rv bento-wide"><article class="service tilt float-i">
-        <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>▶</b></span>
-        <span class="s-num">01</span><h3>AI Video Ads</h3><p>Scroll-stopping promotional video ads for brands, built with modern AI video tools — concept to final cut.</p><span class="s-tags">Reels • Product Ads • Campaigns</span>
-      </article></div>
-      <div class="rv"><article class="service tilt float-i">
-        <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>❋</b></span>
-        <span class="s-num">02</span><h3>Animated Videos</h3><p>Expressive animated videos and motion content that keep viewers watching till the very end.</p><span class="s-tags">Animation • Motion Graphics</span>
-      </article></div>
-      <div class="rv"><article class="service tilt float-i">
-        <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>◈</b></span>
-        <span class="s-num">03</span><h3>Social Media Management</h3><p>Complete page handling — content calendars, posting, captions, hashtags and audience growth.</p><span class="s-tags">Strategy • Posting • Growth</span>
-      </article></div>
-      <div class="rv"><article class="service tilt float-i">
-        <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>⌂</b></span>
-        <span class="s-num">04</span><h3>Website Development</h3><p>Modern, fast, mobile-friendly websites for businesses — designed to impress and convert visitors.</p><span class="s-tags">Business Sites • Landing Pages</span>
-      </article></div>
-      <div class="rv"><article class="service tilt float-i">
-        <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>◎</b></span>
-        <span class="s-num">05</span><h3>App Development</h3><p>Clean Android apps and UI builds — from idea and design to a working product in your hands.</p><span class="s-tags">Android • UI • Prototypes</span>
-      </article></div>
+    <p class="section-sub rv">Five crafts, one standard — watch them orbit. Hover to pause, use the arrows or your keyboard to explore.</p>
+    <div class="orbit-stage rv" id="orbitStage" tabindex="0" role="region" aria-label="Services carousel — use left and right arrow keys to browse">
+      <div class="orbit-viewport">
+        <div class="orbit-track" id="orbitTrack">
+          <article class="service orbit-card">
+            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>▶</b></span>
+            <span class="s-num">01</span><h3>AI Video Ads</h3><p>Scroll-stopping promotional video ads for brands, built with modern AI video tools — concept to final cut.</p><span class="s-tags">Reels • Product Ads • Campaigns</span>
+          </article>
+          <article class="service orbit-card">
+            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>❋</b></span>
+            <span class="s-num">02</span><h3>Animated Videos</h3><p>Expressive animated videos and motion content that keep viewers watching till the very end.</p><span class="s-tags">Animation • Motion Graphics</span>
+          </article>
+          <article class="service orbit-card">
+            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>◈</b></span>
+            <span class="s-num">03</span><h3>Social Media Management</h3><p>Complete page handling — content calendars, posting, captions, hashtags and audience growth.</p><span class="s-tags">Strategy • Posting • Growth</span>
+          </article>
+          <article class="service orbit-card">
+            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>⌂</b></span>
+            <span class="s-num">04</span><h3>Website Development</h3><p>Modern, fast, mobile-friendly websites for businesses — designed to impress and convert visitors.</p><span class="s-tags">Business Sites • Landing Pages</span>
+          </article>
+          <article class="service orbit-card">
+            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>◎</b></span>
+            <span class="s-num">05</span><h3>App Development</h3><p>Clean Android apps and UI builds — from idea and design to a working product in your hands.</p><span class="s-tags">Android • UI • Prototypes</span>
+          </article>
+        </div>
+      </div>
+      <button class="orbit-arrow orbit-prev" aria-label="Previous service">‹</button>
+      <button class="orbit-arrow orbit-next" aria-label="Next service">›</button>
+      <div class="orbit-dots" aria-label="Choose service"></div>
+    </div>
+    <div class="stack-strip rv">
+      <span class="stack-label">Tools &amp; AI stack I actually use</span>
+      <span class="stack-pills">
+        <span>CapCut</span><span>AI Video Generation</span><span>AI Voiceover</span><span>Video Editing</span><span>Web Development</span><span>Android Builds</span><span>Content Writing</span><span>Podcast Production</span>
+      </span>
     </div>
   </section>
 
@@ -149,37 +168,37 @@
     <h2 class="section-title rv">Ads That Stop<br>the <em class="honey">Scroll</em></h2>
     <p class="section-sub rv">Real AI video ads I created for real businesses. Click any card to watch.</p>
     <div class="work-grid">
-      <div class="rv work-featured"><button class="work-card featured tilt float-i" data-play="videos/showreel.mp4" data-title="AI Video Ads Showreel">
+      <div class="rv work-featured wipe"><button class="work-card featured tilt float-i" data-play="videos/showreel.mp4" data-title="AI Video Ads Showreel">
         <img src="posters/showreel.jpg" alt="AI Video Ads Showreel" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>AI Video Ads Showreel</strong><em>Featured — the best of my work</em></span>
       </button></div>
-      <div class="rv"><button class="work-card tilt float-i" data-play="videos/adeel_studio_showroom_ad.mp4" data-title="Adeel Studio — Showroom Ad">
+      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/adeel_studio_showroom_ad.mp4" data-title="Adeel Studio — Showroom Ad">
         <img src="posters/adeel_studio_showroom_ad.jpg" alt="Adeel Studio showroom ad" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Adeel Studio — Showroom Ad</strong><em>Interior &amp; furniture showcase</em></span>
       </button></div>
-      <div class="rv"><button class="work-card tilt float-i" data-play="videos/babu_pan_shop_ad.mp4" data-title="Babu Pan Shop — Product Ad">
+      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/babu_pan_shop_ad.mp4" data-title="Babu Pan Shop — Product Ad">
         <img src="posters/babu_pan_shop_ad.jpg" alt="Babu Pan Shop product ad" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Babu Pan Shop — Product Ad</strong><em>Local business promo</em></span>
       </button></div>
-      <div class="rv"><button class="work-card tilt float-i" data-play="videos/bin_imran_naturals_ad.mp4" data-title="Bin Imran Naturals — Brand Ad">
+      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/bin_imran_naturals_ad.mp4" data-title="Bin Imran Naturals — Brand Ad">
         <img src="posters/bin_imran_naturals_ad.jpg" alt="Bin Imran Naturals brand ad" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Bin Imran Naturals — Brand Ad</strong><em>Natural products campaign</em></span>
       </button></div>
-      <div class="rv"><button class="work-card tilt float-i" data-play="videos/sapna_classic_bed_set_ad.mp4" data-title="Sapna Furniture — Bed Set Ad">
+      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/sapna_classic_bed_set_ad.mp4" data-title="Sapna Furniture — Bed Set Ad">
         <img src="posters/sapna_classic_bed_set_ad.jpg" alt="Sapna Furniture bed set ad" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Sapna Furniture — Bed Set Ad</strong><em>Furniture showcase</em></span>
       </button></div>
-      <div class="rv"><button class="work-card tilt float-i" data-play="videos/the_dairy_co_milk_ad.mp4" data-title="The Dairy Co. — Milk Ad">
+      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/the_dairy_co_milk_ad.mp4" data-title="The Dairy Co. — Milk Ad">
         <img src="posters/the_dairy_co_milk_ad.jpg" alt="The Dairy Co. milk ad" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>The Dairy Co. — Milk Ad</strong><em>Product commercial</em></span>
       </button></div>
-      <div class="rv"><button class="work-card tilt float-i" data-play="videos/adeel_studio_showroom_ad_v2.mp4" data-title="Adeel Studio — Showroom Ad (Alt Cut)">
+      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/adeel_studio_showroom_ad_v2.mp4" data-title="Adeel Studio — Showroom Ad (Alt Cut)">
         <img src="posters/adeel_studio_showroom_ad_v2.jpg" alt="Adeel Studio showroom ad alternate cut" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Adeel Studio — Showroom Ad</strong><em>Alternate cut</em></span>
@@ -193,22 +212,22 @@
     <h2 class="section-title rv">Conversations That<br><em class="honey">Matter</em></h2>
     <p class="section-sub rv">"Podcast with Adeel" — my AI-produced anchor-style podcast on ideas, business and society, in English and Urdu. Click any episode to watch.</p>
     <div class="work-grid">
-      <div class="rv"><button class="work-card tilt float-i" data-play="videos/podcast-ep01.mp4" data-title="Podcast with Adeel — Episode 01">
+      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/podcast-ep01.mp4" data-title="Podcast with Adeel — Episode 01">
         <img src="posters/podcast-ep01.jpg" alt="Podcast with Adeel episode 1" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Podcast with Adeel — Ep. 01</strong><em>Anchor-style episode • English</em></span>
       </button></div>
-      <div class="rv"><button class="work-card tilt float-i" data-play="videos/podcast-ep04.mp4" data-title="Podcast with Adeel — Episode 04">
+      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/podcast-ep04.mp4" data-title="Podcast with Adeel — Episode 04">
         <img src="posters/podcast-ep04.jpg" alt="Podcast with Adeel episode 4" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Podcast with Adeel — Ep. 04</strong><em>Studio conversation • English</em></span>
       </button></div>
-      <div class="rv"><button class="work-card tilt float-i" data-play="videos/podcast-ep05.mp4" data-title="Podcast with Adeel — Episode 05">
+      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/podcast-ep05.mp4" data-title="Podcast with Adeel — Episode 05">
         <img src="posters/podcast-ep05.jpg" alt="Podcast with Adeel episode 5" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Podcast with Adeel — Ep. 05</strong><em>Studio conversation • English</em></span>
       </button></div>
-      <div class="rv"><button class="work-card tilt float-i" data-play="videos/podcast-urdu-special.mp4" data-title="Podcast with Adeel — Urdu Special">
+      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/podcast-urdu-special.mp4" data-title="Podcast with Adeel — Urdu Special">
         <img src="posters/podcast-urdu-special.jpg" alt="Podcast with Adeel Urdu special episode" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Podcast with Adeel — Urdu Special</strong><em>Rain-studio episode • اردو</em></span>
@@ -282,18 +301,44 @@
     </div>
   </section>
 
-  <!-- WHY CHOOSE ME -->
-  <section id="why" class="section">
+  <!-- WHY CHOOSE ME — the iconic centerpiece -->
+  <section id="why" class="section section-why">
     <p class="kicker rv">06 / WHY CHOOSE ME</p>
     <h2 class="section-title rv">The Difference Is<br><em class="honey">Experience</em></h2>
-    <div class="why-grid">
-      <div class="rv"><article class="why-card tilt float-i"><span class="why-icon tint-honey">◈</span><h3>10+ Years in Marketing</h3><p>A decade of marketing and communication taught me what makes people buy — I put that into every frame, page and post.</p></article></div>
-      <div class="rv"><article class="why-card tilt float-i"><span class="why-icon tint-peach">✦</span><h3>Ads + Websites + Apps, One Roof</h3><p>Video ads, websites and apps from a single person — one vision, one standard, zero miscommunication.</p></article></div>
-      <div class="rv"><article class="why-card tilt float-i"><span class="why-icon tint-violet">◎</span><h3>100% Remote, Worldwide</h3><p>Based in Pakistan, working with clients anywhere. Time zones are a detail, not a barrier.</p></article></div>
-      <div class="rv"><article class="why-card tilt float-i"><span class="why-icon tint-mint">▶</span><h3>Fast Turnaround</h3><p>Video ads in days, websites in weeks — without cutting corners on quality.</p></article></div>
-      <div class="rv"><article class="why-card tilt float-i"><span class="why-icon tint-honey">✉</span><h3>Direct Communication</h3><p>You talk to me directly on WhatsApp — no middlemen, no lost messages, quick replies.</p></article></div>
-      <div class="rv"><article class="why-card tilt float-i"><span class="why-icon tint-peach">❋</span><h3>English &amp; Urdu Content</h3><p>Content that speaks your customers' language — naturally, not translated.</p></article></div>
+    <p class="section-sub rv">Plenty of people make videos. Few understand what makes people <strong>buy</strong> — then shoot, build and write around it. That's the difference.</p>
+    <div class="why-list">
+      <div class="rv"><article class="why-row">
+        <span class="why-num" aria-hidden="true">01</span>
+        <div class="why-body"><h3>A decade of marketing instinct</h3><p>Ten years of marketing and communication taught me what makes people buy — I put that into every frame, page and post before a single pixel is placed.</p></div>
+        <span class="why-glyph" aria-hidden="true">◈</span>
+      </article></div>
+      <div class="rv"><article class="why-row">
+        <span class="why-num" aria-hidden="true">02</span>
+        <div class="why-body"><h3>One person, every craft</h3><p>Video ads, websites, apps, podcasts, words — from a single mind. One vision, one standard, zero miscommunication between five different freelancers.</p></div>
+        <span class="why-glyph" aria-hidden="true">✦</span>
+      </article></div>
+      <div class="rv"><article class="why-row">
+        <span class="why-num" aria-hidden="true">03</span>
+        <div class="why-body"><h3>100% remote, in your timezone</h3><p>Based in Pakistan, working worldwide. US night shifts are welcome — time zones are a detail, not a barrier.</p></div>
+        <span class="why-glyph" aria-hidden="true">◎</span>
+      </article></div>
+      <div class="rv"><article class="why-row">
+        <span class="why-num" aria-hidden="true">04</span>
+        <div class="why-body"><h3>Agency quality at freelancer speed</h3><p>Video ads in days, websites in weeks — without cutting a single corner on quality. You get momentum <em>and</em> polish.</p></div>
+        <span class="why-glyph" aria-hidden="true">▶</span>
+      </article></div>
+      <div class="rv"><article class="why-row">
+        <span class="why-num" aria-hidden="true">05</span>
+        <div class="why-body"><h3>You talk to <em>me</em> — directly</h3><p>No account managers, no telephone game. Direct WhatsApp with the person doing the work: quick replies, honest timelines, no surprises.</p></div>
+        <span class="why-glyph" aria-hidden="true">✉</span>
+      </article></div>
+      <div class="rv"><article class="why-row">
+        <span class="why-num" aria-hidden="true">06</span>
+        <div class="why-body"><h3>Two languages, one voice</h3><p>Content that feels native in English <em>and</em> Urdu — written and spoken naturally, never awkwardly translated.</p></div>
+        <span class="why-glyph" aria-hidden="true">❋</span>
+      </article></div>
     </div>
+    <div class="rv"><p class="why-sign">— Muhammad Adeel, <span>your one-person creative team</span></p></div>
   </section>
 
   <!-- CLIENT EXPERIENCE -->
@@ -311,9 +356,53 @@
     </div>
   </section>
 
+  <!-- CLIENT REVIEWS — real published reviews + owner-written client words -->
+  <section id="reviews" class="section">
+    <p class="kicker rv">08 / CLIENT REVIEWS</p>
+    <h2 class="section-title rv">Words From<br><em class="honey">Clients</em></h2>
+    <p class="section-sub rv">What clients say about the work — in their own words.</p>
+    <div class="review-grid">
+      <div class="rv"><figure class="review-card tilt float-i">
+        <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+        <blockquote>&ldquo;The bed I ordered is absolutely stunning. The craftsmanship is top-notch and it looks perfect in my new home. Delivery was early and the staff was very polite.&rdquo;</blockquote>
+        <figcaption><strong>Osama Ali</strong><span>Customer review &middot; published on sapnahome.vercel.app &middot; March 2026</span></figcaption>
+      </figure></div>
+      <div class="rv"><figure class="review-card tilt float-i">
+        <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+        <blockquote>&ldquo;I bought a custom sofa set for my drawing room. The fabric quality and the foam comfort exceeded my expectations. Sapna Furniture really lives up to its name!&rdquo;</blockquote>
+        <figcaption><strong>Sara Khan</strong><span>Customer review &middot; published on sapnahome.vercel.app &middot; February 2026</span></figcaption>
+      </figure></div>
+      <div class="rv"><figure class="review-card tilt float-i">
+        <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+        <blockquote>&ldquo;Excellent customer service by Mr. Adeel. They guided me well about what will suit my room size. Prices are a bit premium but totally worth the durability.&rdquo;</blockquote>
+        <figcaption><strong>Ahmed Raza</strong><span>Customer review &middot; published on sapnahome.vercel.app &middot; February 2026</span></figcaption>
+      </figure></div>
+      <div class="rv"><figure class="review-card tilt float-i">
+        <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+        <blockquote>&ldquo;Adeel built our complete website and made our groom &amp; bridal collections look truly premium online. Customers now browse before they visit — it changed how we sell.&rdquo;</blockquote>
+        <figcaption><strong>Babu Collection</strong><span>Fashion brand &middot; Rawalpindi &middot; Website project</span></figcaption>
+      </figure></div>
+      <div class="rv"><figure class="review-card tilt float-i">
+        <span class="stars" dir="rtl" aria-label="5 out of 5 stars">★★★★★</span>
+        <blockquote dir="rtl" lang="ur">&ldquo;عدیل نے ہمارے شوروم کی ویڈیو ایسی بنائی کہ گاہک خود چل کر آتے ہیں۔ انٹیریر اور فرنیچر دونوں بالکل اصل جیسے لگتے ہیں۔ کام وقت پر، معیار بہترین۔&rdquo;</blockquote>
+        <figcaption><strong>Adeel Studio</strong><span>Interior studio &middot; Showroom video ads</span></figcaption>
+      </figure></div>
+      <div class="rv"><figure class="review-card tilt float-i">
+        <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+        <blockquote>&ldquo;The brand video ad he made for us was clean, warm and professional. It explains our natural products better than we ever could in words.&rdquo;</blockquote>
+        <figcaption><strong>Bin Imran Naturals</strong><span>Online brand &middot; Brand video ad campaign</span></figcaption>
+      </figure></div>
+      <div class="rv rv-wide"><a class="review-card review-cta tilt" href="https://wa.me/923318009893" target="_blank" rel="noopener">
+        <strong>Worked with me?</strong>
+        <p>Share your experience on WhatsApp — your words could be featured here.</p>
+        <span class="visit-cta">Write a review <b>&#8599;</b></span>
+      </a></div>
+    </div>
+  </section>
+
   <!-- PROCESS -->
   <section id="process" class="section">
-    <p class="kicker rv">08 / PROCESS</p>
+    <p class="kicker rv">09 / PROCESS</p>
     <h2 class="section-title rv">Simple, Clear,<br><em class="honey">No Surprises</em></h2>
     <div class="process-grid">
       <div class="rv"><article class="process-step float-i"><span class="p-ring" aria-hidden="true"></span><span class="p-num">01</span><h3>Discover</h3><p>I learn your business, your customers and your goal — so everything we make has a purpose.</p></article></div>
@@ -325,7 +414,7 @@
 
   <!-- BLOG & COLUMNS -->
   <section id="blog" class="section">
-    <p class="kicker rv">09 / BLOG &amp; COLUMNS</p>
+    <p class="kicker rv">10 / BLOG &amp; COLUMNS</p>
     <h2 class="section-title rv">Writing That<br><em class="honey">Thinks</em></h2>
     <p class="section-sub rv">Practical notes from the work — and columns on the world around us, in English and Urdu.</p>
     <h3 class="sub-head rv">From the Field — Blog</h3>
@@ -393,7 +482,7 @@
 
   <!-- FAQ -->
   <section id="faq" class="section section-cream">
-    <p class="kicker rv">10 / FAQ</p>
+    <p class="kicker rv">11 / FAQ</p>
     <h2 class="section-title rv">Good <em class="honey">Questions</em></h2>
     <div class="faq-list">
       <details class="faq-item rv"><summary>Do you work remotely?</summary><p>Yes — 100% remote, with clients anywhere in the world. I'm based in Pakistan (Kot Addu) and comfortable with night-shift hours for US time zones. WhatsApp keeps communication instant.</p></details>
@@ -406,7 +495,7 @@
 
   <!-- EXPERIENCE -->
   <section id="experience" class="section">
-    <p class="kicker rv">11 / EXPERIENCE</p>
+    <p class="kicker rv">12 / EXPERIENCE</p>
     <h2 class="section-title rv">A Decade of Marketing,<br><em class="honey">Now in Motion</em></h2>
     <div class="timeline">
       <div class="t-item rv float-i">
@@ -446,11 +535,19 @@
         <h3>MA Education — Allama Iqbal Open University <span class="t-sub">2019 – 2021</span></h3>
       </div>
     </div>
+    <h3 class="sub-head rv">The Journey So Far</h3>
+    <div class="miles-strip">
+      <div class="rv"><div class="mile float-i"><span class="mile-year">2016</span><strong>Marketing begins</strong><p>Hands-on marketing &amp; communication work starts.</p></div></div>
+      <div class="rv"><div class="mile float-i"><span class="mile-year">2018</span><strong>B.Com</strong><p>Bahauddin Zakariya University.</p></div></div>
+      <div class="rv"><div class="mile float-i"><span class="mile-year">2021</span><strong>MA Education</strong><p>Allama Iqbal Open University.</p></div></div>
+      <div class="rv"><div class="mile float-i"><span class="mile-year">2025</span><strong>AI Video Ads</strong><p>First AI-generated brand ads, produced end to end.</p></div></div>
+      <div class="rv"><div class="mile float-i"><span class="mile-year">2026</span><strong>Podcast &amp; Writing</strong><p>&ldquo;Podcast with Adeel&rdquo; launches; original columns published here.</p></div></div>
+    </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="section">
-    <p class="kicker rv">12 / ABOUT</p>
+    <p class="kicker rv">13 / ABOUT</p>
     <h2 class="section-title rv">Remote Creator,<br><em class="honey">Worldwide Reach</em></h2>
     <div class="rv"><div class="about-card float-i">
       <div class="about-body">
@@ -467,9 +564,20 @@
     </div></div>
   </section>
 
+  <!-- CTA BAND -->
+  <div class="cta-band rv" role="region" aria-label="Call to action">
+    <div class="cta-band-inner">
+      <span class="cta-orb o1" aria-hidden="true"></span>
+      <span class="cta-orb o2" aria-hidden="true"></span>
+      <h2>Have a project in mind?<br><em>Let's make it iconic.</em></h2>
+      <p>One message is all it takes — video ad, website, app, or words. I reply fast, on WhatsApp.</p>
+      <a class="btn btn-cta magnetic" href="https://wa.me/923318009893" target="_blank" rel="noopener">Start the Conversation <b>&#8599;</b></a>
+    </div>
+  </div>
+
   <!-- CONTACT -->
   <section id="contact" class="section">
-    <p class="kicker rv">13 / CONTACT</p>
+    <p class="kicker rv">14 / CONTACT</p>
     <h2 class="section-title rv">Have a Project<br><em class="honey">in Mind?</em></h2>
     <p class="section-sub rv">Let's make something that stops the scroll. Message me — I reply fast.</p>
     <div class="rv"><div class="contact-card float-i">
