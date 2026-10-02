@@ -464,3 +464,179 @@ footer{border-top:1px solid var(--border);padding:30px 0;background:rgba(255,255
   .marquee-track{animation:none}
   .video-frame-shine{display:none}
 }
+
+/* ============================================================
+   v3.3 — rotating skills orbit, reviews, iconic why, CTA band,
+   milestones + best-in-class motion touches (hero entrance,
+   scroll progress, gold wipe reveals)
+   ============================================================ */
+
+/* ---------- Scroll progress hairline ---------- */
+#progress{position:fixed;top:0;left:0;right:0;height:4px;z-index:2000;pointer-events:none;
+  background:linear-gradient(90deg,var(--gold-deep),var(--gold) 55%,var(--gold-soft));
+  transform:scaleX(0);transform-origin:left;box-shadow:0 2px 12px rgba(217,142,27,.5)}
+
+/* ---------- Hero cinematic entrance ---------- */
+.hero-h1 .mask{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.1em;margin-bottom:-.1em}
+.hero-h1 .word{display:inline-block;transform:translateY(112%);transition:transform 1.05s cubic-bezier(.19,.7,.22,1)}
+.hero-h1 .mask:nth-of-type(2) .word{transition-delay:.14s}
+.hero-fade{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .95s cubic-bezier(.19,.7,.22,1)}
+body.hero-enter .hero-h1 .word{transform:none}
+body.hero-enter .hero-fade{opacity:1;transform:none}
+body.hero-enter .hero-fade.d1{transition-delay:.5s}
+body.hero-enter .hero-fade.d2{transition-delay:.64s}
+body.hero-enter .hero-fade.d3{transition-delay:.78s}
+body.hero-enter .hero-fade.d4{transition-delay:.92s}
+body.hero-enter .hero-fade.d5{transition-delay:1.08s}
+.hero-h1{font-size:clamp(3rem,7.4vw,5.8rem);line-height:.98;margin-bottom:22px;
+  text-shadow:0 2px 44px rgba(251,246,236,.95), 0 1px 5px rgba(251,246,236,.9)}
+
+/* ---------- Services orbit carousel ---------- */
+.orbit-stage{position:relative;width:min(1200px,92%);margin:8px auto 0;outline:none;border-radius:12px}
+.orbit-stage:focus-visible{outline:2px solid var(--gold);outline-offset:10px}
+.orbit-viewport{perspective:1600px;overflow:visible}
+.orbit-track{position:relative;height:470px;transform-style:preserve-3d;will-change:transform}
+.orbit-card{position:absolute;left:50%;top:8px;width:min(370px,84%);margin-left:calc(min(370px,84%)/-2);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:opacity .45s ease,visibility .45s}
+.orbit-card .service{height:auto;min-height:340px;margin:0}
+.orbit-card.is-front .service{box-shadow:var(--shadow-lift);border-color:var(--border-strong)}
+.orbit-arrow{position:absolute;top:44%;width:56px;height:56px;border-radius:50%;border:1.5px solid var(--border);
+  background:rgba(255,255,255,.92);color:var(--gold-deep);font-size:28px;font-weight:800;line-height:1;cursor:pointer;
+  box-shadow:var(--shadow-float);transition:transform .25s,box-shadow .25s;z-index:6;display:flex;align-items:center;justify-content:center}
+.orbit-arrow:hover{transform:scale(1.12);box-shadow:var(--shadow-lift)}
+.orbit-prev{left:-6px}.orbit-next{right:-6px}
+.orbit-dots{display:flex;gap:10px;justify-content:center;margin-top:20px}
+.orbit-dots button{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--gold);background:transparent;
+  cursor:pointer;padding:0;transition:transform .25s,background .25s}
+.orbit-dots button.active{background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));transform:scale(1.3)}
+.orbit-dots button:hover{transform:scale(1.2)}
+/* static fallback (reduced motion): elegant grid */
+.orbit-stage.orbit-static .orbit-viewport{perspective:none}
+.orbit-stage.orbit-static .orbit-track{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;height:auto;transform:none!important}
+.orbit-stage.orbit-static .orbit-card{position:static;margin:0;width:auto;backface-visibility:visible;opacity:1!important;visibility:visible!important;transform:none!important}
+.orbit-stage.orbit-static .orbit-arrow,.orbit-stage.orbit-static .orbit-dots{display:none}
+
+/* ---------- Tools stack strip ---------- */
+.stack-strip{width:min(1200px,92%);margin:46px auto 0;display:flex;flex-direction:column;align-items:center;gap:16px}
+.stack-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);font-weight:700}
+.stack-pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.stack-pills span{font-size:.82rem;font-weight:700;color:var(--ink);background:rgba(255,255,255,.85);
+  border:1.5px solid var(--border);padding:9px 18px;border-radius:999px;box-shadow:0 6px 16px rgba(170,120,50,.1);
+  transition:transform .25s,border-color .25s}
+.stack-pills span:hover{transform:translateY(-3px);border-color:var(--border-strong)}
+
+/* ---------- Client reviews ---------- */
+.review-grid{width:min(1200px,92%);margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.rv-wide{grid-column:1/-1}
+.review-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);
+  padding:34px 30px;box-shadow:var(--shadow-float);position:relative;height:100%;
+  display:flex;flex-direction:column;gap:16px;overflow:hidden}
+.review-card:hover{box-shadow:var(--shadow-lift)}
+.review-card::before{content:"\201C";position:absolute;top:0;right:22px;font-family:var(--font-display);
+  font-size:5rem;color:rgba(217,142,27,.16);line-height:1;pointer-events:none}
+.stars{color:var(--gold);font-size:1.05rem;letter-spacing:.18em;text-shadow:0 2px 8px rgba(217,142,27,.35)}
+.review-card blockquote{font-family:var(--font-display);font-size:1.14rem;line-height:1.6;color:var(--ink)}
+.review-card blockquote[dir="rtl"]{line-height:2}
+.review-card figcaption{display:flex;flex-direction:column;gap:4px;margin-top:auto;padding-top:6px;
+  border-top:1px dashed var(--border)}
+.review-card figcaption strong{font-size:1rem}
+.review-card figcaption span{font-size:.8rem;color:var(--muted)}
+.review-cta{background:linear-gradient(150deg,#fff,var(--peach-soft));cursor:pointer}
+.review-cta strong{font-family:var(--font-display);font-size:1.35rem}
+.review-cta p{color:var(--muted);font-size:.95rem}
+
+/* ---------- Why Choose Me — iconic editorial rows ---------- */
+.section-why{background:rgba(255,255,255,.5);border-top:1px solid rgba(217,142,27,.12);border-bottom:1px solid rgba(217,142,27,.12)}
+.why-list{width:min(1020px,92%);margin:10px auto 0;border-bottom:1px solid var(--border)}
+.why-row{display:grid;grid-template-columns:110px 1fr 70px;gap:clamp(14px,3vw,34px);align-items:center;
+  padding:30px 18px;border-top:1px solid var(--border);position:relative;overflow:hidden;border-radius:6px}
+.why-row::before{content:"";position:absolute;inset:0;z-index:0;
+  background:linear-gradient(100deg,rgba(242,178,51,.16),rgba(247,212,136,.05));
+  transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.65,.3,1)}
+.why-row:hover::before{transform:scaleX(1)}
+.why-num{font-family:var(--font-display);font-weight:900;font-size:clamp(2.4rem,4.5vw,3.4rem);line-height:1;
+  color:transparent;-webkit-text-stroke:1.5px var(--gold);position:relative;z-index:1;transition:.35s}
+.why-row:hover .why-num{color:var(--gold-deep);-webkit-text-stroke:1.5px transparent}
+.why-body{position:relative;z-index:1}
+.why-body h3{font-size:clamp(1.2rem,2.2vw,1.55rem);margin-bottom:8px}
+.why-body h3 em{font-style:italic;color:var(--gold-deep)}
+.why-body p{color:var(--muted);font-size:.98rem;max-width:56ch}
+.why-glyph{position:relative;z-index:1;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:22px;color:var(--gold-deep);background:#fff;border:1.5px solid var(--border);box-shadow:var(--shadow-float);
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.why-row:hover .why-glyph{transform:rotate(-12deg) scale(1.12);background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));color:#fff}
+.why-sign{width:min(1020px,92%);margin:34px auto 0;text-align:right;font-family:var(--font-display);
+  font-style:italic;font-size:1.15rem;color:var(--muted)}
+.why-sign span{color:var(--gold-deep)}
+
+/* ---------- CTA band ---------- */
+.cta-band{position:relative;z-index:2;margin:clamp(70px,8vw,120px) 0;transform:rotate(-1.1deg) scale(1.015)}
+.cta-band-inner{position:relative;width:min(1120px,94%);margin:0 auto;border-radius:34px;overflow:hidden;
+  padding:clamp(50px,6vw,80px) clamp(28px,5vw,70px);text-align:center;color:#fff;
+  background:linear-gradient(115deg,#7a4a06 0%,var(--gold-deep) 28%,var(--gold) 58%,var(--gold-soft) 100%);
+  box-shadow:0 34px 80px rgba(185,106,11,.42)}
+.cta-orb{position:absolute;border-radius:50%;filter:blur(50px);opacity:.5;pointer-events:none;animation:drift2 18s ease-in-out infinite}
+.cta-orb.o1{width:340px;height:340px;left:-90px;top:-90px;background:radial-gradient(circle,#FFE9B8,transparent 70%)}
+.cta-orb.o2{width:300px;height:300px;right:-70px;bottom:-90px;background:radial-gradient(circle,#fff,transparent 70%);animation-delay:5s}
+.cta-band h2{position:relative;font-size:clamp(2.1rem,4.8vw,3.5rem);color:#fff;margin-bottom:16px;z-index:1}
+.cta-band h2 em{font-style:italic;color:#FFE9B8}
+.cta-band p{position:relative;color:rgba(255,255,255,.88);font-size:1.06rem;margin-bottom:34px;z-index:1}
+.btn-cta{position:relative;z-index:1;background:#fff;color:#7a4a06;box-shadow:0 16px 40px rgba(0,0,0,.22)}
+.btn-cta:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 22px 50px rgba(0,0,0,.28)}
+.btn-cta b{transition:transform .3s}
+.btn-cta:hover b{transform:translate(3px,-3px)}
+
+/* ---------- Milestones strip ---------- */
+.miles-strip{width:min(1200px,92%);margin:36px auto 0;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.mile{background:var(--card);border:1.5px solid var(--border);border-radius:20px;padding:26px 20px;
+  box-shadow:var(--shadow-float);text-align:center;height:100%;position:relative;overflow:hidden}
+.mile:hover{box-shadow:var(--shadow-lift)}
+.mile::after{content:"";position:absolute;bottom:0;left:0;right:0;height:5px;
+  background:linear-gradient(90deg,var(--gold-deep),var(--gold-soft))}
+.mile-year{display:inline-block;font-family:var(--font-mono);font-weight:700;font-size:.78rem;letter-spacing:.16em;
+  color:#fff;background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));padding:7px 16px;border-radius:999px;margin-bottom:14px;
+  box-shadow:0 6px 14px rgba(217,142,27,.35)}
+.mile strong{display:block;font-family:var(--font-display);font-size:1.08rem;margin-bottom:8px}
+.mile p{color:var(--muted);font-size:.86rem}
+
+/* ---------- Gold wipe reveals (work + podcast cards) ---------- */
+.wipe{position:relative}
+.wipe::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;border-radius:var(--radius);
+  background:linear-gradient(100deg,var(--gold-deep),var(--gold) 55%,var(--gold-soft));
+  transform:scaleX(0);animation-delay:var(--wipe-delay,0s)}
+.wipe.in::after{animation:wipeAway 1.05s cubic-bezier(.7,0,.3,1) forwards;animation-delay:var(--wipe-delay,0s)}
+@keyframes wipeAway{
+  0%{transform:scaleX(0);transform-origin:left}
+  42%{transform:scaleX(1);transform-origin:left}
+  58%{transform:scaleX(1);transform-origin:right}
+  100%{transform:scaleX(0);transform-origin:right}}
+.wipe .work-card img{transform:scale(1.14);transition:transform 1.4s cubic-bezier(.2,.65,.3,1)}
+.wipe.in .work-card img{transform:scale(1)}
+.wipe .work-card:hover img{transform:scale(1.06)}
+
+@media (max-width:1020px){
+  .miles-strip{grid-template-columns:repeat(3,1fr)}
+  .why-row{grid-template-columns:84px 1fr 60px}
+}
+@media (max-width:680px){
+  .orbit-viewport{perspective:none;overflow:hidden}
+  .orbit-track{display:flex;gap:16px;height:auto;transform:none!important;overflow-x:auto;
+    scroll-snap-type:x mandatory;padding:16px 7vw 28px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .orbit-track::-webkit-scrollbar{display:none}
+  .orbit-card{position:static;flex:0 0 86%;margin:0;transform:none!important;opacity:1!important;
+    visibility:visible!important;backface-visibility:visible;scroll-snap-align:center}
+  .orbit-card .service{min-height:0}
+  .orbit-arrow,.orbit-dots{display:none}
+  .review-grid{grid-template-columns:1fr}
+  .why-row{grid-template-columns:64px 1fr;gap:14px}
+  .why-glyph{display:none}
+  .miles-strip{grid-template-columns:repeat(2,1fr)}
+  .cta-band{transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-h1 .word{transform:none;transition:none}
+  .hero-fade{opacity:1;transform:none;transition:none}
+  .wipe::after{display:none}
+  .wipe .work-card img{transform:none}
+  #progress{display:none}
+}
