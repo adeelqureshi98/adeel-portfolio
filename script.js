@@ -17,7 +17,10 @@
   function hideLoader(){
     clearInterval(ltick);
     if (lp) lp.style.width = "100%";
-    setTimeout(function(){ if (loader) loader.classList.add("done"); }, 250);
+    setTimeout(function(){
+      if (loader) loader.classList.add("done");
+      document.body.classList.add("hero-enter"); /* cinematic hero entrance */
+    }, 250);
   }
   window.addEventListener("load", hideLoader);
   setTimeout(hideLoader, 2600); /* safety */
@@ -194,4 +197,178 @@
     if(document.hidden){ bg.pause(); }
     else { bg.play().catch(function(){}); }
   });
+})();
+
+/* ---------- v3.3: Scroll progress hairline ---------- */
+(function(){
+  var bar = document.getElementById("progress");
+  if(!bar) return;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduceMotion) return;
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max > 0 ? (window.scrollY / max) : 0;
+    bar.style.transform = "scaleX(" + Math.min(Math.max(p, 0), 1) + ")";
+  }
+  window.addEventListener("scroll", function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(update); }
+  }, {passive:true});
+  update();
+})();
+
+/* ---------- v3.3: Gold wipe reveals on work + podcast cards ---------- */
+(function(){
+  var els = Array.prototype.slice.call(document.querySelectorAll(".wipe"));
+  if(!els.length) return;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduceMotion) return;
+  var wio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var cs = window.getComputedStyle(e.target);
+      var d = cs.transitionDelay && cs.transitionDelay !== "0s" ? cs.transitionDelay : "0s";
+      e.target.style.setProperty("--wipe-delay", d);
+      e.target.classList.add("in");
+      wio.unobserve(e.target);
+    });
+  }, {threshold: 0.18});
+  els.forEach(function(el){ wio.observe(el); });
+})();
+
+/* ---------- v3.3: Services 3D orbit carousel ----------
+   Slow auto-rotating ring of the 5 skill cards (CSS 3D).
+   Pauses on hover/focus; arrows + dots + keyboard; mobile = swipe snap;
+   reduced-motion = static grid (handled via .orbit-static class). */
+(function(){
+  var stage = document.getElementById("orbitStage");
+  if(!stage) return;
+  var track = document.getElementById("orbitTrack");
+  var cards = Array.prototype.slice.call(track.querySelectorAll(".orbit-card"));
+  var dotsWrap = stage.querySelector(".orbit-dots");
+  var prevBtn = stage.querySelector(".orbit-prev");
+  var nextBtn = stage.querySelector(".orbit-next");
+  var n = cards.length;
+  if(!n) return;
+  var STEP = 360 / n;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var mqMobile = window.matchMedia("(max-width: 680px)");
+  if(reduceMotion){ stage.classList.add("orbit-static"); return; }
+
+  var dots = cards.map(function(_, i){
+    var d = document.createElement("button");
+    d.type = "button";
+    d.setAttribute("aria-label", "Show service " + (i + 1) + " of " + n);
+    d.addEventListener("click", function(){ goTo(i); });
+    dotsWrap.appendChild(d);
+    return d;
+  });
+
+  var angle = 0, active = false, raf = null, last = 0, tween = null, resumeTimer = null;
+  var SPEED = 7; /* degrees per second — slow, majestic */
+
+  function radius(){ return Math.max(300, Math.min(520, stage.clientWidth * 0.44)); }
+  function norm(a){ return ((a % 360) + 360) % 360; }
+
+  function render(){
+    var r = radius();
+    track.style.transform = "translateZ(" + (-r) + "px) rotateY(" + angle + "deg)";
+    var front = 0, best = 999;
+    cards.forEach(function(card, i){
+      var a = i * STEP;
+      card.style.transform = "rotateY(" + a + "deg) translateZ(" + r + "px)";
+      var rel = norm(a + angle);
+      var dist = Math.min(rel, 360 - rel);
+      var facing = Math.cos(rel * Math.PI / 180);
+      if(facing < -0.35){ card.style.opacity = "0"; card.style.visibility = "hidden"; }
+      else{
+        card.style.opacity = facing < 0.4 ? "0.45" : "1";
+        card.style.visibility = "visible";
+      }
+      var isFront = dist < STEP / 2;
+      card.classList.toggle("is-front", isFront);
+      if(isFront){ card.removeAttribute("aria-hidden"); } else { card.setAttribute("aria-hidden", "true"); }
+      if(dist < best){ best = dist; front = i; }
+    });
+    dots.forEach(function(d, i){ d.classList.toggle("active", i === front); });
+    return front;
+  }
+  function currentFront(){
+    var best = 0, bd = 999;
+    cards.forEach(function(_, i){
+      var rel = norm(i * STEP + angle), d = Math.min(rel, 360 - rel);
+      if(d < bd){ bd = d; best = i; }
+    });
+    return best;
+  }
+  function tick(t){
+    if(!active) return;
+    if(!last) last = t;
+    var dt = (t - last) / 1000; last = t;
+    angle = norm(angle + SPEED * dt);
+    render();
+    raf = requestAnimationFrame(tick);
+  }
+  function start(){
+    if(active || mqMobile.matches || document.hidden) return;
+    active = true; last = 0; raf = requestAnimationFrame(tick);
+  }
+  function stop(){
+    active = false;
+    if(raf) cancelAnimationFrame(raf); raf = null;
+    if(tween) cancelAnimationFrame(tween); tween = null;
+  }
+  function pauseTemp(){
+    stop();
+    if(resumeTimer) clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(start, 7000);
+  }
+  function animateTo(target){
+    stop();
+    if(resumeTimer) clearTimeout(resumeTimer);
+    var cur = norm(angle), delta = norm(target) - cur;
+    if(delta > 180) delta -= 360;
+    if(delta < -180) delta += 360;
+    var from = angle, to = angle + delta, t0 = null;
+    function frame(t){
+      if(!t0) t0 = t;
+      var p = Math.min((t - t0) / 650, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      angle = norm(from + (to - from) * e);
+      render();
+      if(p < 1){ tween = requestAnimationFrame(frame); }
+      else{ tween = null; pauseTemp(); }
+    }
+    tween = requestAnimationFrame(frame);
+  }
+  function goTo(i){ animateTo(-i * STEP); }
+
+  prevBtn.addEventListener("click", function(){ goTo((currentFront() - 1 + n) % n); });
+  nextBtn.addEventListener("click", function(){ goTo((currentFront() + 1) % n); });
+  stage.addEventListener("keydown", function(ev){
+    if(ev.key === "ArrowRight"){ ev.preventDefault(); goTo((currentFront() + 1) % n); }
+    else if(ev.key === "ArrowLeft"){ ev.preventDefault(); goTo((currentFront() - 1 + n) % n); }
+  });
+  stage.addEventListener("pointerenter", function(){ stop(); if(resumeTimer) clearTimeout(resumeTimer); });
+  stage.addEventListener("pointerleave", function(){ pauseTemp(); });
+  stage.addEventListener("focusin", function(){ stop(); if(resumeTimer) clearTimeout(resumeTimer); });
+  stage.addEventListener("focusout", function(){ pauseTemp(); });
+  document.addEventListener("visibilitychange", function(){ document.hidden ? stop() : start(); });
+
+  function teardown(){
+    stop();
+    cards.forEach(function(c){
+      c.style.transform = ""; c.style.opacity = ""; c.style.visibility = "";
+      c.classList.remove("is-front"); c.removeAttribute("aria-hidden");
+    });
+    track.style.transform = "";
+  }
+  function setup(){
+    if(mqMobile.matches){ teardown(); return; }
+    render(); start();
+  }
+  if(mqMobile.addEventListener){ mqMobile.addEventListener("change", setup); }
+  setup();
 })();
