@@ -28,6 +28,15 @@
   <video class="bg-video" src="videos/page-bg.mp4" poster="videos/page-bg-poster.jpg" muted loop playsinline autoplay preload="auto"></video>
   <span class="bg-scrim"></span>
   <span class="bg-grain"></span>
+  <!-- LIVING LIGHT LAYER (v3.4) — GPU-only drifting orbs, light rays, rising gold dust -->
+  <span class="bg-fx" aria-hidden="true">
+    <i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i>
+    <i class="ray r1"></i><i class="ray r2"></i>
+    <i class="pt p1"></i><i class="pt p2"></i><i class="pt p3"></i><i class="pt p4"></i>
+    <i class="pt p5"></i><i class="pt p6"></i><i class="pt p7"></i><i class="pt p8"></i>
+    <i class="pt p9"></i><i class="pt p10"></i><i class="pt p11"></i><i class="pt p12"></i>
+    <i class="pt p13"></i><i class="pt p14"></i>
+  </span>
 </div>
 
 <!-- LOADER (light) -->
@@ -120,39 +129,40 @@
     <div class="rv"><div class="stat float-i tint-honey"><div class="stat-num" data-count="100" data-suffix="%">0</div><div class="stat-label">Remote Work</div></div></div>
   </section>
 
-  <!-- SERVICES — rotating orbit carousel -->
+  <!-- SERVICES — rotating skill wheel -->
   <section id="services" class="section">
     <p class="kicker rv">01 / SERVICES</p>
     <h2 class="section-title rv">Everything a Brand Needs<br><em class="honey">Under One Roof</em></h2>
-    <p class="section-sub rv">Five crafts, one standard — watch them orbit.<span class="orbit-hint"> Hover to pause, use the arrows or your keyboard to explore.</span></p>
-    <div class="orbit-stage rv" id="orbitStage" tabindex="0" role="region" aria-label="Services carousel — use left and right arrow keys to browse">
-      <div class="orbit-viewport">
-        <div class="orbit-track" id="orbitTrack">
-          <article class="service orbit-card">
-            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>▶</b></span>
-            <span class="s-num">01</span><h3>AI Video Ads</h3><p>Scroll-stopping promotional video ads for brands, built with modern AI video tools — concept to final cut.</p><span class="s-tags">Reels • Product Ads • Campaigns</span>
-          </article>
-          <article class="service orbit-card">
-            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>❋</b></span>
-            <span class="s-num">02</span><h3>Animated Videos</h3><p>Expressive animated videos and motion content that keep viewers watching till the very end.</p><span class="s-tags">Animation • Motion Graphics</span>
-          </article>
-          <article class="service orbit-card">
-            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>◈</b></span>
-            <span class="s-num">03</span><h3>Social Media Management</h3><p>Complete page handling — content calendars, posting, captions, hashtags and audience growth.</p><span class="s-tags">Strategy • Posting • Growth</span>
-          </article>
-          <article class="service orbit-card">
-            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>⌂</b></span>
-            <span class="s-num">04</span><h3>Website Development</h3><p>Modern, fast, mobile-friendly websites for businesses — designed to impress and convert visitors.</p><span class="s-tags">Business Sites • Landing Pages</span>
-          </article>
-          <article class="service orbit-card">
-            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>◎</b></span>
-            <span class="s-num">05</span><h3>App Development</h3><p>Clean Android apps and UI builds — from idea and design to a working product in your hands.</p><span class="s-tags">Android • UI • Prototypes</span>
-          </article>
-        </div>
+    <p class="section-sub rv">Five crafts, one standard — riding the wheel.<span class="wheel-hint"> Hover to pause, use the arrows or your keyboard to explore.</span></p>
+    <div class="wheel-stage rv" id="wheelStage" tabindex="0" role="region" aria-label="Services wheel — use left and right arrow keys to browse">
+      <div class="wheel-ring" aria-hidden="true"></div>
+      <div class="wheel-ring wheel-ring-2" aria-hidden="true"></div>
+      <div class="wheel-hub" aria-hidden="true"><span class="wheel-hub-num">5</span><span class="wheel-hub-label">crafts</span></div>
+      <div class="wheel-track" id="wheelTrack">
+        <article class="service wheel-card">
+          <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>▶</b></span>
+          <span class="s-num">01</span><h3>AI Video Ads</h3><p>Scroll-stopping promotional video ads for brands, built with modern AI video tools — concept to final cut.</p><span class="s-tags">Reels • Product Ads • Campaigns</span>
+        </article>
+        <article class="service wheel-card">
+          <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>❋</b></span>
+          <span class="s-num">02</span><h3>Animated Videos</h3><p>Expressive animated videos and motion content that keep viewers watching till the very end.</p><span class="s-tags">Animation • Motion Graphics</span>
+        </article>
+        <article class="service wheel-card">
+          <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>◈</b></span>
+          <span class="s-num">03</span><h3>Social Media Management</h3><p>Complete page handling — content calendars, posting, captions, hashtags and audience growth.</p><span class="s-tags">Strategy • Posting • Growth</span>
+        </article>
+        <article class="service wheel-card">
+          <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>⌂</b></span>
+          <span class="s-num">04</span><h3>Website Development</h3><p>Modern, fast, mobile-friendly websites for businesses — designed to impress and convert visitors.</p><span class="s-tags">Business Sites • Landing Pages</span>
+        </article>
+        <article class="service wheel-card">
+          <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>◎</b></span>
+          <span class="s-num">05</span><h3>App Development</h3><p>Clean Android apps and UI builds — from idea and design to a working product in your hands.</p><span class="s-tags">Android • UI • Prototypes</span>
+        </article>
       </div>
-      <button class="orbit-arrow orbit-prev" aria-label="Previous service">‹</button>
-      <button class="orbit-arrow orbit-next" aria-label="Next service">›</button>
-      <div class="orbit-dots" aria-label="Choose service"></div>
+      <button class="wheel-arrow wheel-prev" aria-label="Previous service">‹</button>
+      <button class="wheel-arrow wheel-next" aria-label="Next service">›</button>
+      <div class="wheel-dots" aria-label="Choose service"></div>
     </div>
     <div class="stack-strip rv">
       <span class="stack-label">Tools &amp; AI stack I actually use</span>
@@ -162,48 +172,48 @@
     </div>
   </section>
 
-  <!-- SELECTED WORK : VIDEO ADS -->
-  <section id="work" class="section">
+  <!-- SELECTED WORK : VIDEO ADS — cinematic horizontal journey -->
+  <section id="work" class="section cine-sec">
+   <div class="cine-pin" id="workPin">
+    <div class="cine-viewport">
     <p class="kicker rv">02 / SELECTED WORK — VIDEO ADS</p>
     <h2 class="section-title rv">Ads That Stop<br>the <em class="honey">Scroll</em></h2>
-    <p class="section-sub rv">Real AI video ads I created for real businesses. Click any card to watch.</p>
-    <div class="work-grid">
-      <div class="rv work-featured wipe"><button class="work-card featured tilt float-i" data-play="videos/showreel.mp4" data-title="AI Video Ads Showreel">
+    <p class="section-sub rv">Real AI video ads I created for real businesses. Click any card to watch.<span class="cine-hint"> Keep scrolling — the reel runs sideways.</span></p>
+    <div class="cine-track" id="workTrack">
+      <div class="rv work-featured wipe cine-cell"><button class="work-card featured tilt float-i" data-play="videos/showreel.mp4" data-title="AI Video Ads Showreel">
         <img src="posters/showreel.jpg" alt="AI Video Ads Showreel" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>AI Video Ads Showreel</strong><em>Featured — the best of my work</em></span>
       </button></div>
-      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/adeel_studio_showroom_ad.mp4" data-title="Adeel Studio — Showroom Ad">
+      <div class="rv wipe cine-cell"><button class="work-card tilt float-i" data-play="videos/adeel_studio_showroom_ad.mp4" data-title="Adeel Studio — Showroom Ad">
         <img src="posters/adeel_studio_showroom_ad.jpg" alt="Adeel Studio showroom ad" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Adeel Studio — Showroom Ad</strong><em>Interior &amp; furniture showcase</em></span>
       </button></div>
-      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/babu_pan_shop_ad.mp4" data-title="Babu Pan Shop — Product Ad">
+      <div class="rv wipe cine-cell"><button class="work-card tilt float-i" data-play="videos/babu_pan_shop_ad.mp4" data-title="Babu Pan Shop — Product Ad">
         <img src="posters/babu_pan_shop_ad.jpg" alt="Babu Pan Shop product ad" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Babu Pan Shop — Product Ad</strong><em>Local business promo</em></span>
       </button></div>
-      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/bin_imran_naturals_ad.mp4" data-title="Bin Imran Naturals — Brand Ad">
+      <div class="rv wipe cine-cell"><button class="work-card tilt float-i" data-play="videos/bin_imran_naturals_ad.mp4" data-title="Bin Imran Naturals — Brand Ad">
         <img src="posters/bin_imran_naturals_ad.jpg" alt="Bin Imran Naturals brand ad" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Bin Imran Naturals — Brand Ad</strong><em>Natural products campaign</em></span>
       </button></div>
-      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/sapna_classic_bed_set_ad.mp4" data-title="Sapna Furniture — Bed Set Ad">
-        <img src="posters/sapna_classic_bed_set_ad.jpg" alt="Sapna Furniture bed set ad" loading="lazy">
-        <span class="play-badge">▶</span>
-        <span class="work-meta"><strong>Sapna Furniture — Bed Set Ad</strong><em>Furniture showcase</em></span>
-      </button></div>
-      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/the_dairy_co_milk_ad.mp4" data-title="The Dairy Co. — Milk Ad">
+      <div class="rv wipe cine-cell"><button class="work-card tilt float-i" data-play="videos/the_dairy_co_milk_ad.mp4" data-title="The Dairy Co. — Milk Ad">
         <img src="posters/the_dairy_co_milk_ad.jpg" alt="The Dairy Co. milk ad" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>The Dairy Co. — Milk Ad</strong><em>Product commercial</em></span>
       </button></div>
-      <div class="rv wipe"><button class="work-card tilt float-i" data-play="videos/adeel_studio_showroom_ad_v2.mp4" data-title="Adeel Studio — Showroom Ad (Alt Cut)">
+      <div class="rv wipe cine-cell"><button class="work-card tilt float-i" data-play="videos/adeel_studio_showroom_ad_v2.mp4" data-title="Adeel Studio — Showroom Ad (Alt Cut)">
         <img src="posters/adeel_studio_showroom_ad_v2.jpg" alt="Adeel Studio showroom ad alternate cut" loading="lazy">
         <span class="play-badge">▶</span>
         <span class="work-meta"><strong>Adeel Studio — Showroom Ad</strong><em>Alternate cut</em></span>
       </button></div>
     </div>
+    <div class="cine-progress" aria-hidden="true"><span id="workProg"></span></div>
+    </div>
+   </div>
   </section>
 
   <!-- PODCAST -->
