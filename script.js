@@ -230,25 +230,6 @@
   update();
 })();
 
-/* ---------- v3.3: Gold wipe reveals on work + podcast cards ---------- */
-(function(){
-  var els = Array.prototype.slice.call(document.querySelectorAll(".wipe"));
-  if(!els.length) return;
-  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if(reduceMotion) return;
-  var wio = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var cs = window.getComputedStyle(e.target);
-      var d = cs.transitionDelay && cs.transitionDelay !== "0s" ? cs.transitionDelay : "0s";
-      e.target.style.setProperty("--wipe-delay", d);
-      e.target.classList.add("in");
-      wio.unobserve(e.target);
-    });
-  }, {threshold: 0.18});
-  els.forEach(function(el){ wio.observe(el); });
-})();
-
 /* ---------- v3.6: Services Spotlight ----------
    One featured skill panel at a time (fixed height — always equal).
    Auto-advances every 6s with a cinematic crossfade; pause on hover/focus,
