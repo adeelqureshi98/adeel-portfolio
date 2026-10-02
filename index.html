@@ -130,39 +130,87 @@
     <div class="rv"><div class="stat float-i tint-honey"><div class="stat-num" data-count="100" data-suffix="%">0</div><div class="stat-label">Remote Work</div></div></div>
   </section>
 
-  <!-- SERVICES — rotating orbit carousel -->
+  <!-- SERVICES — spotlight -->
   <section id="services" class="section">
     <p class="kicker rv">01 / SERVICES</p>
     <h2 class="section-title rv">Everything a Brand Needs<br><em class="honey">Under One Roof</em></h2>
-    <p class="section-sub rv">Five crafts, one standard — watch them orbit.<span class="orbit-hint"> Hover to pause, use the arrows or your keyboard to explore.</span></p>
-    <div class="orbit-stage rv" id="orbitStage" tabindex="0" role="region" aria-label="Services carousel — use left and right arrow keys to browse">
-      <div class="orbit-viewport">
-        <div class="orbit-track" id="orbitTrack">
-          <article class="service orbit-card">
-            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>▶</b></span>
-            <span class="s-num">01</span><h3>AI Video Ads</h3><p>Scroll-stopping promotional video ads for brands, built with modern AI video tools — concept to final cut.</p><span class="s-tags">Reels • Product Ads • Campaigns</span>
-          </article>
-          <article class="service orbit-card">
-            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>❋</b></span>
-            <span class="s-num">02</span><h3>Animated Videos</h3><p>Expressive animated videos and motion content that keep viewers watching till the very end.</p><span class="s-tags">Animation • Motion Graphics</span>
-          </article>
-          <article class="service orbit-card">
-            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>◈</b></span>
-            <span class="s-num">03</span><h3>Social Media Management</h3><p>Complete page handling — content calendars, posting, captions, hashtags and audience growth.</p><span class="s-tags">Strategy • Posting • Growth</span>
-          </article>
-          <article class="service orbit-card">
-            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>⌂</b></span>
-            <span class="s-num">04</span><h3>Website Development</h3><p>Modern, fast, mobile-friendly websites for businesses — designed to impress and convert visitors.</p><span class="s-tags">Business Sites • Landing Pages</span>
-          </article>
-          <article class="service orbit-card">
-            <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><span class="orbit-dot"></span><b>◎</b></span>
-            <span class="s-num">05</span><h3>App Development</h3><p>Clean Android apps and UI builds — from idea and design to a working product in your hands.</p><span class="s-tags">Android • UI • Prototypes</span>
-          </article>
-        </div>
+    <p class="section-sub rv">Five crafts, one standard.<span class="spot-hint"> Hover to pause, tap a skill or use the arrows to explore.</span></p>
+    <!-- SERVICES — spotlight (one featured skill at a time) -->
+    <div class="spot-stage rv" id="spotStage" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Services spotlight — use left and right arrow keys to browse">
+      <div class="spot-panels" id="spotPanels">
+        <article class="spot-panel is-active">
+          <span class="s-num">01</span>
+          <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><b>&#9654;</b></span>
+          <h3>AI Video Ads</h3>
+          <p>Scroll-stopping promotional video ads for brands — from concept and script to the final cut, built with modern AI video tools.</p>
+          <ul class="spot-points">
+            <li>Product ads &amp; launch videos</li>
+            <li>Reels, Shorts &amp; campaign cuts</li>
+            <li>Urdu + English versions</li>
+          </ul>
+          <span class="s-tags">Reels • Product Ads • Campaigns</span>
+        </article>
+        <article class="spot-panel">
+          <span class="s-num">02</span>
+          <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><b>&#10047;</b></span>
+          <h3>Animated Videos</h3>
+          <p>Expressive animated videos and motion content — characters and stories that keep viewers watching till the very end.</p>
+          <ul class="spot-points">
+            <li>Character animation &amp; motion</li>
+            <li>Explainers &amp; brand storytelling</li>
+            <li>Kids content &amp; learning videos</li>
+          </ul>
+          <span class="s-tags">Animation • Motion Graphics</span>
+        </article>
+        <article class="spot-panel">
+          <span class="s-num">03</span>
+          <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><b>&#9672;</b></span>
+          <h3>Social Media Management</h3>
+          <p>Complete page handling — content calendars, posting and captions that grow a loyal, engaged audience for your brand.</p>
+          <ul class="spot-points">
+            <li>Content calendars &amp; posting</li>
+            <li>Captions, hashtags &amp; reels</li>
+            <li>Growth strategy &amp; engagement</li>
+          </ul>
+          <span class="s-tags">Strategy • Posting • Growth</span>
+        </article>
+        <article class="spot-panel">
+          <span class="s-num">04</span>
+          <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><b>&#8962;</b></span>
+          <h3>Website Development</h3>
+          <p>Modern, fast, mobile-friendly websites for businesses — designed to impress visitors and turn them into customers.</p>
+          <ul class="spot-points">
+            <li>Business sites &amp; landing pages</li>
+            <li>Mobile-first, fast &amp; SEO-ready</li>
+            <li>WhatsApp &amp; lead integration</li>
+          </ul>
+          <span class="s-tags">Business Sites • Landing Pages</span>
+        </article>
+        <article class="spot-panel">
+          <span class="s-num">05</span>
+          <span class="s-icon"><svg class="icon-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28"/></svg><b>&#9678;</b></span>
+          <h3>App Development</h3>
+          <p>Clean Android apps and UI builds — from the first idea and design to a working product in your hands.</p>
+          <ul class="spot-points">
+            <li>Android apps &amp; prototypes</li>
+            <li>Clean UI &amp; smooth flows</li>
+            <li>Play-Store-ready builds</li>
+          </ul>
+          <span class="s-tags">Android • UI • Prototypes</span>
+        </article>
       </div>
-      <button class="orbit-arrow orbit-prev" aria-label="Previous service">‹</button>
-      <button class="orbit-arrow orbit-next" aria-label="Next service">›</button>
-      <div class="orbit-dots" aria-label="Choose service"></div>
+      <div class="spot-nav">
+        <button class="spot-arrow spot-prev" aria-label="Previous service">&#8249;</button>
+        <div class="spot-dots" aria-label="Choose service"></div>
+        <button class="spot-arrow spot-next" aria-label="Next service">&#8250;</button>
+      </div>
+      <div class="spot-chips" role="group" aria-label="Jump to a service">
+        <button type="button" class="spot-chip is-active"><b>01</b><span>AI Video Ads</span></button>
+        <button type="button" class="spot-chip"><b>02</b><span>Animated Videos</span></button>
+        <button type="button" class="spot-chip"><b>03</b><span>Social Media</span></button>
+        <button type="button" class="spot-chip"><b>04</b><span>Websites</span></button>
+        <button type="button" class="spot-chip"><b>05</b><span>Apps</span></button>
+      </div>
     </div>
     <div class="stack-strip rv">
       <span class="stack-label">Tools &amp; AI stack I actually use</span>
