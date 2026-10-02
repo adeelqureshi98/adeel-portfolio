@@ -249,24 +249,26 @@
   els.forEach(function(el){ wio.observe(el); });
 })();
 
-/* ---------- v3.3: Services 3D orbit carousel ----------
-   Slow auto-rotating ring of the 5 skill cards (CSS 3D).
-   Pauses on hover/focus; arrows + dots + keyboard; mobile = swipe snap;
-   reduced-motion = static grid (handled via .orbit-static class). */
+/* ---------- v3.4: Services skill wheel ----------
+   Cards ride a VISIBLE circle like a wheel: each card orbits the hub
+   but counter-rotates to stay upright and readable. Slow auto-rotation,
+   pause on hover/focus, arrows + dots + keyboard, mobile = swipe snap,
+   reduced-motion = static grid. */
 (function(){
-  var stage = document.getElementById("orbitStage");
+  var stage = document.getElementById("wheelStage");
   if(!stage) return;
-  var track = document.getElementById("orbitTrack");
-  var cards = Array.prototype.slice.call(track.querySelectorAll(".orbit-card"));
-  var dotsWrap = stage.querySelector(".orbit-dots");
-  var prevBtn = stage.querySelector(".orbit-prev");
-  var nextBtn = stage.querySelector(".orbit-next");
+  var track = document.getElementById("wheelTrack");
+  var ring = stage.querySelector(".wheel-ring");
+  var cards = Array.prototype.slice.call(track.querySelectorAll(".wheel-card"));
+  var dotsWrap = stage.querySelector(".wheel-dots");
+  var prevBtn = stage.querySelector(".wheel-prev");
+  var nextBtn = stage.querySelector(".wheel-next");
   var n = cards.length;
   if(!n) return;
   var STEP = 360 / n;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var mqMobile = window.matchMedia("(max-width: 680px)");
-  if(reduceMotion){ stage.classList.add("orbit-static"); return; }
+  if(reduceMotion){ stage.classList.add("wheel-static"); return; }
 
   var dots = cards.map(function(_, i){
     var d = document.createElement("button");
@@ -277,39 +279,43 @@
     return d;
   });
 
-  var angle = 0, active = false, raf = null, last = 0, tween = null, resumeTimer = null;
-  var SPEED = 7; /* degrees per second — slow, majestic */
-
-  function radius(){ return Math.max(300, Math.min(520, stage.clientWidth * 0.44)); }
+  var angle = 180, active = false, raf = null, last = 0, tween = null, resumeTimer = null;
+  var SPEED = 9; /* degrees per second — slow, majestic */
   function norm(a){ return ((a % 360) + 360) % 360; }
+  function radius(){ return ring ? ring.offsetWidth / 2 : 260; }
 
+  /* Card i sits at wheel position a = i*STEP + angle, measured clockwise
+     from TOP. The FRONT (highlighted, fully readable) card is at the
+     BOTTOM of the wheel (a = 180). Cards counter-rotate to stay upright. */
   function render(){
-    var r = radius();
-    track.style.transform = "translateZ(" + (-r) + "px) rotateY(" + angle + "deg)";
-    var front = 0, best = 999;
+    var r = radius(), front = 0, best = 999;
     cards.forEach(function(card, i){
-      var a = i * STEP;
-      card.style.transform = "rotateY(" + a + "deg) translateZ(" + r + "px)";
-      var rel = norm(a + angle);
-      var dist = Math.min(rel, 360 - rel);
-      var facing = Math.cos(rel * Math.PI / 180);
-      if(facing < -0.35){ card.style.opacity = "0"; card.style.visibility = "hidden"; }
-      else{
-        card.style.opacity = facing < 0.4 ? "0.45" : "1";
-        card.style.visibility = "visible";
-      }
-      var isFront = dist < STEP / 2;
+      var a = norm(i * STEP + angle);
+      var d = Math.abs(a - 180); d = Math.min(d, 360 - d);
+      var t = d / 180; /* 0 at front → 1 at back */
+      var sc = 1.08 - 0.26 * t;
+      var op = 1 - 0.55 * t;
+      card.style.transform =
+        "translate(-50%,-50%) rotate(" + a.toFixed(2) + "deg)" +
+        " translateY(" + (-r).toFixed(1) + "px)" +
+        " rotate(" + (-a).toFixed(2) + "deg)" +
+        " scale(" + sc.toFixed(3) + ")";
+      card.style.opacity = op.toFixed(2);
+      card.style.zIndex = String(10 - Math.round(t * 9));
+      var isFront = d < STEP / 2;
       card.classList.toggle("is-front", isFront);
-      if(isFront){ card.removeAttribute("aria-hidden"); } else { card.setAttribute("aria-hidden", "true"); }
-      if(dist < best){ best = dist; front = i; }
+      if(isFront){ card.removeAttribute("aria-hidden"); }
+      else { card.setAttribute("aria-hidden", "true"); }
+      if(d < best){ best = d; front = i; }
     });
-    dots.forEach(function(d, i){ d.classList.toggle("active", i === front); });
+    dots.forEach(function(dt, i){ dt.classList.toggle("active", i === front); });
     return front;
   }
   function currentFront(){
     var best = 0, bd = 999;
     cards.forEach(function(_, i){
-      var rel = norm(i * STEP + angle), d = Math.min(rel, 360 - rel);
+      var rel = norm(i * STEP + angle), d = Math.abs(rel - 180);
+      d = Math.min(d, 360 - d);
       if(d < bd){ bd = d; best = i; }
     });
     return best;
@@ -336,10 +342,10 @@
     if(resumeTimer) clearTimeout(resumeTimer);
     resumeTimer = setTimeout(start, 7000);
   }
-  function animateTo(target){
+  function animateTo(targetAngle){
     stop();
     if(resumeTimer) clearTimeout(resumeTimer);
-    var cur = norm(angle), delta = norm(target) - cur;
+    var cur = norm(angle), delta = norm(targetAngle) - cur;
     if(delta > 180) delta -= 360;
     if(delta < -180) delta += 360;
     var from = angle, to = angle + delta, t0 = null;
@@ -354,7 +360,8 @@
     }
     tween = requestAnimationFrame(frame);
   }
-  function goTo(i){ animateTo(-i * STEP); }
+  /* bring card i to the front (bottom of the wheel) */
+  function goTo(i){ animateTo(180 - i * STEP); }
 
   prevBtn.addEventListener("click", function(){ goTo((currentFront() - 1 + n) % n); });
   nextBtn.addEventListener("click", function(){ goTo((currentFront() + 1) % n); });
@@ -371,10 +378,9 @@
   function teardown(){
     stop();
     cards.forEach(function(c){
-      c.style.transform = ""; c.style.opacity = ""; c.style.visibility = "";
+      c.style.transform = ""; c.style.opacity = ""; c.style.zIndex = "";
       c.classList.remove("is-front"); c.removeAttribute("aria-hidden");
     });
-    track.style.transform = "";
   }
   function setup(){
     if(mqMobile.matches){ teardown(); return; }
@@ -382,4 +388,62 @@
   }
   if(mqMobile.addEventListener){ mqMobile.addEventListener("change", setup); }
   setup();
+})();
+
+/* ---------- v3.4: Cinematic scroll moments ---------- */
+(function(){
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduceMotion) return;
+
+  /* Moment 1 — pinned horizontal film-strip journey for Selected Work (desktop) */
+  (function(){
+    var sec = document.getElementById("work");
+    var pin = document.getElementById("workPin");
+    if(!sec || !pin) return;
+    if(!window.matchMedia("(min-width: 1024px)").matches) return;
+    sec.classList.add("cine-on");
+    var view = pin.querySelector(".cine-viewport");
+    var track = document.getElementById("workTrack");
+    var prog = document.getElementById("workProg");
+    var ticking = false;
+    function update(){
+      ticking = false;
+      var top = pin.getBoundingClientRect().top;
+      var total = pin.offsetHeight - window.innerHeight;
+      var p = total > 0 ? Math.min(1, Math.max(0, -top / total)) : 0;
+      var maxX = Math.max(0, track.scrollWidth - view.clientWidth);
+      track.style.transform = "translate3d(" + (-p * maxX).toFixed(1) + "px,0,0)";
+      if(prog) prog.style.width = (p * 100).toFixed(1) + "%";
+    }
+    function req(){ if(!ticking){ ticking = true; requestAnimationFrame(update); } }
+    window.addEventListener("scroll", req, {passive: true});
+    window.addEventListener("resize", req);
+    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(update); }
+    window.addEventListener("load", update);
+    update();
+  })();
+
+  /* Moment 2 — cinematic parallax depth on section titles (viewport-relative) */
+  (function(){
+    var titles = Array.prototype.slice.call(document.querySelectorAll(".section-title"));
+    if(!titles.length) return;
+    var ticking = false;
+    function update(){
+      ticking = false;
+      var vh = window.innerHeight;
+      titles.forEach(function(el){
+        if(!el.classList.contains("in")) return;      /* let the reveal finish first */
+        if(el.closest(".cine-on")) return;            /* pinned section stays put */
+        el.style.transitionProperty = "opacity";      /* take transform off the reveal transition */
+        var r = el.getBoundingClientRect();
+        var d = (r.top + r.height / 2) - vh / 2;
+        var shift = Math.max(-40, Math.min(40, d * -0.04));
+        el.style.transform = "translate3d(0," + shift.toFixed(1) + "px,0)";
+      });
+    }
+    function req(){ if(!ticking){ ticking = true; requestAnimationFrame(update); } }
+    window.addEventListener("scroll", req, {passive: true});
+    window.addEventListener("resize", req);
+    update();
+  })();
 })();
