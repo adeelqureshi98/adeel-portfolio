@@ -548,30 +548,48 @@ body.hero-enter .hero-fade.d5{transition-delay:1.08s}
 .hero-h1{font-size:clamp(3rem,7.4vw,5.8rem);line-height:.98;margin-bottom:22px;
   text-shadow:0 2px 44px rgba(251,246,236,.95), 0 1px 5px rgba(251,246,236,.9)}
 
-/* ---------- Services orbit carousel ---------- */
-.orbit-stage{position:relative;width:min(1200px,92%);margin:8px auto 0;outline:none;border-radius:12px}
-.orbit-stage:focus-visible{outline:2px solid var(--gold);outline-offset:10px}
-.orbit-viewport{perspective:1600px;overflow:visible}
-.orbit-track{position:relative;height:470px;transform-style:preserve-3d;will-change:transform}
-.orbit-card{position:absolute;left:50%;top:8px;width:min(370px,84%);margin-left:calc(min(370px,84%)/-2);
-  backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:opacity .45s ease,visibility .45s}
-.orbit-card .service{height:auto;min-height:340px;margin:0}
-.orbit-card.is-front .service{box-shadow:var(--shadow-lift);border-color:var(--border-strong)}
-.orbit-arrow{position:absolute;top:44%;width:56px;height:56px;border-radius:50%;border:1.5px solid var(--border);
+/* ---------- v3.6: Services Spotlight (one featured skill at a time) ---------- */
+.spot-stage{position:relative;width:min(1200px,92%);margin:8px auto 0;outline:none;border-radius:12px}
+.spot-stage:focus-visible{outline:2px solid var(--gold);outline-offset:10px}
+.spot-panels{position:relative;height:500px;max-width:880px;margin:0 auto}
+.spot-panel{position:absolute;inset:0;background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);
+  padding:44px 48px;box-shadow:var(--shadow-float);overflow:hidden;display:flex;flex-direction:column;
+  opacity:0;visibility:hidden;transform:translateY(26px) scale(.985);
+  transition:opacity .6s ease,transform .65s cubic-bezier(.22,.7,.3,1),visibility .6s}
+.spot-panel.is-active{opacity:1;visibility:visible;transform:none;box-shadow:var(--shadow-lift);border-color:var(--border-strong)}
+.spot-panel .s-icon{width:82px;height:82px;margin-bottom:20px}
+.spot-panel h3{font-size:1.9rem;margin-bottom:12px}
+.spot-panel p{color:var(--muted);font-size:1.02rem;max-width:58ch;margin-bottom:20px}
+.spot-points{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:10px}
+.spot-points li{position:relative;padding-left:32px;font-weight:600;color:var(--ink);font-size:.98rem}
+.spot-points li::before{content:"\2713";position:absolute;left:0;color:var(--gold-deep);font-weight:900}
+.spot-panel .s-tags{margin-top:auto;align-self:flex-start}
+.spot-arrow{position:absolute;top:38%;width:56px;height:56px;border-radius:50%;border:1.5px solid var(--border);
   background:rgba(255,255,255,.92);color:var(--gold-deep);font-size:28px;font-weight:800;line-height:1;cursor:pointer;
   box-shadow:var(--shadow-float);transition:transform .25s,box-shadow .25s;z-index:6;display:flex;align-items:center;justify-content:center}
-.orbit-arrow:hover{transform:scale(1.12);box-shadow:var(--shadow-lift)}
-.orbit-prev{left:-6px}.orbit-next{right:-6px}
-.orbit-dots{display:flex;gap:10px;justify-content:center;margin-top:20px}
-.orbit-dots button{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--gold);background:transparent;
+.spot-arrow:hover{transform:scale(1.12);box-shadow:var(--shadow-lift)}
+.spot-prev{left:-6px}.spot-next{right:-6px}
+.spot-nav{margin-top:20px}
+.spot-dots{display:flex;gap:10px;justify-content:center}
+.spot-dots button{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--gold);background:transparent;
   cursor:pointer;padding:0;transition:transform .25s,background .25s}
-.orbit-dots button.active{background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));transform:scale(1.3)}
-.orbit-dots button:hover{transform:scale(1.2)}
-/* static fallback (reduced motion): elegant grid */
-.orbit-stage.orbit-static .orbit-viewport{perspective:none}
-.orbit-stage.orbit-static .orbit-track{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;height:auto;transform:none!important}
-.orbit-stage.orbit-static .orbit-card{position:static;margin:0;width:auto;backface-visibility:visible;opacity:1!important;visibility:visible!important;transform:none!important}
-.orbit-stage.orbit-static .orbit-arrow,.orbit-stage.orbit-static .orbit-dots{display:none}
+.spot-dots button.active{background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));transform:scale(1.3)}
+.spot-dots button:hover{transform:scale(1.2)}
+/* equal-size selector chips — grid columns are identical by construction */
+.spot-chips{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;max-width:880px;margin:26px auto 0}
+.spot-chip{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:96px;
+  background:rgba(255,255,255,.85);border:1.5px solid var(--border);border-radius:18px;cursor:pointer;
+  padding:14px 8px;font-family:var(--font-body);color:var(--ink);
+  transition:transform .25s,border-color .25s,box-shadow .25s,background .25s}
+.spot-chip b{font-family:var(--font-display);font-weight:900;font-size:.95rem;color:var(--gold-deep)}
+.spot-chip span{font-size:.86rem;font-weight:700;text-align:center;line-height:1.3}
+.spot-chip:hover{transform:translateY(-3px);border-color:var(--border-strong)}
+.spot-chip.is-active{border-color:var(--border-strong);box-shadow:var(--shadow-float);
+  background:linear-gradient(160deg,#fff,rgba(242,178,51,.2))}
+/* static fallback (reduced motion): clean equal grid, no animation */
+.spot-stage.spot-static .spot-panels{height:auto;display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.spot-stage.spot-static .spot-panel{position:static;opacity:1!important;visibility:visible!important;transform:none!important}
+.spot-stage.spot-static .spot-arrow,.spot-stage.spot-static .spot-dots,.spot-stage.spot-static .spot-chips{display:none}
 
 /* ---------- Cinematic scroll (v3.4) ---------- */
 /* Ken Burns drift on the hero video frame */
@@ -697,15 +715,17 @@ body.hero-enter .hero-fade.d5{transition-delay:1.08s}
   .why-row{grid-template-columns:84px 1fr 60px}
 }
 @media (max-width:680px){
-  .orbit-viewport{perspective:none;overflow:hidden}
-  .orbit-track{display:flex;gap:16px;height:auto;transform:none!important;overflow-x:auto;
-    scroll-snap-type:x mandatory;padding:16px 7vw 28px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .orbit-track::-webkit-scrollbar{display:none}
-  .orbit-card{position:static;flex:0 0 86%;margin:0;transform:none!important;opacity:1!important;
-    visibility:visible!important;backface-visibility:visible;scroll-snap-align:center}
-  .orbit-card .service{min-height:0}
-  .orbit-arrow,.orbit-dots{display:none}
-  .orbit-hint{display:none}
+  .spot-panels{height:520px;max-width:100%}
+  .spot-panel{padding:34px 26px}
+  .spot-panel h3{font-size:1.55rem}
+  .spot-nav{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:18px}
+  .spot-arrow{position:static;transform:none;width:48px;height:48px;font-size:24px;flex:0 0 auto}
+  .spot-arrow:hover{transform:scale(1.08)}
+  .spot-dots{margin:0}
+  .spot-chips{grid-template-columns:repeat(3,1fr);gap:10px}
+  .spot-chip{min-height:88px;padding:12px 6px}
+  .spot-chip span{font-size:.78rem}
+  .spot-hint{display:none}
   .cine-track{grid-template-columns:1fr}
   .cine-track .work-featured{grid-column:auto}
   .review-grid{grid-template-columns:1fr}
