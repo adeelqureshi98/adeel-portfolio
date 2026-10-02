@@ -631,7 +631,7 @@ body.hero-enter .hero-fade.d5{transition-delay:1.08s}
 .review-grid>.rv>*{flex:1}
 .rv-wide{grid-column:1/-1}
 .review-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);
-  padding:34px 30px;box-shadow:var(--shadow-float);position:relative;height:100%;
+  padding:34px 30px;box-shadow:var(--shadow-float);position:relative;height:100%;min-height:372px;
   display:flex;flex-direction:column;gap:16px;overflow:hidden}
 .review-card:hover{box-shadow:var(--shadow-lift)}
 .review-card::before{content:"\201C";position:absolute;top:0;right:22px;font-family:var(--font-display);
