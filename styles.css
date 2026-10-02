@@ -25,8 +25,8 @@
   --rose:#EE9AA8;
   --border:rgba(217,142,27,.18);
   --border-strong:rgba(217,142,27,.42);
-  --shadow-float:0 24px 55px rgba(170,120,50,.16), 0 4px 14px rgba(170,120,50,.10);
-  --shadow-lift:0 38px 80px rgba(170,120,50,.24), 0 6px 20px rgba(170,120,50,.14);
+  --shadow-float:0 24px 55px rgba(170,120,50,.16), 0 4px 14px rgba(170,120,50,.10), inset 0 1px 0 rgba(247,212,136,.55);
+  --shadow-lift:0 38px 80px rgba(170,120,50,.24), 0 6px 20px rgba(170,120,50,.14), inset 0 1px 0 rgba(247,212,136,.7);
   --radius:24px;
   --nav-h:72px;
   --font-display:"Fraunces",Georgia,"Times New Roman",serif;
@@ -45,31 +45,20 @@ a{color:inherit;text-decoration:none}
 button{font-family:inherit}
 
 /* ============================================================
-   CONTINUOUS ANIMATED BACKDROP — fixed, spans whole page scroll
+   CINEMATIC VIDEO BACKDROP — full-page animated silk, fixed,
+   keeps playing behind all content through the whole scroll
    ============================================================ */
-.bg-stage{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none;
-  background:
-    radial-gradient(1100px 700px at 88% -6%, rgba(242,178,51,.14), transparent 62%),
-    radial-gradient(900px 620px at 4% 22%, rgba(167,155,232,.13), transparent 60%),
-    radial-gradient(1000px 700px at 90% 55%, rgba(244,169,126,.12), transparent 62%),
-    radial-gradient(900px 650px at 6% 78%, rgba(127,203,156,.11), transparent 60%),
-    radial-gradient(700px 500px at 50% 100%, rgba(247,212,136,.16), transparent 60%),
-    linear-gradient(180deg,var(--cream) 0%,#FAF3E4 30%,var(--cream) 55%,#F9F1DE 80%,var(--cream) 100%);
+.bg-stage{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none;background:var(--cream)}
+.bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bg-scrim{position:absolute;inset:0;background:
+    radial-gradient(1200px 620px at 50% -10%, rgba(255,253,246,.60), transparent 60%),
+    radial-gradient(900px 700px at 92% 40%, rgba(247,212,136,.20), transparent 62%),
+    linear-gradient(180deg, rgba(251,246,236,.82) 0%, rgba(251,246,236,.60) 32%,
+      rgba(250,243,228,.66) 58%, rgba(251,246,236,.78) 82%, rgba(251,246,236,.90) 100%)}
+@media (prefers-reduced-motion: reduce){
+  .bg-video{display:none}
+  .bg-stage{background:var(--cream) url("videos/page-bg-poster.jpg") center/cover no-repeat}
 }
-.bg-blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;will-change:transform}
-.bg-blob.g1{width:520px;height:520px;left:-140px;top:6%;background:radial-gradient(circle,#FBD9A8,transparent 70%);animation:drift1 26s ease-in-out infinite}
-.bg-blob.g2{width:620px;height:620px;right:-180px;top:24%;background:radial-gradient(circle,#DCD4F7,transparent 70%);animation:drift2 32s ease-in-out infinite}
-.bg-blob.g3{width:460px;height:460px;left:8%;top:48%;background:radial-gradient(circle,#FBD9C4,transparent 70%);animation:drift3 29s ease-in-out infinite}
-.bg-blob.g4{width:560px;height:560px;right:4%;top:66%;background:radial-gradient(circle,#CFEBD9,transparent 70%);animation:drift1 36s ease-in-out infinite reverse}
-.bg-blob.g5{width:500px;height:500px;left:30%;top:86%;background:radial-gradient(circle,#FBE3A4,transparent 70%);animation:drift2 30s ease-in-out infinite reverse}
-@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(120px,80px) scale(1.12)}}
-@keyframes drift2{0%,100%{transform:translate(0,0) scale(1.05)}50%{transform:translate(-110px,90px) scale(.94)}}
-@keyframes drift3{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(90px,-70px) scale(1.1)}}
-.bg-shape{position:absolute;color:var(--gold);opacity:.28;font-size:22px;animation:bgfloat 14s ease-in-out infinite}
-.bg-shape.s1{left:12%;top:12%}.bg-shape.s2{right:14%;top:32%;font-size:16px;animation-delay:2s}
-.bg-shape.s3{left:8%;top:58%;font-size:18px;animation-delay:4s}
-.bg-shape.s4{right:10%;top:74%;animation-delay:1s}.bg-shape.s5{left:44%;top:92%;font-size:15px;animation-delay:3s}
-@keyframes bgfloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-46px) rotate(24deg)}}
 .bg-grain{position:absolute;inset:0;opacity:.05;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 
@@ -77,7 +66,8 @@ button{font-family:inherit}
 .kicker{font-family:var(--font-mono);font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:18px;font-weight:700}
 .kicker::before{content:"— ";color:var(--gold)}
 h1,h2,h3{font-family:var(--font-display);font-weight:800;letter-spacing:-.015em;line-height:1.04;color:var(--ink)}
-.section-title{font-size:clamp(2.1rem,4.8vw,3.6rem);margin-bottom:14px}
+.section-title{font-size:clamp(2.1rem,4.8vw,3.6rem);margin-bottom:14px;
+  text-shadow:0 2px 30px rgba(251,246,236,.9), 0 1px 4px rgba(251,246,236,.85)}
 .section-sub{color:var(--muted);font-size:1.05rem;max-width:640px;margin-bottom:44px}
 .honey,.gold-text{font-style:italic;background:linear-gradient(100deg,var(--gold-deep),var(--gold) 45%,var(--gold-soft));
   -webkit-background-clip:text;background-clip:text;color:transparent}
@@ -145,7 +135,9 @@ h1,h2,h3{font-family:var(--font-display);font-weight:800;letter-spacing:-.015em;
 .blob.b4{width:300px;height:300px;right:30%;top:56%;background:radial-gradient(circle,#CFEBD9,transparent 70%);animation-delay:9s}
 .hero-inner{width:min(1240px,94%);margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,70px);align-items:center;position:relative;z-index:2}
 .hero-text .kicker{margin-bottom:22px}
-.hero h1{font-size:clamp(3rem,7.4vw,5.8rem);line-height:.98;margin-bottom:22px}
+.hero h1{font-size:clamp(3rem,7.4vw,5.8rem);line-height:.98;margin-bottom:22px;
+  text-shadow:0 2px 44px rgba(251,246,236,.95), 0 1px 5px rgba(251,246,236,.9)}
+.hero-text .kicker,.hero-text .headline,.hero-text .tags{text-shadow:0 1px 14px rgba(251,246,236,.92)}
 .hero .headline{font-size:clamp(1.05rem,1.8vw,1.3rem);color:var(--muted);font-weight:500;margin-bottom:16px;max-width:34rem}
 .hero .headline i{font-style:normal;color:var(--faint);margin:0 6px}
 .hero .tags{font-size:.92rem;font-weight:700;color:var(--gold-deep);letter-spacing:.04em;margin-bottom:34px}
