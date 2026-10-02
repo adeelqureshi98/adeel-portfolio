@@ -315,7 +315,10 @@ h1,h2,h3{font-family:var(--font-display);font-weight:800;letter-spacing:-.015em;
 .process-step p{color:var(--muted);font-size:.92rem}
 
 /* ---------- Blog ---------- */
-.blog-grid{width:min(1200px,92%);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.blog-grid{width:min(1200px,92%);margin:0 auto 56px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.blog-grid:last-child{margin-bottom:0}
+.sub-head{width:min(1200px,92%);margin:0 auto 22px;font-family:var(--font-display);font-size:1.45rem;font-weight:800;color:var(--ink)}
+.sub-head::before{content:"✦ ";color:var(--gold-deep)}
 .blog-card{display:flex;flex-direction:column;gap:12px;background:var(--card);border:1.5px solid var(--border);
   border-radius:var(--radius);padding:32px 28px;box-shadow:var(--shadow-float);height:100%}
 .blog-card:hover{box-shadow:var(--shadow-lift)}
