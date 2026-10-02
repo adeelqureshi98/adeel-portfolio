@@ -114,7 +114,8 @@ h1,h2,h3{font-family:var(--font-display);font-weight:800;letter-spacing:-.015em;
   text-shadow:0 2px 30px rgba(251,246,236,.9), 0 1px 4px rgba(251,246,236,.85)}
 .section-sub{color:var(--muted);font-size:1.05rem;max-width:640px;margin-bottom:44px}
 .honey,.gold-text{font-style:italic;background:linear-gradient(100deg,var(--gold-deep),var(--gold) 45%,var(--gold-soft));
-  -webkit-background-clip:text;background-clip:text;color:transparent}
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  -webkit-text-stroke:.5px var(--gold-deep);paint-order:stroke fill}
 
 /* ---------- Buttons ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 32px;border-radius:999px;
@@ -396,7 +397,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:800;letter-spacing:-.015em;
 /* ---------- Blog ---------- */
 .blog-grid{width:min(1200px,92%);margin:0 auto 56px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .blog-grid:last-child{margin-bottom:0}
-.sub-head{width:min(1200px,92%);margin:0 auto 22px;font-family:var(--font-display);font-size:1.45rem;font-weight:800;color:var(--ink)}
+.sub-head{width:min(1200px,92%);margin:38px auto 22px;font-family:var(--font-display);font-size:1.45rem;font-weight:800;color:var(--ink)}
 .sub-head::before{content:"✦ ";color:var(--gold-deep)}
 .blog-card{display:flex;flex-direction:column;gap:12px;background:var(--card);border:1.5px solid var(--border);
   border-radius:var(--radius);padding:32px 28px;box-shadow:var(--shadow-float);height:100%}
