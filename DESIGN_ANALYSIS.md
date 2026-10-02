@@ -96,3 +96,10 @@ Rule for v2: concept LIKE them, execution MORE advanced. Never copy their text/n
   Experience / About / Contact / Footer.
 - **Honesty rules:** all copy original & about Adi only; stats truthful; concept demos labeled "Concept";
   his 2 websites linked as-is (audit declined by user); zero broken links/media.
+
+## v3.1 — Full-page cinematic video background (2026-10-02)
+Owner: background must be a REAL animated video across the ENTIRE page (not just hero), animated while scrolling; fix any unreadable text.
+- New `videos/page-bg.mp4` (10s, 1280x720, H.264, 2.4MB): flowing ivory/gold silk with champagne shimmer particles — luxury brand-film feel, light and airy. Old dark `hero-bg.mp4` kept only inside the hero's floating video card.
+- `.bg-stage` now holds a fixed `object-fit:cover` video + `.bg-scrim` (ivory gradient ~60-82% + champagne radial glow) + grain. `prefers-reduced-motion` falls back to the poster frame. Video pauses when tab hidden (battery).
+- Luxury finish: champagne inset highlight added to `--shadow-float`/`--shadow-lift`; ivory text-shadows on hero H1, hero text and section titles for readability over the moving silk.
+- Verified: local headless-Chromium screenshots (hero, services, FAQ, work, contact, mobile) — video playing, all text readable; live: root 200 with bg-video markup, page-bg.mp4 200 video/mp4, poster 200.
