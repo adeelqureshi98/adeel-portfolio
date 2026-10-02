@@ -627,6 +627,8 @@ body.hero-enter .hero-fade.d5{transition-delay:1.08s}
 
 /* ---------- Client reviews ---------- */
 .review-grid{width:min(1200px,92%);margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.review-grid>.rv{display:flex}
+.review-grid>.rv>*{flex:1}
 .rv-wide{grid-column:1/-1}
 .review-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);
   padding:34px 30px;box-shadow:var(--shadow-float);position:relative;height:100%;
